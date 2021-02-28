@@ -1,5 +1,5 @@
 
-var findDice = document.querySelectorAll(".col-4");
+var findDice = document.querySelectorAll(".dice");
 findDice.forEach(rollDice);
 function rollDice(item, index){
     item.addEventListener("click", function() {
