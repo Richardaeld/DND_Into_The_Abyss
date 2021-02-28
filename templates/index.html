@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll Charts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <section class="row no-gutters">
+        <div class="col-4 dice" id="d100">
+            <h1>roll d100</h1>
+        </div>
+        <div class="col-4 dice" id="d20">
+            <h1>roll d20</h1>
+        </div>
+        <div class="col-4 dice" id="d12">
+            <h1>roll d12</h1>
+        </div>
+        <div class="col-4 dice" id="d8">
+            <h1>roll d8</h1>
+        </div>
+        <div class="col-4 dice" id="d10">
+            <h1>roll d10</h1>
+        </div>
+        <div class="col-4 dice" id="d6">
+            <h1>roll d6</h1>
+        </div>
+        <div class="col-4 dice" id="d4">
+            <h1>roll d4</h1>
+        </div>
+        <div class="col-4 dice" id="d2">
+            <h1>roll d2</h1>
+        </div>
+        <div class="col-12">
+            <div class="row no-gutters justify-content-center">
+                <div class="col-12">
+                    <h1 class="outPut">Im out put</h1>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12" id="poisonArrows">
+            <h1>total Poison arrow count</h1>
+            <h2>actual arrows</h2>
+        </div>
+
+        <div class="col-12">
+            <h1>Narrow Miss</h1>
+            <div class="row no-gutters">
+                <div class="col-3 narrowMissSelect" id="melee">
+                    <h1>Melee</h1>
+                </div>
+                <div class="col-3 narrowMissSelect" id="range">
+                    <h1>range</h1>
+                </div>
+                <div class="col-3 narrowMissSelect" id="spell">
+                    <h1>magic</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <h1>Narrow Miss Output</h1>
+            <h1 id="NarrowMiss"></h1>
+        </div>
+
+    </section> 
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+<script src="{{ url_for('static', filename='js/narrowMiss.js') }}"></script>
+</body>
+</html>
