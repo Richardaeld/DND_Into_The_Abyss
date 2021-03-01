@@ -1,4 +1,4 @@
-var melee = {
+const melee = {
     1: "Distracted: Attacks do NOT add MOD to damage",
     2: "Bad Angle: Disadvantage on damage roll",
     3: "Chaotic swing: Attack is halved with target/adjacent tile ",
@@ -50,7 +50,7 @@ var melee = {
     49: "Bad Footing: DC 15 DEX or attacks have advangae next round",
     50: "Extreme Exertion: critical hit to target and attacker left winded (stunned) next round"
 }
-var range = {
+const range = {
     1: "Distracted: Attacks do NOT add MOD to damage",
     2: "Bad Angle: Disadvantage on damage roll ",
     3: "Wild Richochet: Attack is halved with target/adjacent tile ",
@@ -103,7 +103,7 @@ var range = {
     50: "Forget to breath: Critical hit to target, attacker left winded(stunned) next round "
 }
 
-var spell = {
+const spell = {
     1: "Wild Magic Mishap",
     2: "Reduced Potency: Disadvantage on Damage Die",
     3: "Flared: Spell is halved between target and random adjacent target/tile",
