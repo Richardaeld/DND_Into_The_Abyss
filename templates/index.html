@@ -23,7 +23,7 @@
                         <h1>narrowMiss</h1>
                     </div>                    
                     <div class="col-12 nav-icon">
-                        <h1>Wild Magic</h1>
+                        <h1>wildMagic</h1>
                     </div>                    
                     <div class="col-12 nav-icon">
                         <h1>Travel</h1>
@@ -105,16 +105,30 @@
                                     <h1>magic</h1>
                                 </div>
                             </div>
+                            <hr>
                         </div>
 
-                        
+                        <!-- Wild Magic -->
+                        <div class="col-12 make-invis" id="wildMagic">
+                            <h1>Narrow Miss</h1>
+                            <div class="row no-gutters justify-content-center">
+                                <div class="col-3 wildMagicSelect narrow-Miss" id="wildMagicNonRaw">
+                                    <h1>Wild Magic Non Raw</h1>
+                                </div>
+                                <div class="col-3 wildMagicSelect narrow-Miss" id="wildMagicRaw">
+                                    <h1>Wild Magic Raw</h1>
+                                </div>
+
+                            </div>
+                            <hr>
+                        </div>
 
                         <!-- Output console -->
                         <div class="col-12">
                             <div class="row no-gutters justify-content-center">
                                 <div class="col-6 narrow-Miss-Output">
                                     <h1></h1>
-                                    <h1 id="NarrowMiss"></h1>
+                                    <h1 id="consoleOutput"></h1>
                                 </div>
                             </div>
                         </div>
@@ -138,5 +152,6 @@
 
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
     <script src="{{ url_for('static', filename='js/narrowMiss.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wildMagic.js') }}"></script>
 </body>
 </html>
