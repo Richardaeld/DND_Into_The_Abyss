@@ -12,91 +12,124 @@
         <div class="row no-gutters justify-content-center">
             <!-- Aside for menu -->
             <div class="col-sm-3">
-                <h1>Dice</h1>
-                <h1>Arrows</h1>
-                <h1>Narrow Miss</h1>
-                <h1>Wild Magic</h1>
-                <h1>Travel</h1>
-                <h1>Item Charts</h1>
-                <h1>Trinket Charts</h1>
-                <h1>Wild Animal - Frenzy</h1>
+                <div class="row no-gutters">
+                    <div class="col-12 nav-icon">
+                        <h1>dice</h1>
+                    </div>
+                    <div class="col-12 nav-icon">
+                        <h1>poisonArrows</h1>
+                    </div>                    
+                    <div class="col-12 nav-icon">
+                        <h1>narrowMiss</h1>
+                    </div>                    
+                    <div class="col-12 nav-icon">
+                        <h1>Wild Magic</h1>
+                    </div>                    
+                    <div class="col-12 nav-icon">
+                        <h1>Travel</h1>
+                    </div>                    
+                    <div class="col-12 nav-icon">
+                        <h1>Item Charts</h1>
+                    </div>                    
+                    <div class="col-12 nav-icon">
+                        <h1>Trinket Charts</h1>
+                    </div>
+                    <div class="col-12 nav-icon">
+                        <h1>Wild Animal - Frenzy</h1>
+                    </div>
+                </div>
             </div>
             <!-- main content -->
             <div class="col-sm-9">
                 <section class="row no-gutters">
+                        <!-- Dice -->
+                        <div class="col-12 make-invis" id="dice">
+                            <div class="row no-gutters justify-content-around">
+                                <div class="col-2 dice" id="d400">
+                                    <h1>roll d400</h1>
+                                </div>
+                                <div class="col-2 dice" id="d100">
+                                    <h1>roll d100</h1>
+                                </div>
+                                <div class="col-2 dice" id="d20">
+                                    <h1>roll d20</h1>
+                                </div>
+                                <div class="col-2 dice" id="d12">
+                                    <h1>roll d12</h1>
+                                </div>
+                                <div class="col-2 dice" id="d8">
+                                    <h1>roll d8</h1>
+                                </div>
+                                <div class="col-2 dice" id="d10">
+                                    <h1>roll d10</h1>
+                                </div>
+                                <div class="col-2 dice" id="d6">
+                                    <h1>roll d6</h1>
+                                </div>
+                                <div class="col-2 dice" id="d4">
+                                    <h1>roll d4</h1>
+                                </div>
+                                <div class="col-2 dice" id="d2">
+                                    <h1>roll d2</h1>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row no-gutters justify-content-center">
+                                    <div class="col-4">
+                                        <h1 class="outPut" style="color:rgb(255, 59, 229)">Roll a Dice!!</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+
+
+
+                        <!-- Counting poison arrows -->
+                        <div class="col-12 make-invis" id="poisonArrows">
+                            <h1>total Poison arrow count</h1>
+                            <h2>actual arrows</h2>
+                            <hr>
+                        </div>
+
+                        <!-- Narrow Miss -->
+                        <div class="col-12 make-invis" id="narrowMiss">
+                            <h1>Narrow Miss</h1>
+                            <div class="row no-gutters justify-content-center">
+                                <div class="col-3 narrowMissSelect narrow-Miss" id="melee">
+                                    <h1>Melee</h1>
+                                </div>
+                                <div class="col-3 narrowMissSelect narrow-Miss" id="range">
+                                    <h1>range</h1>
+                                </div>
+                                <div class="col-3 narrowMissSelect narrow-Miss" id="spell">
+                                    <h1>magic</h1>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-12">
-                        <div class="row no-gutters">
-                            <div class="col-2 dice" id="d400">
-                                <h1>roll d400</h1>
-                            </div>
-                            <div class="col-2 dice" id="d100">
-                                <h1>roll d100</h1>
-                            </div>
-                            <div class="col-2 dice" id="d20">
-                                <h1>roll d20</h1>
-                            </div>
-                            <div class="col-2 dice" id="d12">
-                                <h1>roll d12</h1>
-                            </div>
-                            <div class="col-2 dice" id="d8">
-                                <h1>roll d8</h1>
-                            </div>
-                            <div class="col-2 dice" id="d10">
-                                <h1>roll d10</h1>
-                            </div>
-                            <div class="col-2 dice" id="d6">
-                                <h1>roll d6</h1>
-                            </div>
-                            <div class="col-2 dice" id="d4">
-                                <h1>roll d4</h1>
-                            </div>
-                            <div class="col-2 dice" id="d2">
-                                <h1>roll d2</h1>
+                            <div class="row no-gutters justify-content-center">
+                                <div class="col-6 narrow-Miss-Output">
+                                    <h1></h1>
+                                    <h1 id="NarrowMiss"></h1>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="col-12">
-                        <div class="row no-gutters justify-content-center">
-                            <div class="col-4">
-                                <h1 class="outPut">Im out put</h1>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12" id="poisonArrows">
-                        <h1>total Poison arrow count</h1>
-                        <h2>actual arrows</h2>
-                    </div>
-
-                    <div class="col-12">
-                        <h1>Narrow Miss</h1>
-                        <div class="row no-gutters">
-                            <div class="col-3 narrowMissSelect narrow-Miss" id="melee">
-                                <h1>Melee</h1>
-                            </div>
-                            <div class="col-3 narrowMissSelect narrow-Miss" id="range">
-                                <h1>range</h1>
-                            </div>
-                            <div class="col-3 narrowMissSelect narrow-Miss" id="spell">
-                                <h1>magic</h1>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <div class="row no-gutters justify-content-center">
-                            <div class="col-6 narrow-Miss-Output">
-                                <h1>Narrow Miss Output</h1>
-                                <h1 id="NarrowMiss"></h1>
-                            </div>
-                        </div>
-                    </div>
 
                 </section> 
             </div>
 
+        </div>
+    </div>
+
+    <div class="row no-gutters">
+        <div class="col-12">
+            <div class="row no-gutters">
+                <div class="col-6">
+                    <h1 id="outPut"></h1>
+                </div>
+            </div>
         </div>
     </div>
 

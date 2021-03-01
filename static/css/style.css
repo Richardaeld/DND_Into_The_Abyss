@@ -22,9 +22,13 @@ hr {
 
 /*------------------  default  ------------------*/
 
+.make-invis {
+    display: none;
+}
 
 .dice,
-.narrow-Miss {
+.narrow-Miss,
+.nav-icon {
     background-color: #a7a7a7;
     border-radius: 10%;
     border: 2px solid #fff;

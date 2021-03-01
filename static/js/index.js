@@ -1,3 +1,16 @@
+var findNav = document.querySelectorAll(".nav-icon");
+findNav.forEach(navEnable);
+function navEnable(item, index) {
+    item.addEventListener("click", function() {
+        var navLoc = item.textContent.trim()
+        if (document.getElementById(navLoc).classList.contains("make-invis") == true){
+            document.getElementById(navLoc).classList.remove("make-invis");
+        } else{
+            document.getElementById(navLoc).classList.add("make-invis")
+        }
+    })
+}
+
 
 var findDice = document.querySelectorAll(".dice");
 findDice.forEach(rollDice);
