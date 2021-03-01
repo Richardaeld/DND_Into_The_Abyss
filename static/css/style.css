@@ -1,3 +1,4 @@
+/*------------------  default  ------------------*/
 body {
     background-color: #474747;
     text-align: center;
@@ -12,6 +13,15 @@ hr {
     border-top: 1px solid #fff;
     width: 100%
 }
+
+.remove-margin { /* offsets containers defaults */
+    margin-left: 0;
+    margin-right: 0;
+    max-width:100%;
+}
+
+/*------------------  default  ------------------*/
+
 
 .dice,
 .narrow-Miss {
