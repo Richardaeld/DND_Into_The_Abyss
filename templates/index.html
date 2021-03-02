@@ -29,7 +29,7 @@
                         <h1>Travel</h1>
                     </div>                    
                     <div class="col-12 nav-icon">
-                        <h1>Item Charts</h1>
+                        <h1>magicItems</h1>
                     </div>                    
                     <div class="col-12 nav-icon">
                         <h1>Trinket Charts</h1>
@@ -123,6 +123,19 @@
                             <hr>
                         </div>
 
+                        <!-- Magic Item Charts -->
+                        <div class="col-12 make-invis" id="magicItems">
+                            <h1>Narrow Miss</h1>
+                            <div class="row no-gutters justify-content-center">
+                                <div class="col-3 magicItemsSelect narrow-Miss" id="tableA">
+                                    <h1>MAgic Item Table A</h1>
+                                </div>
+
+
+                            </div>
+                            <hr>
+                        </div>
+
                         <!-- Output console -->
                         <div class="col-12">
                             <div class="row no-gutters justify-content-center">
@@ -153,5 +166,6 @@
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
     <script src="{{ url_for('static', filename='js/narrowMiss.js') }}"></script>
     <script src="{{ url_for('static', filename='js/wildMagic.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/magicItemTables.js') }}"></script>
 </body>
 </html>

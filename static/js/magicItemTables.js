@@ -1,3 +1,4 @@
+const tableA = {
 1: 'Potion of healing',
 2: 'Potion of healing',
 3: 'Potion of healing',
@@ -98,3 +99,4 @@
 98: 'Potion of greater healing',
 99: 'Bag of holding',
 100: 'Driftglobe'
+}

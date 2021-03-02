@@ -59,3 +59,18 @@ function rollWildMagic(item) {
         }
     })
 }
+
+// rolls for magic items to publish
+var magicItemFind = document.querySelectorAll(".magicItemsSelect");
+magicItemFind.forEach(rollMagicItem);
+function rollMagicItem(item, index) {
+    item.addEventListener("click", function() {
+        var missType = item.id;
+        var rollEvent = (Math.floor(Math.random()*100)) + 1;
+        console.log(missType)
+        if (missType == "tableA"){
+            document.getElementById("consoleOutput").textContent = tableA[rollEvent];
+        }
+
+    })
+}
