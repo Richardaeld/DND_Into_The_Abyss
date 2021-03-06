@@ -3,7 +3,7 @@ import random
 
 # iteration counter
 iteration = 1
-# open file to read to
+# open file to read to --------  This file contains the lists to create in "something\n" format
 Allloops = open('data.js', 'r')
 
 # strip import variables of carrage return
