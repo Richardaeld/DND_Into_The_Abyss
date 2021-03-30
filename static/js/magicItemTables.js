@@ -1,4 +1,4 @@
-const tableA = {
+const magicItemTableA = {
 1: 'Potion of healing',
 2: 'Potion of healing',
 3: 'Potion of healing',
