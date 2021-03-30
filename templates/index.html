@@ -15,28 +15,42 @@
                 <div class="row no-gutters">
                     <div class="col-12 nav-icon">
                         <h1>dice</h1>
+                        <span class="make-invis">dice</span>
                     </div>
                     <div class="col-12 nav-icon">
                         <h1>poisonArrows</h1>
+                        <span class="make-invis">poisonArrows</span>
                     </div>                    
                     <div class="col-12 nav-icon">
                         <h1>narrowMiss</h1>
+                        <span class="make-invis">narrowMiss</span>
                     </div>                    
                     <div class="col-12 nav-icon">
                         <h1>wildMagic</h1>
+                        <span class="make-invis">wildMagic</span>
                     </div>                    
                     <div class="col-12 nav-icon">
                         <h1>Travel</h1>
+                        <span class="make-invis">Travel</span>
                     </div>                    
                     <div class="col-12 nav-icon">
                         <h1>magicItems</h1>
+                        <span class="make-invis">magicItems</span>
                     </div>                    
                     <div class="col-12 nav-icon">
                         <h1>Trinket Charts</h1>
+                        <span class="make-invis">trinkets</span>
                     </div>
                     <div class="col-12 nav-icon">
                         <h1>Wild Animal - Frenzy</h1>
+                        <span class="make-invis">frenzy</span>
                     </div>
+                    <div class="col-12 nav-icon">
+                        <h1>Magic Spells</h1>
+                        <span class="make-invis">magicSpells</span>
+
+                    </div>
+                    
                 </div>
             </div>
             <!-- main content -->
@@ -44,41 +58,40 @@
                 <section class="row no-gutters">
 
                         <!-- Dice -->
-                        <div class="col-12 make-invis" id="dice">
+                        <div class="activeItem col-12 make-invis" id="dice">
                             <div class="row no-gutters justify-content-around">
-                                <div class="col-2 dice" id="d400">
+                                <div class="subactiveItem col-2 dice" id="rolldice400">
                                     <h1>roll d400</h1>
                                 </div>
-                                <div class="col-2 dice" id="d100">
+                                <div class="subactiveItem col-2 dice" id="rolldice100">
                                     <h1>roll d100</h1>
                                 </div>
-                                <div class="col-2 dice" id="d20">
+                                <div class="subactiveItem col-2 dice" id="rolldice50">
+                                    <h1>roll d50</h1>
+                                </div>
+                                <div class="subactiveItem col-2 dice" id="rolldice20">
                                     <h1>roll d20</h1>
                                 </div>
-                                <div class="col-2 dice" id="d12">
+                                <div class="subactiveItem col-2 dice" id="rolldice12">
                                     <h1>roll d12</h1>
                                 </div>
-                                <div class="col-2 dice" id="d8">
-                                    <h1>roll d8</h1>
-                                </div>
-                                <div class="col-2 dice" id="d10">
+                                <div class="subactiveItem col-2 dice" id="rolldice10">
                                     <h1>roll d10</h1>
                                 </div>
-                                <div class="col-2 dice" id="d6">
+                                <div class="subactiveItem col-2 dice" id="rolldice8">
+                                    <h1>roll d8</h1>
+                                </div>
+                                <div class="subactiveItem col-2 dice" id="rolldice6">
                                     <h1>roll d6</h1>
                                 </div>
-                                <div class="col-2 dice" id="d4">
+                                <div class="subactiveItem col-2 dice" id="rolldice4">
                                     <h1>roll d4</h1>
                                 </div>
-                                <div class="col-2 dice" id="d2">
-                                    <h1>roll d2</h1>
+                                <div class="subactiveItem col-2 dice" id="rolldice3">
+                                    <h1>roll d3</h1>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="row no-gutters justify-content-center">
-                                    <div class="col-4">
-                                        <h1 class="outPut" style="color:rgb(255, 59, 229)">Roll a Dice!!</h1>
-                                    </div>
+                                <div class="subactiveItem col-2 dice" id="rolldice2">
+                                    <h1>roll d2</h1>
                                 </div>
                             </div>
                             <hr>
@@ -95,14 +108,17 @@
                         <div class="col-12 make-invis" id="narrowMiss">
                             <h1>Narrow Miss</h1>
                             <div class="row no-gutters justify-content-center">
-                                <div class="col-3 narrowMissSelect narrow-Miss" id="melee">
+                                <div class="subactiveItem col-3  narrow-Miss" id="meleedice50">
                                     <h1>Melee</h1>
+                                    <h1 class="make-invis">melee</h1>
                                 </div>
-                                <div class="col-3 narrowMissSelect narrow-Miss" id="range">
+                                <div class="subactiveItem col-3 narrow-Miss" id="rangedice50">
                                     <h1>Range</h1>
+                                    <h1 class="make-invis">range</h1>
                                 </div>
-                                <div class="col-3 narrowMissSelect narrow-Miss" id="spell">
+                                <div class="subactiveItem col-3 narrow-Miss" id="spelldice50">
                                     <h1>Magic</h1>
+                                    <h1 class="make-invis">spell</h1>
                                 </div>
                             </div>
                             <hr>
@@ -112,11 +128,13 @@
                         <div class="col-12 make-invis" id="wildMagic">
                             <h1>Wild Magic</h1>
                             <div class="row no-gutters justify-content-center">
-                                <div class="col-3 wildMagicSelect narrow-Miss" id="wildMagicNonRaw">
+                                <div class="col-3 subactiveItem narrow-Miss" id="wildMagicNonRawdice100">
                                     <h1>Wild Magic Non Raw</h1>
+                                    <h1 class="make-invis">wildMagicNonRaw</h1>
                                 </div>
-                                <div class="col-3 wildMagicSelect narrow-Miss" id="wildMagicRaw">
+                                <div class="col-3 subactiveItem narrow-Miss" id="wildMagicRawdice50">
                                     <h1>Wild Magic Raw</h1>
+                                    <h1 class="make-invis">wildMagicRaw</h1>
                                 </div>
 
                             </div>
@@ -127,11 +145,47 @@
                         <div class="col-12 make-invis" id="magicItems">
                             <h1>Magic Item Charts</h1>
                             <div class="row no-gutters justify-content-center">
-                                <div class="col-3 magicItemsSelect narrow-Miss" id="tableA">
+                                <div class="col-3 subactiveItem narrow-Miss" id="magicItemTableAdice100">
                                     <h1>Magic Item Table A</h1>
+                                    <h1 class="make-invis">magicItemTableA</h1>
                                 </div>
 
 
+                            </div>
+                            <hr>
+                        </div>
+
+                        <!-- Magic spells -->
+                        <div class="col-12 make-invis" id="magicSpells">
+                            <h1>Magic Item Charts</h1>
+                            <div class="row no-gutters justify-content-center">
+                                <div class="col-3 magicSpellsSelect narrow-Miss" id="cantrip">
+                                    <h1>Cantrip</h1>
+                                </div>                                
+                                <div class="col-3 magicSpellsSelect narrow-Miss" id="1">
+                                    <h1>level 1</h1>
+                                </div>
+                                <div class="col-3 magicSpellsSelect narrow-Miss" id="2">
+                                    <h1>level 2</h1>
+                                </div>
+                                <div class="col-3 magicSpellsSelect narrow-Miss" id="3">
+                                    <h1>level 3</h1>
+                                </div>
+                                <div class="col-3 magicSpellsSelect narrow-Miss" id="4">
+                                    <h1>level 4</h1>
+                                </div>
+                                <div class="col-3 magicSpellsSelect narrow-Miss" id="5">
+                                    <h1>level 5</h1>
+                                </div>
+                                <div class="col-3 magicSpellsSelect narrow-Miss" id="6">
+                                    <h1>level 6</h1>
+                                </div>
+                                <div class="col-3 magicSpellsSelect narrow-Miss" id="7">
+                                    <h1>level 7</h1>
+                                </div>
+                                <div class="col-3 magicSpellsSelect narrow-Miss" id="8">
+                                    <h1>level 8</h1>
+                                </div>
                             </div>
                             <hr>
                         </div>
@@ -140,9 +194,22 @@
                         <div class="col-12">
                             <div class="row no-gutters justify-content-center">
                                 <div class="col-6 narrow-Miss-Output">
-                                    <h1></h1>
                                     <h1 id="consoleOutput"></h1>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!--  Output List  -->
+                        <div class="col-12">
+                            <div id="outputList" class="row no-gutters justify-content-center">
+
+                            </div>
+                        </div>
+
+                        <!--  Output List information  -->
+                        <div class="col-12">
+                            <div id="outputListInformation" class="row no-gutters justify-content-center">
+
                             </div>
                         </div>
 
@@ -163,9 +230,10 @@
     </div>
 
 
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/spells.js') }}"></script>
     <script src="{{ url_for('static', filename='js/narrowMiss.js') }}"></script>
     <script src="{{ url_for('static', filename='js/wildMagic.js') }}"></script>
     <script src="{{ url_for('static', filename='js/magicItemTables.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 </html>
