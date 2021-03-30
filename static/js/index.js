@@ -3,7 +3,16 @@ var findNav = document.querySelectorAll(".nav-icon");
 findNav.forEach(navEnable);
 function navEnable(item, index) {
     item.addEventListener("click", function() {
-        var navLoc = item.getElementsByTagName("span")[0].textContent;
+        
+        //clsoes all previously open sections
+        let closeAllOpen = document.querySelectorAll(".activeItem");
+        closeAllOpen.forEach(closeAllOpenSelect);
+        function closeAllOpenSelect(item){
+            item.classList.add("make-invis")
+        }
+        
+        // opens section up
+        let navLoc = item.getElementsByTagName("span")[0].textContent;
         if (document.getElementById(navLoc).classList.contains("make-invis") == true){
             document.getElementById(navLoc).classList.remove("make-invis");
         } else{
