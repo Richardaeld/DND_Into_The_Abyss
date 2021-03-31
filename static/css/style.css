@@ -26,16 +26,28 @@ hr {
     display: none;
 }
 
+.dice {
+    height: 6rem;
+}
+
+.dice h1 {
+    padding: 2rem 0rem;
+}
+
 .dice,
 .narrow-Miss,
 .nav-icon {
     background-color: #a7a7a7;
     border-radius: 10%;
     border: 2px solid #fff;
+    height: 6rem;
+}
+
+.nav-icon h1 {
+    padding: 2rem 0rem;
 }
 
 .spell-list-spacing div {
-    
     padding-bottom: 1.5rem;
 }
 
@@ -53,10 +65,24 @@ hr {
     bottom:0; */
 }
 
+.spell-bubble {
+    height:6rem;
+}
+
 .blank-anchor:link,
 .blank-anchor:active,
 .blank-anchor:visited {
-    color: #fff
+    color: #fff;
+    text-decoration: none;
+
+
+}
+
+.blank-anchor span {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
+
 }
 
 @media (max-width: 991.98px) {

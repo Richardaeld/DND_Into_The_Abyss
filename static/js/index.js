@@ -87,7 +87,7 @@ function createSubData(spellName, indexNumber) {
     let createDivCol = document.createElement("div");
     createDivCol.className = "col-2 nav-icon outputListItems"
     let createDivRow = document.createElement("div");
-    createDivRow.className = "row no-gutters"
+    createDivRow.className = "row no-gutters justify-content-center align-items-center spell-bubble"
     let createSpan = document.createElement("span");
     createSpan.textContent = spellName
     createSpan.className = ""
@@ -131,9 +131,25 @@ function createSubData(spellName, indexNumber) {
                 console.log(findComponents)
                 let tempString = ""
                 for(z=0; z<findComponents.length; z++){
-                    tempString += findComponents[z] + " "
+                    let createP = document.createElement("p");
+                    createP.textContent = findComponents[z] + " : " + allSpells[indexNumber][key[i]][findComponents[z]]
+                    //            tempString += findComponents[z] + " : " + allSpells[indexNumber][key[i]][findComponents[z]]
+                    
+                    
+                    document.getElementById(tempId).getElementsByTagName("span")[0].appendChild(createP)
+                    if(findComponents[z] == "materials_needed"){
+                        console.log(allSpells[indexNumber][key[i]][findComponents[z]][0])
+                        for(x=0; x< allSpells[indexNumber][key[i]][findComponents[z]].length; x++) {
+                            createP.textContent = findComponents[z] + " : " + allSpells[indexNumber][key[i]][findComponents[z]][x]
+                            // tempString += allSpells[indexNumber][key[i]][findComponents[z]][x]
+                            document.getElementById(tempId).getElementsByTagName("span")[0].appendChild(createP)
+                        }
+                    }
                 }
-                document.getElementById(tempId).getElementsByTagName("span")[0].textContent = tempString
+
+                // carrageReplace = /[/r]/g
+                // tempString = tempString.replace(carrageReplace, '/r')
+        //        document.getElementById(tempId).getElementsByTagName("span")[0].textContent = tempString
             }else{
                 document.getElementById(tempId).getElementsByTagName("span")[0].textContent = allSpells[indexNumber][key[i]]
             }
