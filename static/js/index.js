@@ -127,6 +127,12 @@ function createSubData(spellName, indexNumber) {
             }else if(key[i] == "level") {
 
             }else if(key[i] == "components") {
+                let PreviousP = document.getElementById(tempId).getElementsByTagName("span")[0].getElementsByTagName("p")
+                if(PreviousP.length > 0){
+                    while(0 < PreviousP.length){
+                        PreviousP[0].remove()
+                    }
+                }
                 let findComponents = Object.keys(allSpells[indexNumber][key[i]])
                 console.log(findComponents)
                 let tempString = ""
@@ -134,7 +140,6 @@ function createSubData(spellName, indexNumber) {
                     let createP = document.createElement("p");
                     createP.textContent = findComponents[z] + " : " + allSpells[indexNumber][key[i]][findComponents[z]]
                     //            tempString += findComponents[z] + " : " + allSpells[indexNumber][key[i]][findComponents[z]]
-                    
                     
                     document.getElementById(tempId).getElementsByTagName("span")[0].appendChild(createP)
                     if(findComponents[z] == "materials_needed"){
