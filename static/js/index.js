@@ -116,7 +116,7 @@ function createSubData(spellName, indexNumber) {
                 let tempList = []
                 tempList = allSpells[indexNumber][key[i]]
                 let tempString = ""
-                for(let z=0; z<tempList.length-1; z++){
+                for(let z=0; z<tempList.length; z++){
                     tempString += tempList[z] + " "
                 }
                 document.getElementById(tempId).getElementsByTagName("span")[0].textContent = tempString
@@ -130,7 +130,7 @@ function createSubData(spellName, indexNumber) {
                 let findComponents = Object.keys(allSpells[indexNumber][key[i]])
                 console.log(findComponents)
                 let tempString = ""
-                for(z=0; z<findComponents.length-1; z++){
+                for(z=0; z<findComponents.length; z++){
                     tempString += findComponents[z] + " "
                 }
                 document.getElementById(tempId).getElementsByTagName("span")[0].textContent = tempString
