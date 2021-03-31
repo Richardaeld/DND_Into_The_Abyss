@@ -61,7 +61,7 @@ function itemSelect(item, index){
             removecreateSubData()
             numberSpells = 0
             document.getElementById("outputListInformation").parentElement.parentElement.classList.remove("make-invis")  //reveals list area -----------
-            for(i=0; i<allSpells.length-1; i++){
+            for(i=0; i<allSpells.length; i++){
                 if (allSpells[i].level == sometext){
                     createSubData(allSpells[i].name, i)
                     numberSpells++
@@ -78,7 +78,7 @@ function itemSelect(item, index){
 function removecreateSubData() {
     let removelength = document.getElementById("outputListInformation").children.length
     // console.log(removelength)
-    for(i=0; i<removelength-1; i++){
+    for(i=0; i<removelength; i++){
         document.getElementById("outputListInformation").lastChild.remove()
     }
 }
