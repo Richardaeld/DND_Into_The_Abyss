@@ -34,6 +34,11 @@ hr {
     border: 2px solid #fff;
 }
 
+.spell-list-spacing div {
+    
+    padding-bottom: 1.5rem;
+}
+
 .outPut,
 .narrow-Miss-Output {
     margin: 2rem;;
@@ -46,4 +51,17 @@ hr {
 .spell-sheet {
     /* position: absolute;
     bottom:0; */
+}
+
+.blank-anchor:link,
+.blank-anchor:active,
+.blank-anchor:visited {
+    color: #fff
+}
+
+@media (max-width: 991.98px) {
+    .nav-icon h1,
+    .dice h1 {
+        font-size: 1.5rem;
+    }
 }

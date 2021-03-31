@@ -3,12 +3,12 @@ var findNav = document.querySelectorAll(".nav-icon");
 findNav.forEach(navEnable);
 function navEnable(item, index) {
     item.addEventListener("click", function() {
-        
-        //clsoes all previously open sections
+        //closes all previously open sections
         let closeAllOpen = document.querySelectorAll(".activeItem");
         closeAllOpen.forEach(closeAllOpenSelect);
         function closeAllOpenSelect(item){
             item.classList.add("make-invis")
+            document.getElementById("spellInfo").classList.add("make-invis") //removes spell sheet
         }
         
         // opens section up
@@ -18,6 +18,8 @@ function navEnable(item, index) {
         } else{
             document.getElementById(navLoc).classList.add("make-invis"); // doesnt work
         }
+        
+        // document.getElementById("outputListInformation").classList.add("make-invis") //removes spells list
     })
 }
 
@@ -57,13 +59,17 @@ function itemSelect(item, index){
             sometext = item.getElementsByTagName("span")[1].textContent
             console.log(sometext)
             removecreateSubData()
+            numberSpells = 0
+            document.getElementById("outputListInformation").parentElement.parentElement.classList.remove("make-invis")  //reveals list area -----------
             for(i=0; i<allSpells.length-1; i++){
                 if (allSpells[i].level == sometext){
                     createSubData(allSpells[i].name, i)
+                    numberSpells++
                 }
+                document.getElementById("consoleOutput").textContent = numberSpells + " spells"
             }
-        }else{
-            document.getElementById("consoleOutput").textContent = diceRoll + 1
+        }else{ // for dice normal rolls
+            document.getElementById("consoleOutput").textContent = "You Rolled: " + (diceRoll + 1)
         }
     })
 
@@ -95,16 +101,42 @@ function createSubData(spellName, indexNumber) {
     let countItems = document.querySelectorAll(".outputListItems").length
     functionName = "outputListItems" + countItems
     document.getElementsByClassName("outputListItems")[countItems-1].addEventListener("click", function(functionName) {
+        document.getElementById("spellInfo").classList.remove("make-invis")
         // make key array
         let findKeys = Object.keys(allSpells[indexNumber])
         key = []
-        for(i=0; i < findKeys.length-1; i++){
+        for(i=0; i < findKeys.length; i++){
             key.push(findKeys[i])
         }
-        for(i=0; i < findKeys.length-1; i++){
+        // console.log(key)
+        for(i=0; i < findKeys.length; i++){
             tempId = "spellInfo" + key[i]
-            document.getElementById(tempId).getElementsByTagName("h1")[0].textContent = key[i]
-            document.getElementById(tempId).getElementsByTagName("h1")[1].textContent = allSpells[indexNumber][key[i]]
+            // document.getElementById(tempId).getElementsByTagName("h1")[0].textContent = key[i]
+            if(key[i] == "tags" || key[i] == "classes"){ // puts lists into string form
+                let tempList = []
+                tempList = allSpells[indexNumber][key[i]]
+                let tempString = ""
+                for(let z=0; z<tempList.length-1; z++){
+                    tempString += tempList[z] + " "
+                }
+                document.getElementById(tempId).getElementsByTagName("span")[0].textContent = tempString
+                
+            }else if(key[i] == "higher_levels"){
+                document.getElementById(tempId).getElementsByTagName("span")[0].textContent = allSpells[indexNumber][key[i]]
+
+            }else if(key[i] == "level") {
+
+            }else if(key[i] == "components") {
+                let findComponents = Object.keys(allSpells[indexNumber][key[i]])
+                console.log(findComponents)
+                let tempString = ""
+                for(z=0; z<findComponents.length-1; z++){
+                    tempString += findComponents[z] + " "
+                }
+                document.getElementById(tempId).getElementsByTagName("span")[0].textContent = tempString
+            }else{
+                document.getElementById(tempId).getElementsByTagName("span")[0].textContent = allSpells[indexNumber][key[i]]
+            }
 
         }
         // console.log(allSpells[indexNumber][keytest])
