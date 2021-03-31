@@ -16,7 +16,7 @@ function navEnable(item, index) {
         if (document.getElementById(navLoc).classList.contains("make-invis") == true){
             document.getElementById(navLoc).classList.remove("make-invis");
         } else{
-            document.getElementById(navLoc).classList.add("make-invis");
+            document.getElementById(navLoc).classList.add("make-invis"); // doesnt work
         }
     })
 }
@@ -52,29 +52,68 @@ function itemSelect(item, index){
             console.log(data)
             objectName = data[diceRoll + 1]
             document.getElementById("consoleOutput").textContent = (diceRoll + 1) + " - " + objectName
-        } else{
+        } else if(item.getElementsByTagName("span")[0]){ // for JSON spells.js
+        //    console.log(item.getElementsByTagName("span")[0].textContent)
+            sometext = item.getElementsByTagName("span")[1].textContent
+            console.log(sometext)
+            removecreateSubData()
+            for(i=0; i<allSpells.length-1; i++){
+                if (allSpells[i].level == sometext){
+                    createSubData(allSpells[i].name, i)
+                }
+            }
+        }else{
             document.getElementById("consoleOutput").textContent = diceRoll + 1
         }
     })
 
 }
 
+function removecreateSubData() {
+    let removelength = document.getElementById("outputListInformation").children.length
+    // console.log(removelength)
+    for(i=0; i<removelength-1; i++){
+        document.getElementById("outputListInformation").lastChild.remove()
+    }
+}
 
-// function createSubData(data) {
-//     let createDivCol = document.createElement("div");
-//     createDivCol.className = "col-2 nav-icon outputListItems"
-//     let createDivRow = document.createElement("div");
-//     createDivRow.className = "row no-gutters"
-//     let createSpan = document.createElement("span");
-//     createSpan.textContent = data
-//     createSpan.className = ""
+function createSubData(spellName, indexNumber) {
+    let createDivCol = document.createElement("div");
+    createDivCol.className = "col-2 nav-icon outputListItems"
+    let createDivRow = document.createElement("div");
+    createDivRow.className = "row no-gutters"
+    let createSpan = document.createElement("span");
+    createSpan.textContent = spellName
+    createSpan.className = ""
 
-//     var addLocation = document.getElementById("outputListInformation")
-//     addLocation.appendChild(createDivCol)
-//     let = innerLocation = addLocation.getElementsByTagName("div").length
-//     addLocation.getElementsByTagName("div")[innerLocation-1].appendChild(createDivRow)
-//     addLocation.getElementsByTagName("div")[innerLocation].appendChild(createSpan)
-// }
+    var addLocation = document.getElementById("outputListInformation")
+    addLocation.appendChild(createDivCol)
+    let = innerLocation = addLocation.getElementsByTagName("div").length
+    addLocation.getElementsByTagName("div")[innerLocation-1].appendChild(createDivRow)
+    addLocation.getElementsByTagName("div")[innerLocation].appendChild(createSpan)
+
+    let countItems = document.querySelectorAll(".outputListItems").length
+    functionName = "outputListItems" + countItems
+    document.getElementsByClassName("outputListItems")[countItems-1].addEventListener("click", function(functionName) {
+        // make key array
+        let findKeys = Object.keys(allSpells[indexNumber])
+        key = []
+        for(i=0; i < findKeys.length-1; i++){
+            key.push(findKeys[i])
+        }
+        for(i=0; i < findKeys.length-1; i++){
+            tempId = "spellInfo" + key[i]
+            document.getElementById(tempId).getElementsByTagName("h1")[0].textContent = key[i]
+            document.getElementById(tempId).getElementsByTagName("h1")[1].textContent = allSpells[indexNumber][key[i]]
+
+        }
+        // console.log(allSpells[indexNumber][keytest])
+        // document.getElementById("consoleOutput").textContent = allSpells[indexNumber]
+        // console.log(allSpells[indexNumber])
+        // console.log(Object.keys(allSpells[indexNumber]))
+        // console.log()
+    })
+}
 
 // function createData(data, itemdata) {
 

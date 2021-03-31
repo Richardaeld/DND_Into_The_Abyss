@@ -42,3 +42,8 @@ hr {
     border: 2px solid #010203;
     color: #010203;
 }
+
+.spell-sheet {
+    /* position: absolute;
+    bottom:0; */
+}
