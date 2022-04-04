@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <title>DM Tool</title>
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="style.css">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <div class="container remove-margin">
+      <div class="row no-gutters justify-content-center">
+          <!-- Aside for menu -->
+          <div class="col-sm-3">
+              <div class="row no-gutters align-items-center">
+                  <div class="col-12 nav-icon">
+                      <h1>Roll Dice</h1>
+                      <span class="make-invis">dice</span>
+                  </div>
+                  <!-- <div class="col-12 nav-icon">
+                      <h1>poisonArrows</h1>
+                      <span class="make-invis">poisonArrows</span>
+                  </div>                     -->
+                  <div class="col-12 nav-icon">
+                      <h1>Narrow Miss</h1>
+                      <span class="make-invis">narrowMiss</span>
+                  </div>                    
+                  <div class="col-12 nav-icon">
+                      <h1>Wild Magic</h1>
+                      <span class="make-invis">wildMagic</span>
+                  </div>                    
+                  <!-- <div class="col-12 nav-icon">
+                      <h1>Travel</h1>
+                      <span class="make-invis">Travel</span>
+                  </div>                     -->
+                  <div class="col-12 nav-icon">
+                      <h1>Magic Items</h1>
+                      <span class="make-invis">magicItems</span>
+                  </div>                    
+                  <!-- <div class="col-12 nav-icon">
+                      <h1>Trinket Charts</h1>
+                      <span class="make-invis">trinkets</span>
+                  </div>
+                  <div class="col-12 nav-icon">
+                      <h1>Wild Animal - Frenzy</h1>
+                      <span class="make-invis">frenzy</span>
+                  </div> -->
+                  <div class="col-12 nav-icon">
+                      <h1>Magic Spells</h1>
+                      <span class="make-invis">magicSpells</span>
+
+                  </div>
+                  
+              </div>
+          </div>
+          <!-- main content -->
+          <div class="col-sm-9">
+              <section class="row no-gutters">
+
+                      <!-- Dice -->
+                      <div class="activeItem col-12 make-invis" id="dice">
+                          <div class="row no-gutters justify-content-around">
+                              <div class="subactiveItem col-3 dice" id="rolldice400">
+                                  <h1>d400</h1>
+                              </div>
+                              <div class="subactiveItem col-3 dice" id="rolldice100">
+                                  <h1>d100</h1>
+                              </div>
+                              <div class="subactiveItem col-3 dice" id="rolldice50">
+                                  <h1>d50</h1>
+                              </div>
+                              <div class="subactiveItem col-3 dice" id="rolldice20">
+                                  <h1>d20</h1>
+                              </div>
+                              <div class="subactiveItem col-3 dice" id="rolldice12">
+                                  <h1>d12</h1>
+                              </div>
+                              <div class="subactiveItem col-3 dice" id="rolldice10">
+                                  <h1>d10</h1>
+                              </div>
+                              <div class="subactiveItem col-3 dice" id="rolldice8">
+                                  <h1>d8</h1>
+                              </div>
+                              <div class="subactiveItem col-3 dice" id="rolldice6">
+                                  <h1>d6</h1>
+                              </div>
+                              <div class="subactiveItem col-3 dice" id="rolldice4">
+                                  <h1>d4</h1>
+                              </div>
+                              <div class="subactiveItem col-3 dice" id="rolldice3">
+                                  <h1>d3</h1>
+                              </div>
+                              <div class="subactiveItem col-3 dice" id="rolldice2">
+                                  <h1>d2</h1>
+                              </div>
+                          </div>
+                          <hr>
+                      </div>
+
+                      <!-- Counting poison arrows -->
+                      <div class="activeItem col-12 make-invis" id="poisonArrows">
+                          <h1>total Poison arrow count</h1>
+                          <h2>actual arrows</h2>
+                          <hr>
+                      </div>
+
+                      <!-- Narrow Miss -->
+                      <div class="activeItem col-12 make-invis" id="narrowMiss">
+                          <h1>Narrow Miss</h1>
+                          <div class="row no-gutters justify-content-center">
+                              <div class="subactiveItem col-3 dice narrow-Miss" id="meleedice50">
+                                  <h1>Melee</h1>
+                                  <h1 class="make-invis">melee</h1>
+                              </div>
+                              <div class="subactiveItem col-3 dice narrow-Miss" id="rangedice50">
+                                  <h1>Range</h1>
+                                  <h1 class="make-invis">range</h1>
+                              </div>
+                              <div class="subactiveItem col-3 dice narrow-Miss" id="spelldice50">
+                                  <h1>Magic</h1>
+                                  <h1 class="make-invis">spell</h1>
+                              </div>
+                          </div>
+                          <hr>
+                      </div>
+
+                      <!-- Wild Magic -->
+                      <div class="activeItem col-12 make-invis" id="wildMagic">
+                          <h1>Wild Magic</h1>
+                          <div class="row no-gutters justify-content-center">
+                              <div class="col-3 subactiveItem dice narrow-Miss" id="wildMagicNonRawdice100">
+                                  <h1>Fun</h1>
+                                  <h1 class="make-invis">wildMagicNonRaw</h1>
+                              </div>
+                              <div class="col-3 subactiveItem dice narrow-Miss" id="wildMagicRawdice50">
+                                  <h1>Raw</h1>
+                                  <h1 class="make-invis">wildMagicRaw</h1>
+                              </div>
+
+                          </div>
+                          <hr>
+                      </div>
+
+                      <!-- Magic Item Charts -->
+                      <div class="activeItem col-12 make-invis" id="magicItems">
+                          <h1>Magic Item Charts</h1>
+                          <div class="row no-gutters justify-content-center">
+                              <div class="col-3 subactiveItem dice narrow-Miss" id="magicItemTableAdice100">
+                                  <h1>Table A</h1>
+                                  <h1 class="make-invis">magicItemTableA</h1>
+                              </div>
+
+
+                          </div>
+                          <hr>
+                      </div>
+
+                      <!-- Magic spells -->
+                      <div class="activeItem col-12 make-invis" id="magicSpells">
+                          <h1>Magic Spells Chart</h1>
+                          <div class=" row no-gutters justify-content-center">
+                              <div class="col-3 subactiveItem dice magicSpellsSelect narrow-Miss" id="cantripdice30">
+                                  <span><h1>Cantrip</h1></span>
+                                  <span class="make-invis">cantrip</span>
+                              </div>                                
+                              <div class="col-3 subactiveItem dice magicSpellsSelect narrow-Miss" id="1">
+                                  <span><h1>level 1</h1></span>
+                                  <span class="make-invis">1</span>
+                              </div>
+                              <div class="col-3 subactiveItem dice magicSpellsSelect narrow-Miss" id="2">
+                                  <span><h1>level 2</h1></span>
+                                  <span class="make-invis">2</span>
+                              </div>
+                              <div class="col-3 subactiveItem dice magicSpellsSelect narrow-Miss" id="3">
+                                  <span><h1>level 3</h1></span>
+                                  <span class="make-invis">3</span>
+                              </div>
+                              <div class="col-3 subactiveItem dice magicSpellsSelect narrow-Miss" id="4">
+                                  <span><h1>level 4</h1></span>
+                                  <span class="make-invis">4</span>
+                              </div>
+                              <div class="col-3 subactiveItem dice magicSpellsSelect narrow-Miss" id="5">
+                                  <span><h1>level 5</h1></span>
+                                  <span class="make-invis">5</span>
+                              </div>
+                              <div class="col-3 subactiveItem dice magicSpellsSelect narrow-Miss" id="6">
+                                  <span><h1>level 6</h1></span>
+                                  <span class="make-invis">6</span>
+                              </div>
+                              <div class="col-3 subactiveItem dice magicSpellsSelect narrow-Miss" id="7">
+                                  <span><h1>level 7</h1></span>
+                                  <span class="make-invis">7</span>
+                              </div>
+                              <div class="col-3 subactiveItem dice magicSpellsSelect narrow-Miss" id="8">
+                                  <span><h1>level 8</h1></span>
+                                  <span class="make-invis">8</span>
+                              </div>
+                          </div>
+                          <hr>
+                      </div>
+
+                      <!-- Output console -->
+                      <div class="col-12">
+                          <div class="row no-gutters justify-content-center">
+                              <div class="col-6 narrow-Miss-Output">
+                                  <h1 id="consoleOutput"></h1>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!--  Output List  -->
+                      <div class="col-12">
+                          <div id="outputList" class="row no-gutters justify-content-center">
+
+                          </div>
+                      </div>
+
+
+
+              </section> 
+          </div>
+
+          <!--  Output List information  -->
+          <div class="col-12 activeItem" style="top:2rem;">
+              <a href="#spellInfoname" class="blank-anchor">
+                  <div id="outputListInformation" class="row no-gutters justify-content-center">    
+                  </div>
+              </a>
+          </div>
+
+          <!--  Spell Information  -->
+          <div class="col-12 activeItem make-invis" style="position:relative; top:2rem;" id="spellInfo">
+              <div class="row no-gutters spell-list-spacing">
+
+                  <div class="col-12">
+                      <div class="row no-gutters">
+                          <a href="#magicSpells" class="col-12 blank-anchor narrow-Miss">
+                              <h1>top</h1>
+                          </a>
+                      </div>
+                  </div>
+
+                  <div class="col-6" id="spellInfoname">
+                      <div class="row no-gutters">
+                          <h4 class="col-12">Name</h4>
+                          <h1 class="col-12"><span></span></h1>
+                      </div>
+                  </div>
+                  <div class="col-6" id="spellInfotype">
+                      <div class="row no-gutters">
+                          <h4 class="col-12">Type</h4>
+                          <h1 class="col-12"><span></span></h1>
+                      </div>
+                  </div>
+                  <div class="col-6" id="spellInfocasting_time">
+                      <div class="row no-gutters">
+                          <h4 class="col-12">Casting Time</h4>
+                          <h1 class="col-12"><span></span></h1>
+                      </div>
+                  </div>
+                  <div class="col-6" id="spellInforange">
+                      <div class="row no-gutters">
+                          <h4 class="col-12">Range</h4>
+                          <h1 class="col-12"><span></span></h1>
+                      </div>
+                  </div>
+                  <div class="col-6" id="spellInforitual">
+                      <div class="row no-gutters">
+                          <h4 class="col-12">Ritual</h4>
+                          <h1 class="col-12"><span></span></h1>
+                      </div>
+                  </div>
+                  <div class="col-6" id="spellInfoduration">
+                      <div class="row no-gutters">
+                          <h4 class="col-12">Duration</h4>
+                          <h1 class="col-12"><span></span></h1>
+                      </div>
+                  </div>
+                  <div class="col-12" id="spellInfocomponents">
+                      <div class="row no-gutters">
+                          <h4 class="col-12">Components</h4>
+                          <h3 class="col-12"><span class="row no-gutters"></span></h3>
+                          <h3 class="col-12"><span class="row no-gutters"></span></h3>
+                      </div>
+                  </div>
+                  <div class="col-12" id="spellInfodescription">
+                      <div class="row no-gutters">
+                          <h4 class="col-12">Description</h4>
+                          <h1 class="col-12"><span></span></h1>
+                      </div>
+                  </div>
+                  <div class="col-12" id="spellInfohigher_levels">
+                      <div class="row no-gutters">
+                          <h4 class="col-12">Higher levels</h4>
+                          <h1 class="col-12"><span></span></h1>
+                      </div>
+                  </div>
+
+                  <div class="col-6" id="spellInfoschool">
+                      <div class="row no-gutters">
+                          <h4 class="col-12">School</h4>
+                          <h1 class="col-12"><span></span></h1>
+                      </div>
+                  </div>
+                  <div class="col-6" id="spellInfoclasses">
+                      <div class="row no-gutters">
+                          <h4 class="col-12">Classes</h4>
+                          <h3 class="col-12"><span></span></h3>
+                      </div>
+                  </div>
+                  <div class="col-6" id="spellInfotags">
+                      <div class="row no-gutters">
+                          <h4 class="col-12">Tags</h4>
+                          <h3 class="col-12"><span></span></h3>
+                      </div>
+                  </div>
+                  <!-- <div class="col-6" id="spellInfolevel">
+                      <div class="row no-gutters">
+                          <h4 class="col-12">level</h4>
+                          <h1 class="col-12"><span></span></h1>
+                      </div>
+                  </div> -->
+                  <div class="col-12">
+                      <div class="row no-gutters">
+                          <a href="#magicSpells" class="col-12 blank-anchor narrow-Miss">
+                              <h1>top</h1>
+                          </a>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="row no-gutters">
+      <div class="col-12">
+          <div class="row no-gutters">
+              <div class="col-6">
+                  <h1 id="outPut"></h1>
+              </div>
+          </div>
+      </div>
+  </div>
+
+<!-- 
+  <script src="js/spells.js"></script>
+  <script src="js/narrowMiss.js"></script>
+  <script src="js/wildMagic.js"></script>
+  <script src="js/magicItemTables.js"></script> -->
+  <!-- <script src="js/index.js"></script> -->
+
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

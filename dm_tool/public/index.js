@@ -127,28 +127,38 @@ function createSubData(spellName, indexNumber) {
             }else if(key[i] == "level") {
 
             }else if(key[i] == "components") {
+                // Removes Previous P elements
                 let PreviousP = document.getElementById(tempId).getElementsByTagName("span")[0].getElementsByTagName("p")
                 if(PreviousP.length > 0){
                     while(0 < PreviousP.length){
                         PreviousP[0].remove()
                     }
                 }
+                //finds keys of component section
                 let findComponents = Object.keys(allSpells[indexNumber][key[i]])
                 console.log(findComponents)
                 let tempString = ""
+                // Creates a string to add to as component section
                 for(z=0; z<findComponents.length; z++){
                     let createP = document.createElement("p");
                     createP.textContent = findComponents[z] + " : " + allSpells[indexNumber][key[i]][findComponents[z]]
+                    createP.classList = "col-6"
                     //            tempString += findComponents[z] + " : " + allSpells[indexNumber][key[i]][findComponents[z]]
                     
-                    document.getElementById(tempId).getElementsByTagName("span")[0].appendChild(createP)
-                    if(findComponents[z] == "materials_needed"){
+                    if(findComponents[z] == "material"){ // skip material
+
+                    }else if(findComponents[z] == "raw"){ // skip raw 
+
+                    }else if(findComponents[z] == "materials_needed"){ // expand upon material needed section
                         console.log(allSpells[indexNumber][key[i]][findComponents[z]][0])
                         for(x=0; x< allSpells[indexNumber][key[i]][findComponents[z]].length; x++) {
                             createP.textContent = findComponents[z] + " : " + allSpells[indexNumber][key[i]][findComponents[z]][x]
+                            createP.classList = "col-12"
                             // tempString += allSpells[indexNumber][key[i]][findComponents[z]][x]
                             document.getElementById(tempId).getElementsByTagName("span")[0].appendChild(createP)
                         }
+                    } else {
+                        document.getElementById(tempId).getElementsByTagName("span")[0].appendChild(createP)
                     }
                 }
 

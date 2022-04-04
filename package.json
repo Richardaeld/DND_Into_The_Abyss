@@ -1,0 +1,17 @@
+{
+  "name": "CV",
+  "version": "1.0.0",
+  "description": "HTML CV",
+  "scripts": {
+    "lite": "lite-server --port 10001",
+    "start": "npm run lite"
+  },
+  "author": "Richard E.",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  },
+  "dependencies": {
+    "react-scripts": "5.0.0"
+  }
+}
