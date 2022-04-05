@@ -10,11 +10,13 @@ import TotalDice from "./components/TotalDice"
 import OutContainer from './components/OutContainer';
 
 function App() {
-// ------------------------------------Navigation Buttons
+// ------------------------------------Active elements
   const [navNames, setNavNames] = React.useState(NavButtonNames)
-  const [navTargets, setNavTargets] = React.useState(TotalDice)
+  const [navDice, setNavDice] = React.useState(TotalDice)
   const [outTarget, setOutTarget] = React.useState("")
 
+
+// ------------------------------------Functions to change elements
   // Rolls dice and renders to DOM
   function rollDice(id, num) {
     const diceRoll = Math.floor(Math.random()*num + 1)
@@ -23,20 +25,28 @@ function App() {
 
   // Toggle visibility of sub nav buttons
   function toggleNav(id, targetId) {
+
+    // Reveal dice buttons
+    if (targetId == "dice"){
+      setNavDice(prev => {
+        return prev.map((prevState) => {
+          return prevState.open ? {...prevState, open: !prevState.open} : {...prevState, open: !prevState.open}
+        })
+      })
+    }
+
+    
+
     // Reveal nav button content
-
-    let containsTarget = document.getElementById([targetId]).classList.contains("make-invis")
-    let target = document.getElementById([targetId])
-    containsTarget ? target.classList.remove("make-invis") : target.classList.add("make-invis")
-
-    // set nav button color change
     setNavNames(prevNavNames => {
       return prevNavNames.map((navName) => {
         return navName.id === id ? {...navName, open: !navName.open} : navName
       })
     })
+
   }
 
+  // ------------------------------------Creates multiple iterations from single components
   const navElements = navNames.map(navName => (
     <NavButton
       key={navName.id}
@@ -47,15 +57,16 @@ function App() {
     />
   ))
 
-  const navTargetElements = navTargets.map(navTarget => (
+  const navDiceElements = navDice.map(navDie => (
     <Dice
-      key={navTarget.id}
-      name={navTarget.value}
-      click={() => rollDice(navTarget.id, navTarget.value)}
+      key={navDie.id}
+      name={navDie.value}
+      open={navDie.open}
+      click={() => rollDice(navDie.id, navDie.value)}
     />
   ))
 
-// ------------------------------------Dice Rolling section
+// ------------------------------------
 
 
 
@@ -64,17 +75,22 @@ function App() {
 
   return (
     <main>
-      {navElements}
+      <header>
+        {navElements}
+        <OutContainer
+          content = {outTarget}
+        />
+      </header>
 
-      <OutContainer
-        content = {outTarget}
-      />
-
-      <div className="activeItem col-12 make-invis" id="dice">
-        <div className="row no-gutters justify-content-around">
-          {navTargetElements}
+      {/* Dice section */}
+      <section>
+        {/* <div className="activeItem col-12 make-invis" id="dice"> */}
+        <div className="activeItem col-12" id="dice">
+          <div className="row no-gutters justify-content-around">
+            {navDiceElements}
+          </div>
         </div>
-      </div>
+      </section>
 
     </main>
   )
