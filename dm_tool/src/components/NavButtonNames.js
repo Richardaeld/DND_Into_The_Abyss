@@ -9,7 +9,7 @@ export default [
         id: 2,
         name: "Narrow Success",
         open: false,
-        target: null
+        target: "narrow"
     },
     {
         id: 3,
