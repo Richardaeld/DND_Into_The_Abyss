@@ -7,22 +7,24 @@ import NavButton from "./components/NavButton"
 import NavButtonNames from "./components/NavButtonNames"
 import Dice from "./components/Dice"
 import TotalDice from "./components/TotalDice"
-
+import OutContainer from './components/OutContainer';
 
 function App() {
 // ------------------------------------Navigation Buttons
   const [navNames, setNavNames] = React.useState(NavButtonNames)
   const [navTargets, setNavTargets] = React.useState(TotalDice)
+  const [outTarget, setOutTarget] = React.useState("")
 
-  function rollDice(num) {
-    // console.log("Here")
-    // console.log(num)
+  // Rolls dice and renders to DOM
+  function rollDice(id, num) {
     const diceRoll = Math.floor(Math.random()*num + 1)
-    console.log(diceRoll)
+    setOutTarget(diceRoll)
   }
 
+  // Toggle visibility of sub nav buttons
   function toggleNav(id, targetId) {
     // Reveal nav button content
+
     let containsTarget = document.getElementById([targetId]).classList.contains("make-invis")
     let target = document.getElementById([targetId])
     containsTarget ? target.classList.remove("make-invis") : target.classList.add("make-invis")
@@ -49,7 +51,7 @@ function App() {
     <Dice
       key={navTarget.id}
       name={navTarget.value}
-      click={() => rollDice(navTarget.value)}
+      click={() => rollDice(navTarget.id, navTarget.value)}
     />
   ))
 
@@ -63,6 +65,10 @@ function App() {
   return (
     <main>
       {navElements}
+
+      <OutContainer
+        content = {outTarget}
+      />
 
       <div className="activeItem col-12 make-invis" id="dice">
         <div className="row no-gutters justify-content-around">
