@@ -31,28 +31,36 @@ function App() {
   }
 
 // run success logic
-  function successLogic(id, text) {
-    console.log(text)
+  function successLogic(id, name) {
+    var text = ""
+    if (name == "Melee") {
+      const diceRoll = Math.floor(Math.random()*narrowSuccessMelee.length + 1)
+      text = narrowSuccessMelee[diceRoll].value
+
+    } else if (name == "Ranged") {
+      const diceRoll = Math.floor(Math.random()*narrowSuccessRanged.length + 1)
+      text = narrowSuccessMelee[diceRoll].value
+
+    } else if (name == "Magic") {
+      const diceRoll = Math.floor(Math.random()*narrowSuccessMagic.length + 1)
+      text = narrowSuccessMelee[diceRoll].value
+
+    }
     setOutTarget(text)
   }
 
   // Toggle visibility of sub nav buttons
   function toggleNav(id, targetId) {
 
-    // Reveal dice buttons
+    // Reveal navigation sub buttons
     if (targetId == "dice"){
       setNavDice(prev => {
         return prev.map((prevState) => {
           return prevState.open ? {...prevState, open: !prevState.open} : {...prevState, open: !prevState.open}
         })
       })
-    }
-
-    if (targetId == "narrow") {
-      console.log("I am here")
-
+    } else if (targetId == "narrow") {
       setNarrowSuccessButtons(prev => {
-        console.log(prev)
         return prev.map((prevState) => {
           return prevState.open ? {...prevState, open: !prevState.open} : {...prevState, open: !prevState.open}
         })
@@ -95,7 +103,7 @@ function App() {
       key={successButton.name}
       name={successButton.name}
       open={successButton.open}
-      click={() => successLogic(successButton.id, successButton.value)}
+      click={() => successLogic(successButton.id, successButton.name)}
     />
   ))
 
