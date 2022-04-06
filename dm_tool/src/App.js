@@ -1,26 +1,39 @@
 // import logo from './logo.svg';
 import './App.css';
 
-import React from 'react'
+import React from 'react';
 
-import NavButton from "./components/NavButton"
-import NavButtonNames from "./components/NavButtonNames"
-import Dice from "./components/Dice"
-import TotalDice from "./components/TotalDice"
+import NavButton from "./components/NavButton";
+import NavButtonNames from "./components/NavButtonNames";
+import Dice from "./components/Dice";
+import TotalDice from "./components/TotalDice";
 import OutContainer from './components/OutContainer';
-
+import NarrowMissMelee from './components/NarrowMissMelee';
+import NarrowMissRanged from './components/NarrowMissRanged';
+import NarrowMissMagic from './components/NarrowMissMagic';
+import NarrowMissButtons from './components/NarrowMissButtons';
+import SuccessButton from './components/SuccessButton'
 function App() {
 // ------------------------------------Active elements
   const [navNames, setNavNames] = React.useState(NavButtonNames)
   const [navDice, setNavDice] = React.useState(TotalDice)
   const [outTarget, setOutTarget] = React.useState("")
-
+  const [narrowSuccessMelee, setNarrowSuccessMelee] = React.useState(NarrowMissMelee)
+  const [narrowSuccessRanged, setNarrowSuccessRanged] = React.useState(NarrowMissRanged)
+  const [narrowSuccessMagic, setNarrowSuccessMagic] = React.useState(NarrowMissMagic)
+  const [narrowSuccessButtons, setNarrowSuccessButtons] = React.useState(NarrowMissButtons)
 
 // ------------------------------------Functions to change elements
   // Rolls dice and renders to DOM
   function rollDice(id, num) {
     const diceRoll = Math.floor(Math.random()*num + 1)
     setOutTarget(diceRoll)
+  }
+
+// run success logic
+  function successLogic(id, text) {
+    console.log(text)
+    setOutTarget(text)
   }
 
   // Toggle visibility of sub nav buttons
@@ -35,7 +48,18 @@ function App() {
       })
     }
 
-    
+    if (targetId == "narrow") {
+      console.log("I am here")
+
+      setNarrowSuccessButtons(prev => {
+        console.log(prev)
+        return prev.map((prevState) => {
+          return prevState.open ? {...prevState, open: !prevState.open} : {...prevState, open: !prevState.open}
+        })
+      })
+    }
+
+
 
     // Reveal nav button content
     setNavNames(prevNavNames => {
@@ -66,13 +90,19 @@ function App() {
     />
   ))
 
-// ------------------------------------
+  const narrowMissElements = narrowSuccessButtons.map(successButton => (
+    <SuccessButton
+      key={successButton.name}
+      name={successButton.name}
+      open={successButton.open}
+      click={() => successLogic(successButton.id, successButton.value)}
+    />
+  ))
 
 
 
 
-
-
+  // ------------------------------------DOM return
   return (
     <main>
       <header>
@@ -82,15 +112,36 @@ function App() {
         />
       </header>
 
-      {/* Dice section */}
+      {/* Dice Section */}
       <section>
-        {/* <div className="activeItem col-12 make-invis" id="dice"> */}
         <div className="activeItem col-12" id="dice">
           <div className="row no-gutters justify-content-around">
             {navDiceElements}
+            {narrowMissElements}
           </div>
         </div>
       </section>
+
+      {/* Narrow Miss Section */}
+      <div className="activeItem col-12 make-invis" id="narrowMiss">
+        <h1>Narrow Miss</h1>
+        <div className="row no-gutters justify-content-center">
+            <div className="subactiveItem col-3 dice narrow-Miss" id="meleedice50">
+                <h1>Melee</h1>
+                <h1 className="make-invis">melee</h1>
+            </div>
+            <div className="subactiveItem col-3 dice narrow-Miss" id="rangedice50">
+                <h1>Range</h1>
+                <h1 className="make-invis">range</h1>
+            </div>
+            <div className="subactiveItem col-3 dice narrow-Miss" id="spelldice50">
+                <h1>Magic</h1>
+                <h1 className="make-invis">spell</h1>
+            </div>
+        </div>
+        <hr/>
+      </div>
+
 
     </main>
   )
