@@ -7,7 +7,7 @@ export default function OutContainer (props) {
             <div className="col-12">
                 <div className="row justify-content-center">
                     <div className="col-6 output">
-                        <h1 id="consoleOutput">{props.content}</h1>
+                        <p id="consoleOutput">{props.content}</p>
                     </div>
                 </div>
             </div>
