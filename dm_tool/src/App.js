@@ -53,16 +53,20 @@ function App() {
   function toggleNav(id, targetId) {
 
     // Set all buttons to invisible
-    setNavDice(prev => {
-      return prev.map((prevState) => {
-        return {...prevState, open: false}
+    if (!targetId == "dice"){
+      setNavDice(prev => {
+        return prev.map((prevState) => {
+          return {...prevState, open: false}
+        })
       })
-    })
-    setNarrowSuccessButtons(prev => {
-      return prev.map((prevState) => {
-        return {...prevState, open: false}
+    }
+    if(!targetId == "narrow") {
+      setNarrowSuccessButtons(prev => {
+        return prev.map((prevState) => {
+          return {...prevState, open: false}
+        })
       })
-    })
+    }
 
 
     // Reveal navigation sub buttons
