@@ -140,8 +140,8 @@ function App() {
       </header>
 
       {/* Dice Section */}
-      <section>
-      <OutContainer
+      <section className="container-fluid">
+          <OutContainer
             content = {outTarget}
           />
       </section>
