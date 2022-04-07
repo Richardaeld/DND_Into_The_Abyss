@@ -197,6 +197,6 @@ export default [
     },
     {
         id: 50,
-        value: "Forget to breath: Critical hit to target, attacker left winded(stunned) next round "
+        value: "Forget to breath: Critical hit to target, attacker left winded(stunned) next round ",
     },
 ]
