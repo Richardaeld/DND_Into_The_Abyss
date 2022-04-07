@@ -6,7 +6,7 @@ import React from 'react';
 import NavButton from "./components/buttons/NavButton";
 import NavButtonNames from "./components/objects/buttons/NavButtonNames";
 import Dice from "./components/buttons/Dice";
-import TotalDice from "./components/objects/TotalDice";
+import TotalDice from "./components/objects/buttons/TotalDice";
 import OutContainer from './components/OutContainer';
 import NarrowMissMelee from './components/objects/content/NarrowMissMelee';
 import NarrowMissRanged from './components/objects/content/NarrowMissRanged';
