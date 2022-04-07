@@ -39,14 +39,14 @@ function App() {
   const [wildMagicRaw, setWildMagicRaw] = React.useState(WildMagicRaw)
   const [magicItemTableA, setMagicItemTableA] = React.useState(MagicItemTableA)
   // return output obj
-  const [outTarget, setOutTarget] = React.useState("Welcome to DM Tool a friendly quick reference for DMs and Players a like!")
+  const [outTarget, setOutTarget] = React.useState([,"Welcome to DM Tool a friendly quick reference for DMs and Players a like!"])
 
 
   // ------------------------------------Functions to change elements
   // Rolls dice and renders to DOM
   function rollDice(id, num) {
     const diceRoll = Math.floor(Math.random()*num + 1)
-    setOutTarget(diceRoll)
+    setOutTarget([diceRoll])
   }
 
 // run success logic
@@ -61,7 +61,6 @@ function App() {
     } else if (name == "Ranged") {
       diceRoll = Math.floor(Math.random()*narrowSuccessRanged.length + 1)
       text = narrowSuccessMelee[diceRoll].value
-      text = `"You rolled a ${diceRoll}! \n \n \n \r  ${text} "`
 
     } else if (name == "Magic") {
       diceRoll = Math.floor(Math.random()*narrowSuccessMagic.length + 1)
@@ -81,7 +80,9 @@ function App() {
     }
 
 
-    setOutTarget(text, diceRoll)
+    setOutTarget([diceRoll, text])
+    console.log(outTarget)
+
   }
 
   // Toggle visibility of sub nav buttons
@@ -221,7 +222,8 @@ function App() {
       {/* Dice Section */}
       <section className="container-fluid">
           <OutContainer
-            content = {outTarget}
+            num = {outTarget[0]}
+            content = {outTarget[1]}
           />
       </section>
 
