@@ -15,19 +15,19 @@ export default [
         id: 3,
         name: "Wild Magic",
         open: false,
-        target: null
+        target: "wild"
     },
     {
         id: 4,
         name: "Magic Items",
         open: false,
-        target: null
+        target: "items"
     },
     {
         id: 5,
         name: "Magic Spells",
         open: false,
-        target: null
+        target: "spells"
     },
 
 ]
