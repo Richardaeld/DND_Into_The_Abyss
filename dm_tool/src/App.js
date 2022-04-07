@@ -13,6 +13,9 @@ import TotalDice from "./components/objects/buttons/TotalDice";
 import NarrowMissMelee from './components/objects/content/NarrowMissMelee';
 import NarrowMissRanged from './components/objects/content/NarrowMissRanged';
 import NarrowMissMagic from './components/objects/content/NarrowMissMagic';
+import WildMagicRaw from './components/objects/content/WildMagicRaw';
+import WildMagicHomeBrew from './components/objects/content/WildMagicHomeBrew';
+import MagicItemTableA from './components/objects/content/MagicItemTableA';
 // output object
 import OutContainer from './components/OutContainer';
 
@@ -26,6 +29,9 @@ function App() {
   const [narrowSuccessMelee, setNarrowSuccessMelee] = React.useState(NarrowMissMelee)
   const [narrowSuccessRanged, setNarrowSuccessRanged] = React.useState(NarrowMissRanged)
   const [narrowSuccessMagic, setNarrowSuccessMagic] = React.useState(NarrowMissMagic)
+  const [wildMagicHomeBrew, setWildMagicHomeBrew] = React.useState(WildMagicHomeBrew)
+  const [wildMagicRaw, setwildMagicRaw] = React.useState(WildMagicRaw)
+  const [magicItemTableA, setmagicItemTableA] = React.useState(MagicItemTableA)
   // return output obj
   const [outTarget, setOutTarget] = React.useState("Welcome to DM Tool a friendly quick reference for DMs and Players a like!")
 // ------------------------------------Functions to change elements
@@ -57,36 +63,39 @@ function App() {
   // Toggle visibility of sub nav buttons
   function toggleNav(id, targetId) {
 
+
     // Set all buttons to invisible
+    if (!(targetId == "dice")){
       setNavDice(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: false}
         })
       })
+    }
 
+    if(!(targetId == "narrow")){
       setNarrowSuccessButtons(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: false}
         })
       })
+    }
 
 
     // Reveal navigation sub buttons
     if (targetId == "dice"){
       setNavDice(prev => {
         return prev.map((prevState) => {
-          return {...prevState, open: true}
+          return {...prevState, open: !prevState.open}
         })
       })
     } else if (targetId == "narrow") {
       setNarrowSuccessButtons(prev => {
         return prev.map((prevState) => {
-          return {...prevState, open: true}
+          return {...prevState, open: !prevState.open}
         })
       })
     }
-
-
 
     // Reveal nav button content
     setNavNames(prevNavNames => {
@@ -96,6 +105,7 @@ function App() {
     })
 
   }
+
 
   // ------------------------------------Creates multiple iterations from single components
   const navElements = navNames.map(navName => (
