@@ -1,28 +1,33 @@
 // import logo from './logo.svg';
 import './App.css';
-
 import React from 'react';
 
+// buttons objects
 import NavButton from "./components/buttons/NavButton";
-import NavButtonNames from "./components/objects/buttons/NavButtonNames";
 import Dice from "./components/buttons/Dice";
+import NarrowMissButtons from './components/objects/buttons/NarrowMissButtons';
+import SuccessButton from './components/buttons/SuccessButton'
+// content objects
+import NavButtonNames from "./components/objects/buttons/NavButtonNames";
 import TotalDice from "./components/objects/buttons/TotalDice";
-import OutContainer from './components/OutContainer';
 import NarrowMissMelee from './components/objects/content/NarrowMissMelee';
 import NarrowMissRanged from './components/objects/content/NarrowMissRanged';
 import NarrowMissMagic from './components/objects/content/NarrowMissMagic';
-import NarrowMissButtons from './components/objects/buttons/NarrowMissButtons';
-import SuccessButton from './components/buttons/SuccessButton'
+// output object
+import OutContainer from './components/OutContainer';
+
 function App() {
 // ------------------------------------Active elements
+// button obj
   const [navNames, setNavNames] = React.useState(NavButtonNames)
   const [navDice, setNavDice] = React.useState(TotalDice)
-  const [outTarget, setOutTarget] = React.useState("Welcome to DM Tool a friendly quick reference for DMs and Players a like!")
+  const [narrowSuccessButtons, setNarrowSuccessButtons] = React.useState(NarrowMissButtons)
+  // content obj
   const [narrowSuccessMelee, setNarrowSuccessMelee] = React.useState(NarrowMissMelee)
   const [narrowSuccessRanged, setNarrowSuccessRanged] = React.useState(NarrowMissRanged)
   const [narrowSuccessMagic, setNarrowSuccessMagic] = React.useState(NarrowMissMagic)
-  const [narrowSuccessButtons, setNarrowSuccessButtons] = React.useState(NarrowMissButtons)
-
+  // return output obj
+  const [outTarget, setOutTarget] = React.useState("Welcome to DM Tool a friendly quick reference for DMs and Players a like!")
 // ------------------------------------Functions to change elements
   // Rolls dice and renders to DOM
   function rollDice(id, num) {
