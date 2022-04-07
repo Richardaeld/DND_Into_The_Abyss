@@ -3,16 +3,16 @@ import './App.css';
 
 import React from 'react';
 
-import NavButton from "./components/NavButton";
+import NavButton from "./components/buttons/NavButton";
 import NavButtonNames from "./components/objects/buttons/NavButtonNames";
-import Dice from "./components/Dice";
+import Dice from "./components/buttons/Dice";
 import TotalDice from "./components/objects/TotalDice";
 import OutContainer from './components/OutContainer';
 import NarrowMissMelee from './components/objects/content/NarrowMissMelee';
 import NarrowMissRanged from './components/objects/content/NarrowMissRanged';
 import NarrowMissMagic from './components/objects/content/NarrowMissMagic';
 import NarrowMissButtons from './components/objects/buttons/NarrowMissButtons';
-import SuccessButton from './components/SuccessButton'
+import SuccessButton from './components/buttons/SuccessButton'
 function App() {
 // ------------------------------------Active elements
   const [navNames, setNavNames] = React.useState(NavButtonNames)
@@ -53,33 +53,30 @@ function App() {
   function toggleNav(id, targetId) {
 
     // Set all buttons to invisible
-    if (!targetId == "dice"){
       setNavDice(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: false}
         })
       })
-    }
-    if(!targetId == "narrow") {
+
       setNarrowSuccessButtons(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: false}
         })
       })
-    }
 
 
     // Reveal navigation sub buttons
     if (targetId == "dice"){
       setNavDice(prev => {
         return prev.map((prevState) => {
-          return prevState.open ? {...prevState, open: !prevState.open} : {...prevState, open: !prevState.open}
+          return {...prevState, open: true}
         })
       })
     } else if (targetId == "narrow") {
       setNarrowSuccessButtons(prev => {
         return prev.map((prevState) => {
-          return prevState.open ? {...prevState, open: !prevState.open} : {...prevState, open: !prevState.open}
+          return {...prevState, open: true}
         })
       })
     }
