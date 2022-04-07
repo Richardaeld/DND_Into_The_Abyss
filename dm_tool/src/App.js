@@ -7,6 +7,9 @@ import NavButton from "./components/buttons/NavButton";
 import Dice from "./components/buttons/Dice";
 import NarrowMissButtons from './components/objects/buttons/NarrowMissButtons';
 import SuccessButton from './components/buttons/SuccessButton'
+import WildMagicButtons from './components/objects/buttons/WildMagicButtons';
+import MagicItemButtons from './components/objects/buttons/MagicItemButtons';
+
 // content objects
 import NavButtonNames from "./components/objects/buttons/NavButtonNames";
 import TotalDice from "./components/objects/buttons/TotalDice";
@@ -16,25 +19,30 @@ import NarrowMissMagic from './components/objects/content/NarrowMissMagic';
 import WildMagicRaw from './components/objects/content/WildMagicRaw';
 import WildMagicHomeBrew from './components/objects/content/WildMagicHomeBrew';
 import MagicItemTableA from './components/objects/content/MagicItemTableA';
+
 // output object
 import OutContainer from './components/OutContainer';
 
 function App() {
-// ------------------------------------Active elements
-// button obj
+  // ------------------------------------Active elements
+  // button obj
   const [navNames, setNavNames] = React.useState(NavButtonNames)
   const [navDice, setNavDice] = React.useState(TotalDice)
   const [narrowSuccessButtons, setNarrowSuccessButtons] = React.useState(NarrowMissButtons)
+  const [wildMagicButtons, setWildMagicButtons] = React.useState(WildMagicButtons)
+  const [magicItemButtons, setMagicItemButtons] = React.useState(MagicItemButtons)
   // content obj
   const [narrowSuccessMelee, setNarrowSuccessMelee] = React.useState(NarrowMissMelee)
   const [narrowSuccessRanged, setNarrowSuccessRanged] = React.useState(NarrowMissRanged)
   const [narrowSuccessMagic, setNarrowSuccessMagic] = React.useState(NarrowMissMagic)
   const [wildMagicHomeBrew, setWildMagicHomeBrew] = React.useState(WildMagicHomeBrew)
-  const [wildMagicRaw, setwildMagicRaw] = React.useState(WildMagicRaw)
-  const [magicItemTableA, setmagicItemTableA] = React.useState(MagicItemTableA)
+  const [wildMagicRaw, setWildMagicRaw] = React.useState(WildMagicRaw)
+  const [magicItemTableA, setMagicItemTableA] = React.useState(MagicItemTableA)
   // return output obj
   const [outTarget, setOutTarget] = React.useState("Welcome to DM Tool a friendly quick reference for DMs and Players a like!")
-// ------------------------------------Functions to change elements
+
+
+  // ------------------------------------Functions to change elements
   // Rolls dice and renders to DOM
   function rollDice(id, num) {
     const diceRoll = Math.floor(Math.random()*num + 1)
@@ -42,22 +50,38 @@ function App() {
   }
 
 // run success logic
-  function successLogic(id, name) {
+  function successLogic(id, name, obj) {
     var text = ""
+    var diceRoll = 0
+    var value = ""
     if (name == "Melee") {
-      const diceRoll = Math.floor(Math.random()*narrowSuccessMelee.length + 1)
+      diceRoll = Math.floor(Math.random()*narrowSuccessMelee.length + 1)
       text = narrowSuccessMelee[diceRoll].value
 
     } else if (name == "Ranged") {
-      const diceRoll = Math.floor(Math.random()*narrowSuccessRanged.length + 1)
+      diceRoll = Math.floor(Math.random()*narrowSuccessRanged.length + 1)
       text = narrowSuccessMelee[diceRoll].value
+      text = `"You rolled a ${diceRoll}! \n \n \n \r  ${text} "`
 
     } else if (name == "Magic") {
-      const diceRoll = Math.floor(Math.random()*narrowSuccessMagic.length + 1)
+      diceRoll = Math.floor(Math.random()*narrowSuccessMagic.length + 1)
       text = narrowSuccessMelee[diceRoll].value
 
+    } else if (name == "raw") {
+      diceRoll = Math.floor(Math.random()*wildMagicRaw.length + 1)
+      text = wildMagicRaw[diceRoll].value
+
+    } else if (name == "homebrew") {
+      diceRoll = Math.floor(Math.random()*wildMagicHomeBrew.length + 1)
+      text = wildMagicHomeBrew[diceRoll].value
+
+    } else if (name == "tableA") {
+      diceRoll = Math.floor(Math.random()*magicItemTableA.length + 1)
+      text = magicItemTableA[diceRoll].value
     }
-    setOutTarget(text)
+
+
+    setOutTarget(text, diceRoll)
   }
 
   // Toggle visibility of sub nav buttons
@@ -72,7 +96,6 @@ function App() {
         })
       })
     }
-
     if(!(targetId == "narrow")){
       setNarrowSuccessButtons(prev => {
         return prev.map((prevState) => {
@@ -80,7 +103,13 @@ function App() {
         })
       })
     }
-
+    if(!(targetId == "wild")){
+      setWildMagicButtons(prev => {
+        return prev.map((prevState) => {
+          return {...prevState, open: false}
+        })
+      })
+    }
 
     // Reveal navigation sub buttons
     if (targetId == "dice"){
@@ -91,6 +120,19 @@ function App() {
       })
     } else if (targetId == "narrow") {
       setNarrowSuccessButtons(prev => {
+        return prev.map((prevState) => {
+          return {...prevState, open: !prevState.open}
+        })
+      })
+    } else if (targetId == "wild") {
+      setWildMagicButtons(prev => {
+        console.log(prev)
+        return prev.map((prevState) => {
+          return {...prevState, open: !prevState.open}
+        })
+      })
+    } else if (targetId == "items") {
+      setMagicItemButtons(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: !prevState.open}
         })
@@ -127,17 +169,32 @@ function App() {
     />
   ))
 
-  const narrowMissElements = narrowSuccessButtons.map(successButton => (
+  const narrowMissElements = narrowSuccessButtons.map(button => (
     <SuccessButton
-      key={successButton.name}
-      name={successButton.name}
-      open={successButton.open}
-      click={() => successLogic(successButton.id, successButton.name)}
+      key={button.name}
+      name={button.name}
+      open={button.open}
+      click={() => successLogic(button.id, button.name, button.objName)}
     />
   ))
 
+  const wildMagicElements = wildMagicButtons.map(button => (
+    <SuccessButton
+      key={button.id}
+      name={button.name}
+      open={button.open}
+      click={() => successLogic(button.id, button.name, button.objName)}
+    />
+  ))
 
-
+  const magicItemElements = magicItemButtons.map((button) => (
+    <SuccessButton
+      key={button.id}
+      name={button.name}
+      open={button.open}
+      click={() => successLogic(button.id, button.name, button.objName)}
+    />
+  ))
 
   // ------------------------------------DOM return
   return (
@@ -153,6 +210,8 @@ function App() {
               <div className="col-lg-4 col-md-6"> */}
                 {navDiceElements}
                 {narrowMissElements}
+                {wildMagicElements}
+                {magicItemElements}
               {/* </div>
             </div> */}
           </div>
