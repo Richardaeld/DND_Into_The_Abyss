@@ -4,20 +4,20 @@ import './App.css';
 import React from 'react';
 
 import NavButton from "./components/NavButton";
-import NavButtonNames from "./components/NavButtonNames";
+import NavButtonNames from "./components/objects/buttons/NavButtonNames";
 import Dice from "./components/Dice";
-import TotalDice from "./components/TotalDice";
+import TotalDice from "./components/objects/TotalDice";
 import OutContainer from './components/OutContainer';
-import NarrowMissMelee from './components/NarrowMissMelee';
-import NarrowMissRanged from './components/NarrowMissRanged';
-import NarrowMissMagic from './components/NarrowMissMagic';
-import NarrowMissButtons from './components/NarrowMissButtons';
+import NarrowMissMelee from './components/objects/content/NarrowMissMelee';
+import NarrowMissRanged from './components/objects/content/NarrowMissRanged';
+import NarrowMissMagic from './components/objects/content/NarrowMissMagic';
+import NarrowMissButtons from './components/objects/buttons/NarrowMissButtons';
 import SuccessButton from './components/SuccessButton'
 function App() {
 // ------------------------------------Active elements
   const [navNames, setNavNames] = React.useState(NavButtonNames)
   const [navDice, setNavDice] = React.useState(TotalDice)
-  const [outTarget, setOutTarget] = React.useState("")
+  const [outTarget, setOutTarget] = React.useState("Welcome to DM Tool a friendly quick reference for DMs and Players a like!")
   const [narrowSuccessMelee, setNarrowSuccessMelee] = React.useState(NarrowMissMelee)
   const [narrowSuccessRanged, setNarrowSuccessRanged] = React.useState(NarrowMissRanged)
   const [narrowSuccessMagic, setNarrowSuccessMagic] = React.useState(NarrowMissMagic)
@@ -130,11 +130,15 @@ function App() {
       <header className="container-fluid" >
         <div className="row">
           <div className="col-3 mt-5">
-            {navElements}
+                {navElements}
           </div>
           <div className="col-9 mt-5">
-            {navDiceElements}
-            {narrowMissElements}
+            {/* <div className="row justify-content-center">
+              <div className="col-lg-4 col-md-6"> */}
+                {navDiceElements}
+                {narrowMissElements}
+              {/* </div>
+            </div> */}
           </div>
         </div>
       </header>
