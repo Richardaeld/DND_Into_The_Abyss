@@ -113,43 +113,25 @@ function App() {
   // ------------------------------------DOM return
   return (
     <main>
-      <header>
-        {navElements}
-        <OutContainer
-          content = {outTarget}
-        />
-      </header>
 
-      {/* Dice Section */}
-      <section>
-        <div className="activeItem col-12" id="dice">
-          <div className="row no-gutters justify-content-around">
+      <header className="container-fluid" >
+        <div className="row">
+          <div className="col-3 mt-5">
+            {navElements}
+          </div>
+          <div className="col-9 mt-5">
             {navDiceElements}
             {narrowMissElements}
           </div>
         </div>
+      </header>
+
+      {/* Dice Section */}
+      <section>
+      <OutContainer
+            content = {outTarget}
+          />
       </section>
-
-      {/* Narrow Miss Section */}
-      <div className="activeItem col-12 make-invis" id="narrowMiss">
-        <h1>Narrow Miss</h1>
-        <div className="row no-gutters justify-content-center">
-            <div className="subactiveItem col-3 dice narrow-Miss" id="meleedice50">
-                <h1>Melee</h1>
-                <h1 className="make-invis">melee</h1>
-            </div>
-            <div className="subactiveItem col-3 dice narrow-Miss" id="rangedice50">
-                <h1>Range</h1>
-                <h1 className="make-invis">range</h1>
-            </div>
-            <div className="subactiveItem col-3 dice narrow-Miss" id="spelldice50">
-                <h1>Magic</h1>
-                <h1 className="make-invis">spell</h1>
-            </div>
-        </div>
-        <hr/>
-      </div>
-
 
     </main>
   )

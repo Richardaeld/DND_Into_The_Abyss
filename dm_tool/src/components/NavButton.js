@@ -10,12 +10,11 @@ export default function NavButton(props) {
     return (
 
         <div
-            className="col-12 nav-icon"
+            className="nav-button custom-button"
             style={styles}
             onClick={props.toggleNav}
         >
-            <h1>{props.name}</h1>
-            <span className="make-invis">{props.name}</span>
+            <p>{props.name}</p>
         </div>
     )
 }

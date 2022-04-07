@@ -4,18 +4,18 @@ export default function Dice(props) {
 
 
     const styles = {
-        display: props.open ? "block": "none"
+        display: props.open ? "inline-block": "none"
     }
 
     return (
 
         <div
             style={styles}
-            className="subactiveItem col-3 dice"
+            className="dice custom-button"
             id={"rolldice" + props.name}
             onClick={props.click}
         >
-            <h1>{props.name}</h1>
+            <p>D{props.name}</p>
 
         </div>
     )
