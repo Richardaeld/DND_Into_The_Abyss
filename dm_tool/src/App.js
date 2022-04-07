@@ -39,7 +39,7 @@ function App() {
   const [wildMagicRaw, setWildMagicRaw] = React.useState(WildMagicRaw)
   const [magicItemTableA, setMagicItemTableA] = React.useState(MagicItemTableA)
   // return output obj
-  const [outTarget, setOutTarget] = React.useState([,"Welcome to DM Tool a friendly quick reference for DMs and Players a like!"])
+  const [outTarget, setOutTarget] = React.useState([,"Welcome to DM Tool a friendly quick reference for DMs and Players alike!"])
 
 
   // ------------------------------------Functions to change elements
