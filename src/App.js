@@ -63,32 +63,29 @@ function App() {
 
 // run success logic
   function successLogic(id, name, obj) {
-    var text = ""
-    var diceRoll = 0
-    var value = ""
     if (name == "Melee") {
-      diceRoll = Math.floor(Math.random()*narrowSuccessMelee.length + 1)
-      text = narrowSuccessMelee[diceRoll].value
+      var diceRoll = Math.floor(Math.random()*narrowSuccessMelee.length + 1)
+      var text = narrowSuccessMelee[diceRoll].value
 
     } else if (name == "Ranged") {
-      diceRoll = Math.floor(Math.random()*narrowSuccessRanged.length + 1)
-      text = narrowSuccessMelee[diceRoll].value
+      var diceRoll = Math.floor(Math.random()*narrowSuccessRanged.length + 1)
+      var text = narrowSuccessRanged[diceRoll].value
 
     } else if (name == "Magic") {
-      diceRoll = Math.floor(Math.random()*narrowSuccessMagic.length + 1)
-      text = narrowSuccessMelee[diceRoll].value
+      var diceRoll = Math.floor(Math.random()*narrowSuccessMagic.length + 1)
+      var text = narrowSuccessMagic[diceRoll].value
 
     } else if (name == "raw") {
-      diceRoll = Math.floor(Math.random()*wildMagicRaw.length + 1)
-      text = wildMagicRaw[diceRoll].value
+      var diceRoll = Math.floor(Math.random()*wildMagicRaw.length + 1)
+      var text = wildMagicRaw[diceRoll].value
 
     } else if (name == "homebrew") {
-      diceRoll = Math.floor(Math.random()*wildMagicHomeBrew.length + 1)
-      text = wildMagicHomeBrew[diceRoll].value
+      var diceRoll = Math.floor(Math.random()*wildMagicHomeBrew.length + 1)
+      var text = wildMagicHomeBrew[diceRoll].value
 
     } else if (name == "tableA") {
-      diceRoll = Math.floor(Math.random()*magicItemTableA.length + 1)
-      text = magicItemTableA[diceRoll].value
+      var diceRoll = Math.floor(Math.random()*magicItemTableA.length + 1)
+      var text = magicItemTableA[diceRoll].value
 
     } else if (name == "spells") {
       console.log("Not built yet!!")
@@ -96,7 +93,7 @@ function App() {
 
 
     setOutTarget([diceRoll, text])
-    console.log(outTarget)
+    // console.log(outTarget)
 
   }
 
