@@ -18,10 +18,23 @@ body {
 body {
   text-align: center;
   color: #fff;
+  /* background-position: 0% 50%;
+  background: repeating-linear-gradient(rgb(255, 255, 240), rgb(255, 255, 240) 20px, rgba(77, 146, 211, .5) 20px 22px),
+              linear-gradient(to bottom, rgb(226, 14, 14) 22px, rgba(0,0,0,0) 22px 100px);
+  background-color: #faf9f6; */
+  background: linear-gradient(220deg, rgba(0, 225, 0, .5), rgba(0, 255, 0, 0) 65%),
+              linear-gradient(115deg, rgba(255, 0, 0, .5), rgba(255, 0, 0, 0) 65%),
+              linear-gradient(340deg, rgba(0, 0, 255, .5), rgba(0, 0, 255, 0) 65%);
+}
+
+.index-background {
   background-position: 0% 50%;
   background: repeating-linear-gradient(rgb(255, 255, 240), rgb(255, 255, 240) 20px, rgba(77, 146, 211, .5) 20px 22px),
               linear-gradient(to bottom, rgb(226, 14, 14) 22px, rgba(0,0,0,0) 22px 100px);
   background-color: #faf9f6;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+  margin:1rem;
+  width: calc(100% - 2rem);
 }
 
 h1 {
@@ -49,15 +62,7 @@ hr {
 }
 
 /*------------------  default  ------------------*/
-.nav-button {
-  font-size: 2.5rem;
-  border-radius: 5px;
-  box-shadow: 3px 3px 2px rgba(0, 0, 0, .5);
-  margin-bottom: .5rem;
-  font-family: "Limelight", sans-serif;
-  margin-bottom: .5rem;
-  text-shadow: 2px 2px 4px #a8a8a8!important;
-}
+
 
 .custom-button {
   border-radius: 5px;
@@ -73,6 +78,60 @@ hr {
                 4px 4px #333;
   transition-duration: .5s;
   cursor: pointer;
+}
+.nav-button {
+  font-size: 2.5rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, .5),
+              inset 0px 0px 0px rgba(0, 0, 0, .25),
+              inset -0px -0px 0px rgba(0, 0, 0, .25);
+  margin-bottom: .5rem;
+  font-family: "Limelight", sans-serif;
+  margin-bottom: .5rem;
+  text-shadow: 2px 2px 4px #a8a8a8!important;
+  transform: scale(.9);
+  transition-duration: .5s;
+}
+
+.deep-shadow {
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, .5),
+            inset 5px 5px 3px rgba(0, 0, 0, .25),
+            inset -2px -2px 3px rgba(0, 0, 0, .25);
+  transform: scale(1);
+}
+
+.small-spell-buttons {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  line-height: .75em;
+  margin: .75rem;
+  width: 20%;
+  color: #fff;
+  border: 2px solid #CEA52B;
+  font-size: 2.75rem;
+  background: linear-gradient(45deg, #CEA52B, #705a18, #CEA52B);
+
+  transform: scale(.9);
+  border-radius: 5px;
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, .5),
+              inset 0px 0px 0px rgba(0, 0, 0, .9),
+              inset -0px -0px 0px rgba(0, 0, 0, .9);
+
+
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  box-sizing: content-box;
+  text-shadow: 2px 2px #333,
+                4px 4px #333;
+  transition-duration: .5s;
+  cursor: pointer;
+  /* transform: scale(.9); */
+}
+
+
+
+.small-spell-buttons p {
+  margin-bottom: 0;
 }
 
 .dice {
