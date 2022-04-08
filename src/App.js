@@ -119,6 +119,9 @@ function spellDisplay(name, obj) {
   setSpellInfo([obj])
 }
 
+  function toTop() {
+    window.scrollTo(0,0)
+  }
 
   // Toggle visibility of sub nav buttons
   function toggleNav(id, targetId) {
@@ -159,7 +162,7 @@ function spellDisplay(name, obj) {
           return {...prevState, open: false}
         })
       })
-      // removed spells from dom
+      // remove spells from dom
       spellLogic(undefined, undefined, undefined)
       setSpellInfo([])
     }
@@ -207,7 +210,6 @@ function spellDisplay(name, obj) {
         return navName.id === id ? {...navName, open: !navName.open} : {...navName, open: false}
       })
     })
-
   }
 
 
@@ -292,6 +294,7 @@ const spellInfoElement = spellInfo.map((info) => (
     description={info.description}
     classes={info.classes}
     tags={info.tags}
+    toTop={toTop}
   />
 ))
 
