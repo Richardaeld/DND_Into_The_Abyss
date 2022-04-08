@@ -2,30 +2,31 @@
 import './App.css';
 import React from 'react';
 
-// buttons objects
-import NavButton from "./components/html/buttons/NavButton";
+// html content
 import Dice from "./components/html/buttons/Dice";
-import NarrowMissButtons from './components/objects/buttons/NarrowMissButtons';
-import SuccessButton from './components/html/buttons/SuccessButton'
-import WildMagicButtons from './components/objects/buttons/WildMagicButtons';
-import MagicItemButtons from './components/objects/buttons/MagicItemButtons';
-import SpellButtons from './components/objects/buttons/SpellButtons';
-// import SpellInfo from './components/objects/buttons/SpellButtons'
+import NavButton from "./components/html/buttons/NavButton";
 import SpellButton from './components/html/buttons/SpellButton'
+import SuccessButton from './components/html/buttons/SuccessButton'
+import OutContainer from './components/html/OutContainer';
+
+// buttons objects
+import MagicItemButtons from './components/objects/buttons/MagicItemButtons';
+import NarrowMissButtons from './components/objects/buttons/NarrowMissButtons';
+import NavButtonNames from "./components/objects/buttons/NavButtonNames";
+import SpellButtons from './components/objects/buttons/SpellButtons';
+import TotalDice from "./components/objects/buttons/TotalDice";
+import WildMagicButtons from './components/objects/buttons/WildMagicButtons';
 
 // content objects
-import NavButtonNames from "./components/objects/buttons/NavButtonNames";
-import TotalDice from "./components/objects/buttons/TotalDice";
+import MagicItemTableA from './components/objects/content/MagicItemTableA';
+import NarrowMissMagic from './components/objects/content/NarrowMissMagic';
 import NarrowMissMelee from './components/objects/content/NarrowMissMelee';
 import NarrowMissRanged from './components/objects/content/NarrowMissRanged';
-import NarrowMissMagic from './components/objects/content/NarrowMissMagic';
-import WildMagicRaw from './components/objects/content/WildMagicRaw';
 import WildMagicHomeBrew from './components/objects/content/WildMagicHomeBrew';
-import MagicItemTableA from './components/objects/content/MagicItemTableA';
-import AllSpells from './components/json/AllSpells'
+import WildMagicRaw from './components/objects/content/WildMagicRaw';
 
-// output object
-import OutContainer from './components/html/OutContainer';
+// json
+import AllSpells from './components/json/AllSpells'
 
 function App() {
   // ------------------------------------Active elements
