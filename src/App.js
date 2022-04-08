@@ -25,7 +25,7 @@ import MagicItemTableA from './components/objects/content/MagicItemTableA';
 import AllSpells from './components/json/AllSpells'
 
 // output object
-import OutContainer from './components/OutContainer';
+import OutContainer from './components/html/OutContainer';
 
 function App() {
   // ------------------------------------Active elements
