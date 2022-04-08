@@ -321,12 +321,13 @@ const spellInfoElement = spellInfo.map((info) => (
       </section>
 
       <section className="container-fluid">
-          <OutContainer
+          {outTarget[1] && <OutContainer
             num = {outTarget[0]}
             content = {outTarget[1]}
           />
+          }
       </section>
-
+      <footer className="mb-5"></footer>
     </main>
   )
 }
