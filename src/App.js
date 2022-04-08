@@ -150,7 +150,7 @@ function spellDisplay(name, obj) {
     if(!(targetId == "items")){
       setMagicItemButtons(prev => {
         return prev.map((prevState) => {
-          return {...prevState, open:false}
+          return {...prevState, open: false}
         })
       })
     }
@@ -195,6 +195,8 @@ function spellDisplay(name, obj) {
           return {...prevState, open: !prevState.open}
         })
       })
+      setOutTarget([])
+
     }
 
     // Reveal nav button content
