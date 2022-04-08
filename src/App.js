@@ -3,15 +3,15 @@ import './App.css';
 import React from 'react';
 
 // buttons objects
-import NavButton from "./components/buttons/NavButton";
-import Dice from "./components/buttons/Dice";
+import NavButton from "./components/html/buttons/NavButton";
+import Dice from "./components/html/buttons/Dice";
 import NarrowMissButtons from './components/objects/buttons/NarrowMissButtons';
-import SuccessButton from './components/buttons/SuccessButton'
+import SuccessButton from './components/html/buttons/SuccessButton'
 import WildMagicButtons from './components/objects/buttons/WildMagicButtons';
 import MagicItemButtons from './components/objects/buttons/MagicItemButtons';
 import SpellButtons from './components/objects/buttons/SpellButtons';
 // import SpellInfo from './components/objects/buttons/SpellButtons'
-import SpellButton from './components/buttons/SpellButton'
+import SpellButton from './components/html/buttons/SpellButton'
 
 // content objects
 import NavButtonNames from "./components/objects/buttons/NavButtonNames";
@@ -144,6 +144,13 @@ function spellDisplay(name, obj) {
       setWildMagicButtons(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: false}
+        })
+      })
+    }
+    if(!(targetId == "items")){
+      setMagicItemButtons(prev => {
+        return prev.map((prevState) => {
+          return {...prevState, open:false}
         })
       })
     }
