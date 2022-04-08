@@ -6,6 +6,7 @@ import React from 'react';
 import Dice from "./components/html/buttons/Dice";
 import NavButton from "./components/html/buttons/NavButton";
 import SpellButton from './components/html/buttons/SpellButton'
+import SmallSpellButton from './components/html/buttons/SmallSpellButton';
 import SuccessButton from './components/html/buttons/SuccessButton'
 import OutContainer from './components/html/OutContainer';
 
@@ -271,7 +272,7 @@ function spellDisplay(name, obj) {
   ))
 
   const spellLevelElements = spellLevelButtons.map ((button) => (
-    <SuccessButton
+    <SmallSpellButton
       key={button.name}
       name={button.name}
       open={true}
@@ -302,7 +303,7 @@ const spellInfoElement = spellInfo.map((info) => (
   return (
     <main>
 
-      <header className="container-fluid" >
+      <header className="container-fluid index-background" >
         <div className="row">
           <div className="col-3 mt-5">
                 {navElements}
@@ -317,11 +318,11 @@ const spellInfoElement = spellInfo.map((info) => (
         </div>
       </header>
 
-      <section id="spells">
+      <section className="index-background py-4" id="spells">
         {spellLevelElements}
       </section>
 
-      <section className="container-fluid spell-display mt-5" id="spell-description">
+      <section className="container-fluid spell-display py-4 px-4 mt-5" id="spell-description">
             {spellInfoElement}
       </section>
 
