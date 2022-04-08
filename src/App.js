@@ -114,6 +114,7 @@ function spellLogic(id, name, value) {
 }
 
 function spellDisplay(name, obj) {
+  [obj].map(x => Object.assign(x, {open: true}))
   let spellDescriptPosition = document.getElementById("spell-description")
   let spellDescriptPositionY = spellDescriptPosition.getBoundingClientRect()
   window.scrollTo(0, spellDescriptPositionY.y + window.pageYOffset - 15)
@@ -160,6 +161,9 @@ function spellDisplay(name, obj) {
           return {...prevState, open: false}
         })
       })
+      // removed spells from dom
+      spellLogic(undefined, undefined, undefined)
+      setSpellInfo([])
     }
 
 
@@ -265,7 +269,7 @@ function spellDisplay(name, obj) {
       click={() => spellLogic(button.id, button.name, button.value)}
     />
   ))
-  
+
   const spellLevelElements = spellLevelButtons.map ((button) => (
     <SuccessButton
       key={button.name}
@@ -321,7 +325,7 @@ const spellInfoElement = spellInfo.map((info) => (
       </section>
 
       <section className="container-fluid">
-          {outTarget[1] && <OutContainer
+          {(outTarget[1] || outTarget[0]) && <OutContainer
             num = {outTarget[0]}
             content = {outTarget[1]}
           />
