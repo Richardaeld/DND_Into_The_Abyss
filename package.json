@@ -1,10 +1,19 @@
 {
-  "name": "CV",
+  "name": "dm_tool",
   "version": "1.0.0",
-  "description": "HTML CV",
+  "private":true,
+  "description": "Quick reference tool for DMs and players to find basic information quickly",
+  "main": "server.js",
+  "engines": {
+    "npm": "8.3.1",
+    "node": "16.14.0"
+  },
   "scripts": {
-    "lite": "lite-server --port 10001",
-    "start": "npm run lite"
+    "heroku-postbuild": "npm install",
+    "start": "node server.js",
+    "build": "react-scripts build",
+    "test": "cross-env NODE_ENV=test jasmine",
+    "eject": "react-scripts eject"
   },
   "author": "Richard E.",
   "license": "ISC",
