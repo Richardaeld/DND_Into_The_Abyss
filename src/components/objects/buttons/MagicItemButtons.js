@@ -1,7 +1,7 @@
 export default [
     {
         id: 1,
-        name: "tableA",
+        name: "table A",
         objName: "tableA",
         open: false
     }
