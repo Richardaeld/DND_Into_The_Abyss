@@ -64,31 +64,31 @@ function App() {
 
 // run success logic
   function successLogic(id, name, obj) {
-    if (name == "Melee") {
+    if (obj == "Melee") {
       var diceRoll = Math.floor(Math.random()*narrowSuccessMelee.length + 1)
       var text = narrowSuccessMelee[diceRoll].value
 
-    } else if (name == "Ranged") {
+    } else if (obj == "Ranged") {
       var diceRoll = Math.floor(Math.random()*narrowSuccessRanged.length + 1)
       var text = narrowSuccessRanged[diceRoll].value
 
-    } else if (name == "Magic") {
+    } else if (obj == "Magic") {
       var diceRoll = Math.floor(Math.random()*narrowSuccessMagic.length + 1)
       var text = narrowSuccessMagic[diceRoll].value
 
-    } else if (name == "raw") {
+    } else if (obj == "raw") {
       var diceRoll = Math.floor(Math.random()*wildMagicRaw.length + 1)
       var text = wildMagicRaw[diceRoll].value
 
-    } else if (name == "homebrew") {
+    } else if (obj == "homebrew") {
       var diceRoll = Math.floor(Math.random()*wildMagicHomeBrew.length + 1)
       var text = wildMagicHomeBrew[diceRoll].value
 
-    } else if (name == "tableA") {
+    } else if (obj == "tableA") {
       var diceRoll = Math.floor(Math.random()*magicItemTableA.length + 1)
       var text = magicItemTableA[diceRoll].value
 
-    } else if (name == "spells") {
+    } else if (obj == "spells") {
       console.log("Not built yet!!")
     }
 

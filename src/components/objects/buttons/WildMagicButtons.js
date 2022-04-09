@@ -1,14 +1,14 @@
 export default [
     {
         id: 1,
-        name: "raw",
-        objName: "WildMagicRaw",
+        name: "Raw",
+        objName: "raw",
         open: false
     },
     {
         id: 2,
-        name: "homebrew",
-        objName: "WildMagicHomeBrew",
+        name: "Homebrew",
+        objName: "homebrew",
         open: false
     }
 ]

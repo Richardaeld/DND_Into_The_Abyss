@@ -4,19 +4,19 @@ export default [
     {
         id: 1,
         name: "Melee",
-        objName: "NarrowMissMelee",
+        objName: "Melee",
         open: false
     },
     {
         id: 1,
         name: "Ranged",
-        objName: "narrowSuccessRanged",
+        objName: "Ranged",
         open: false
     },
     {
         id: 1,
         name: "Magic",
-        objName: "NarrowMissMagic",
+        objName: "Magic",
         open: false
     },
 ]

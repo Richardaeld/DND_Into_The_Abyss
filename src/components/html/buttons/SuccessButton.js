@@ -12,7 +12,7 @@ export default function SuccessButton(props) {
             className="dice custom-button"
             onClick={props.click}
         >
-            <p>{props.name}</p>
+            <p><strong>{props.name}</strong></p>
 
         </div>
     )

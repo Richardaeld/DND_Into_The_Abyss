@@ -15,7 +15,7 @@ export default function Dice(props) {
             id={"rolldice" + props.name}
             onClick={props.click}
         >
-            <p>D{props.name}</p>
+            <p><strong>D{props.name}</strong></p>
 
         </div>
     )
