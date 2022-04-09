@@ -34,7 +34,7 @@ body {
               linear-gradient(to bottom, rgb(226, 14, 14) 22px, rgba(0,0,0,0) 22px 100px);
   background-color: #faf9f6;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
-  margin:1rem;
+  /* margin:1rem; */
   width: calc(100% - 2rem);
 }
 
@@ -60,6 +60,13 @@ hr {
 .flex-center {
   display: flex;
   justify-content: center;
+}
+
+.flex-content-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* align-content: center; */
 }
 
 /*------------------  default  ------------------*/
@@ -92,6 +99,10 @@ hr {
   text-shadow: 2px 2px 4px #a8a8a8!important;
   transform: scale(.9);
   transition-duration: .5s;
+  cursor: pointer;
+}
+.nav-button p {
+  margin-bottom: 0;
 }
 
 .deep-shadow {
