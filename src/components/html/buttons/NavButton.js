@@ -10,19 +10,19 @@ export default function NavButton(props) {
     return (
         <>
             {!props.open && <div
-                className="nav-button custom-button"
+                className="nav-button col-3 flex-content-center py-2"
                 style={styles}
                 onClick={props.toggleNav}
             >
-                <p>{props.name}</p>
+                    <p>{props.name}</p>
             </div>}
 
             {props.open && <div
-                className="nav-button custom-button deep-shadow"
+                className="nav-button deep-shadow col-3 flex-content-center py-2"
                 style={styles}
                 onClick={props.toggleNav}
             >
-                <p>{props.name}</p>
+                    <p>{props.name}</p>
             </div>}
 
         </>
