@@ -301,25 +301,43 @@ const spellInfoElement = spellInfo.map((info) => (
   return (
     <main>
 
-      <header className="container-fluid index-background" >
-        <div className="row">
-          <div className="col-3 mt-5">
+      <header className="container-fluid" >
+        <div className="row justify-content-center">
+          <div className="col-11 mt-5">
+            <div className="row justify-content-center">
                 {navElements}
+            </div>
           </div>
-          <div className="col-9 mt-5">
-            {navDiceElements}
-            {narrowMissElements}
-            {wildMagicElements}
-            {magicItemElements}
-            {spellElements}
-          </div>
+
+          {console.log(navDiceElements[0].props.open)}
+          {console.log(narrowMissElements[0].props.open)}
+          {console.log(wildMagicElements[0].props.open)}
+          {console.log(magicItemElements[0].props.open)}
+          {console.log(spellElements[0].props.open)}
+          {console.log(navDiceElements)}
+
+          {(navDiceElements[0].props.open ||
+           narrowMissElements[0].props.open ||
+           wildMagicElements[0].props.open ||
+           magicItemElements[0].props.open ||
+           spellElements[0].props.open) &&
+            <div className="col-11 mt-5 mx-2 py-4 index-background">
+              {navDiceElements}
+              {narrowMissElements}
+              {wildMagicElements}
+              {magicItemElements}
+              {spellElements}
+            </div>
+          }
         </div>
       </header>
 
 
       {!spellLevelButtons.length == 0 &&
-        <section className="index-background py-4" id="spells">
-          {spellLevelElements}
+        <section className="container-fluid index-background my-5 py-4" id="spells">
+          <div className="row justify-content-center">
+            {spellLevelElements}
+          </div>
           <div className="col-1 arrow-flex-position" id="arrow-to-top" onClick={toTop}>
               <div className="arrow-container">
                   <div className="arrow-head"></div>
