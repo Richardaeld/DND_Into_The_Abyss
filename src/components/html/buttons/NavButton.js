@@ -14,7 +14,7 @@ export default function NavButton(props) {
                 style={styles}
                 onClick={props.toggleNav}
             >
-                    <p>{props.name}</p>
+                <p>{props.name}</p>
             </div>}
 
             {props.open && <div
@@ -22,7 +22,7 @@ export default function NavButton(props) {
                 style={styles}
                 onClick={props.toggleNav}
             >
-                    <p>{props.name}</p>
+                <p>{props.name}</p>
             </div>}
 
         </>
