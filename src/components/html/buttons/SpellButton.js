@@ -27,23 +27,19 @@ export default function Spells(props) {
                 </div>
                 <div className="col-12">
                     <div className="row">
-                        <div className="col-3">
+                        <div className="col-4">
                             <p className="mb-0 spell-key">Type</p>
                             <p><strong>{props.type}</strong></p>
                         </div>
-                        <div className="col-3">
+                        <div className="col-4">
                             <p className="mb-0 spell-key">Ritual</p>
                             {props.ritual && <p><strong>True</strong></p>}
                             {!props.ritual && <p><strong>False</strong></p>}
 
                         </div>
-                        <div className="col-3">
+                        <div className="col-4">
                             <p className="mb-0 spell-key">School</p>
                             <p><strong>{props.school}</strong></p>
-                        </div>
-                        <div className="col-3">
-                            <p className="mb-0 spell-key">Components</p>
-                            <p><strong>{props.components}</strong></p>
                         </div>
                     </div>
                 </div>
@@ -57,17 +53,14 @@ export default function Spells(props) {
                 </div>
 
                 <div className="col-12">
-                    <div className="row justify-content-between">
+                    <div className="row">
                         <div className="col-3">
                             <p className="mb-0 spell-key">classes</p>
                             <p><strong>{props.classes.map(x => x + " ")}</strong></p>
                         </div>
-                        <div className="col-1 arrow-flex-position" id="arrow-to-top" onClick={props.toTop}>
-                            <div className="arrow-container">
-                                <div className="arrow-head"></div>
-                                <div className="arrow-base"></div>
-
-                            </div>
+                        <div className="col-6">
+                            <p className="mb-0 spell-key">Components</p>
+                            <p><strong>{props.components}</strong></p>
                         </div>
                         <div className="col-3">
                             <p className="mb-0 spell-key">tags</p>
@@ -75,6 +68,15 @@ export default function Spells(props) {
                         </div>
                     </div>
                 </div>
+
+
+                <div className="col-1 arrow-flex-position" id="arrow-to-top" onClick={props.toTop}>
+                    <div className="arrow-container">
+                        <div className="arrow-head"></div>
+                        <div className="arrow-base"></div>
+                    </div>
+                </div>
+
             </div>
 
         </>

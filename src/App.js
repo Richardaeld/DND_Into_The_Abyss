@@ -108,16 +108,16 @@ function spellLogic(id, name, value) {
       return output.push(x)
     }
   })
-  console.log(output)
   setSpellLevelButtons(output)
 }
 
 function spellDisplay(name, obj) {
   [obj].map(x => Object.assign(x, {open: true}))
-  let spellDescriptPosition = document.getElementById("spell-description")
-  let spellDescriptPositionY = spellDescriptPosition.getBoundingClientRect()
-  window.scrollTo(0, spellDescriptPositionY.y + window.pageYOffset - 15)
+  // let spellDescriptPosition = document.getElementById("spell-description")
+  // let spellDescriptPositionY = spellDescriptPosition.getBoundingClientRect()
+  // window.scrollTo(0, spellDescriptPositionY.y + window.pageYOffset - 15)
   setSpellInfo([obj])
+  // setSpellLevelButtons([])
 }
 
   function toTop() {
@@ -202,7 +202,6 @@ function spellDisplay(name, obj) {
         })
       })
       setOutTarget([])
-
     }
 
     // Reveal nav button content
@@ -212,7 +211,6 @@ function spellDisplay(name, obj) {
       })
     })
   }
-
 
   // ------------------------------------Creates multiple iterations from single components
   const navElements = navNames.map(navName => (
@@ -318,13 +316,25 @@ const spellInfoElement = spellInfo.map((info) => (
         </div>
       </header>
 
-      <section className="index-background py-4" id="spells">
-        {spellLevelElements}
-      </section>
 
-      <section className="container-fluid spell-display py-4 px-4 mt-5" id="spell-description">
-            {spellInfoElement}
-      </section>
+      {!spellLevelButtons.length == 0 &&
+        <section className="index-background py-4" id="spells">
+          {spellLevelElements}
+          <div className="col-1 arrow-flex-position" id="arrow-to-top" onClick={toTop}>
+              <div className="arrow-container">
+                  <div className="arrow-head"></div>
+                  <div className="arrow-base"></div>
+              </div>
+            </div>
+        </section>
+       }
+
+      {!spellInfo.length == 0 &&
+        <section className="container-fluid spell-display py-4 px-4 mt-5" id="spell-description">
+              {spellInfoElement}
+
+        </section>
+      }
 
       <section className="container-fluid">
           {(outTarget[1] || outTarget[0]) && <OutContainer
