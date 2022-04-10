@@ -10,7 +10,7 @@ export default function NavButton(props) {
     return (
         <>
             {!props.open && <div
-                className="nav-button col-3 flex-content-center py-2"
+                className="nav-button col-3 flex-content-center py-2 nonselectable"
                 style={styles}
                 onClick={props.toggleNav}
             >
@@ -18,7 +18,7 @@ export default function NavButton(props) {
             </div>}
 
             {props.open && <div
-                className="nav-button deep-shadow col-3 flex-content-center py-2"
+                className="nav-button deep-shadow col-3 flex-content-center py-2 nonselectable"
                 style={styles}
                 onClick={props.toggleNav}
             >

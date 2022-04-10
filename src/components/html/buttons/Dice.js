@@ -11,7 +11,7 @@ export default function Dice(props) {
 
         <div
             style={styles}
-            className="dice custom-button"
+            className="nonselectable hand-drawn-text hand-drawn-container hand-drawn-border"
             id={"rolldice" + props.name}
             onClick={props.click}
         >

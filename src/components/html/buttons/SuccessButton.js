@@ -9,7 +9,7 @@ export default function SuccessButton(props) {
     return (
         <div
             style={styles}
-            className="dice custom-button"
+            className="nonselectable hand-drawn-text hand-drawn-container hand-drawn-border"
             onClick={props.click}
         >
             <p><strong>{props.name}</strong></p>

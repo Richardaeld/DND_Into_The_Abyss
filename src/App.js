@@ -361,13 +361,12 @@ const spellInfoElement = spellInfo.map((info) => (
        }
 
       {!spellInfo.length == 0 &&
-        <section className="container-fluid spell-display py-4 px-4 mt-5" id="spell-description">
+        <section className="container-fluid mt-5" id="spell-description">
               {spellInfoElement}
-
         </section>
       }
 
-      <section className="container-fluid">
+      <section className="container-fluid" id="consoleOutput">
           {(outTarget[1] || outTarget[0]) && <OutContainer
             num = {outTarget[0]}
             content = {outTarget[1]}
