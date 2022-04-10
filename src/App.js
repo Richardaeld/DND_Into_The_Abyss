@@ -211,11 +211,22 @@ function spellDisplay(name, obj) {
       })
       setOutTarget([])
       setSpellLevelButtons([])
+      setNavNames(prev => {
+        return prev.map((prevState) => {
+          return {...prevState, open: false}
+        })
+      })
+      console.log(navNames)
     }
 
     // Reveal nav button content
     setNavNames(prevNavNames => {
       return prevNavNames.map((navName) => {
+
+        if (navName.id === "spells" && navName.open ){
+          return
+        }
+
         return navName.id === id ? {...navName, open: !navName.open} : {...navName, open: false}
       })
     })
@@ -317,13 +328,6 @@ const spellInfoElement = spellInfo.map((info) => (
                 {navElements}
             </div>
           </div>
-
-          {console.log(navDiceElements[0].props.open)}
-          {console.log(narrowMissElements[0].props.open)}
-          {console.log(wildMagicElements[0].props.open)}
-          {console.log(magicItemElements[0].props.open)}
-          {console.log(spellElements[0].props.open)}
-          {console.log(navDiceElements)}
 
           {(navDiceElements[0].props.open ||
            narrowMissElements[0].props.open ||
