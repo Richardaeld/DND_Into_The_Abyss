@@ -49,7 +49,7 @@ function App() {
   const [magicItemTableA, setMagicItemTableA] = React.useState(MagicItemTableA)
   const [allSpells, setAllSpells] = React.useState(AllSpells)
   // return output obj
-  const [outTarget, setOutTarget] = React.useState([,"Welcome to DM Tool a friendly quick reference for DMs and Players alike!"])
+  const [outTarget, setOutTarget] = React.useState([,"Welcome to DM Tool, a friendly quick reference for DMs and Players alike!"])
 
 
   // ------------------------------------Functions to change elements
