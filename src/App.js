@@ -108,6 +108,11 @@ function spellLogic(id, name, value) {
       return output.push(x)
     }
   })
+  setSpellButtons(prev => {
+    return prev.map((prevState) => {
+      return {...prevState, open: false}
+    })
+  })
   setSpellLevelButtons(output)
 }
 
@@ -117,6 +122,7 @@ function spellDisplay(name, obj) {
   // let spellDescriptPositionY = spellDescriptPosition.getBoundingClientRect()
   // window.scrollTo(0, spellDescriptPositionY.y + window.pageYOffset - 15)
   setSpellInfo([obj])
+  setSpellLevelButtons([])
   // setSpellLevelButtons([])
 }
 
@@ -127,6 +133,8 @@ function spellDisplay(name, obj) {
   // Toggle visibility of sub nav buttons
   function toggleNav(id, targetId) {
 
+    // clear spells section
+    setSpellInfo([])
 
     // Set all buttons to invisible
     if (!(targetId == "dice")){
@@ -202,6 +210,7 @@ function spellDisplay(name, obj) {
         })
       })
       setOutTarget([])
+      setSpellLevelButtons([])
     }
 
     // Reveal nav button content
