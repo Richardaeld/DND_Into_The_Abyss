@@ -9,10 +9,10 @@ export default function smallSpellButton (props) {
     return (
         <div
             style={styles}
-            className="small-spell-buttons col-2"
+            className="dice custom-button col-2"
             onClick={props.click}
         >
-            <p>{props.name}</p>
+            <p><strong>{props.name}</strong></p>
         </div>
     )
 }
