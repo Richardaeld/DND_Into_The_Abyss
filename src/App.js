@@ -279,7 +279,7 @@ function spellDisplay(name, obj) {
     />
   ))
 
-  const spellElements = spellButtons.map ((button) => (
+  const spellCantripAndLevelElements = spellButtons.map ((button) => (
     <SuccessButton
       key={button.id}
       name={button.name}
@@ -289,7 +289,7 @@ function spellDisplay(name, obj) {
     />
   ))
 
-  const spellLevelElements = spellLevelButtons.map ((button) => (
+  const allspellsElements = spellLevelButtons.map ((button) => (
     <SmallSpellButton
       key={button.name}
       name={button.name}
@@ -333,13 +333,13 @@ const spellInfoElement = spellInfo.map((info) => (
            narrowMissElements[0].props.open ||
            wildMagicElements[0].props.open ||
            magicItemElements[0].props.open ||
-           spellElements[0].props.open) &&
+           spellCantripAndLevelElements[0].props.open) &&
             <div className="col-11 mt-5 mx-2 py-4 index-background">
               {navDiceElements}
               {narrowMissElements}
               {wildMagicElements}
               {magicItemElements}
-              {spellElements}
+              {spellCantripAndLevelElements}
             </div>
           }
         </div>
@@ -349,7 +349,7 @@ const spellInfoElement = spellInfo.map((info) => (
       {!spellLevelButtons.length == 0 &&
         <section className="container-fluid index-background my-5 py-4" id="spells">
           <div className="row justify-content-center">
-            {spellLevelElements}
+            {allspellsElements}
           </div>
           <div className="col-1 arrow-flex-position" id="arrow-to-top" onClick={toTop}>
               <div className="arrow-container">

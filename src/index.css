@@ -133,6 +133,9 @@ p {
               -2px -2px 3px #faf9f6;
 }
 
+.small-spell-buttons {
+  width:auto
+}
 .spell-key {
   text-decoration: underline;
   font-family: "Shadows Into Light", sans-serif;
@@ -208,9 +211,15 @@ p {
   .hand-drawn-container p {
       font-size: 1.5rem;
   }
-  .hand-drawn-container{width:17%}
+  .hand-drawn-container {
+    cursor: pointer;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    line-height: .5em;
+    margin: .75rem;
+    width:17%
+  }
 }
-
 @media (max-width: 767.98px) {
   .hand-drawn-container{width:25%}
 
