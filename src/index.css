@@ -145,7 +145,13 @@ hr {
   /* transform: scale(.9); */
 }
 
+.spell-info-p {
 
+  text-shadow: 1px 1px #333;
+  font-family: "Shadows Into Light", sans-serif;
+  letter-spacing: 2px;
+
+}
 
 .small-spell-buttons p {
   margin-bottom: 0;

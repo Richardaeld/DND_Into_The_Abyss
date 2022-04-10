@@ -9,19 +9,19 @@ export default function Spells(props) {
                     <div className="row">
                         <div className="col-3">
                             <p className="mb-0 spell-key">Name</p>
-                            <p><strong>{props.name}</strong></p>
+                            <p className="spell-info-p"><strong>{props.name}</strong></p>
                         </div>
                         <div className="col-3">
                             <p className="mb-0 spell-key">Casting Time</p>
-                            <p><strong>{props.castingTime}</strong></p>
+                            <p className="spell-info-p"><strong>{props.castingTime}</strong></p>
                         </div>
                         <div className="col-3">
                             <p className="mb-0 spell-key">Range</p>
-                            <p><strong>{props.range}</strong></p>
+                            <p className="spell-info-p"><strong>{props.range}</strong></p>
                         </div>
                         <div className="col-3">
                             <p className="mb-0 spell-key">Duration</p>
-                            <p><strong>{props.duration}</strong></p>
+                            <p className="spell-info-p"><strong>{props.duration}</strong></p>
                         </div>
                     </div>
                 </div>
@@ -29,17 +29,17 @@ export default function Spells(props) {
                     <div className="row">
                         <div className="col-4">
                             <p className="mb-0 spell-key">Type</p>
-                            <p><strong>{props.type}</strong></p>
+                            <p className="spell-info-p"><strong>{props.type}</strong></p>
                         </div>
                         <div className="col-4">
                             <p className="mb-0 spell-key">Ritual</p>
-                            {props.ritual && <p><strong>True</strong></p>}
-                            {!props.ritual && <p><strong>False</strong></p>}
+                            {props.ritual && <p className="spell-info-p"><strong>True</strong></p>}
+                            {!props.ritual && <p className="spell-info-p"><strong>False</strong></p>}
 
                         </div>
                         <div className="col-4">
                             <p className="mb-0 spell-key">School</p>
-                            <p><strong>{props.school}</strong></p>
+                            <p className="spell-info-p"><strong>{props.school}</strong></p>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ export default function Spells(props) {
                     <div className="row">
                         <div className="col-12">
                             <p className="mb-0 spell-key">Description</p>
-                            <p><strong>{props.description}</strong></p>
+                            <p className="spell-info-p"><strong>{props.description}</strong></p>
                         </div>
                     </div>
                 </div>
@@ -56,15 +56,15 @@ export default function Spells(props) {
                     <div className="row">
                         <div className="col-3">
                             <p className="mb-0 spell-key">classes</p>
-                            <p><strong>{props.classes.map(x => x + " ")}</strong></p>
+                            <p className="spell-info-p"><strong>{props.classes.map(x => x + " ")}</strong></p>
                         </div>
                         <div className="col-6">
                             <p className="mb-0 spell-key">Components</p>
-                            <p><strong>{props.components}</strong></p>
+                            <p className="spell-info-p"><strong>{props.components}</strong></p>
                         </div>
                         <div className="col-3">
                             <p className="mb-0 spell-key">tags</p>
-                            <p><strong>{props.tags.map(x => x + " ")}</strong></p>
+                            <p className="spell-info-p"><strong>{props.tags.map(x => x + " ")}</strong></p>
                         </div>
                     </div>
                 </div>
