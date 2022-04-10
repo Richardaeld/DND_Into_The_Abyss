@@ -134,7 +134,7 @@ p {
 }
 
 .small-spell-buttons {
-  width:auto
+  width:auto!important;
 }
 .spell-key {
   text-decoration: underline;
