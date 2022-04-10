@@ -84,7 +84,7 @@ hr {
   font-family: "Shadows Into Light", sans-serif;
   /* text-align: center; */
   /* box-sizing: content-box; */
-  text-shadow: 2px 2px #333;
+  /* text-shadow: 2px 2px #333; */
   color: #010203;
   transition-duration: .5s;
   cursor: pointer;
