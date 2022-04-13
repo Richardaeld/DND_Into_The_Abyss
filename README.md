@@ -5,6 +5,8 @@ Every experienced DM knows a player that had to play a caster however they are a
 
 Currently, this app provides a wealth of spells, dice rolls, and some quick reference tables for a DM to help ease the need for looking up materials during a session.
 
+![DM Tool responsiveness](dm_tool.jpg)
+
 # Future
 ## Addition I
 This application is still in development and will be receiving a full backend server with RESTful API system to allow for adding, editing, and removing spells and tables.
