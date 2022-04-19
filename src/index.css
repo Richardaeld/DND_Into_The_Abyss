@@ -221,6 +221,9 @@ p {
   }
 }
 @media (max-width: 767.98px) {
+  .spell-display p {
+    font-size: 1.25rem;
+  }
   .hand-drawn-container{width:25%}
 
 }

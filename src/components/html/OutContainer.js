@@ -4,7 +4,7 @@ export default function OutContainer (props) {
     return (
 
         <div className="row justify-content-center">
-            <div className="col-6 output spell-display py-5">
+            <div className="col-11 col-md-6 output spell-display py-5">
                 {props.num &&
                     <>
                         <p className="spell-key mb-0">You rolled</p>
