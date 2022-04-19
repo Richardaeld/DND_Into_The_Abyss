@@ -224,10 +224,14 @@ p {
   .spell-display p {
     font-size: 1.25rem;
   }
-  .hand-drawn-container{width:25%}
+  .hand-drawn-container{
+    width:25%
+  }
 
 }
 @media (max-width: 575.98px) {
-  .hand-drawn-container{width:40%}
+  .hand-drawn-container{
+    width:40%
+  }
 
 }
