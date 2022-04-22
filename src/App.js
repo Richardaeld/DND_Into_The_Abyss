@@ -49,7 +49,7 @@ function App() {
   const [magicItemTableA, setMagicItemTableA] = React.useState(MagicItemTableA)
   const [allSpells, setAllSpells] = React.useState(AllSpells)
   // return output obj
-  const [outTarget, setOutTarget] = React.useState([,"Welcome to DM Tool, a friendly quick reference for DMs and Players alike!"])
+  const [outTarget, setOutTarget] = React.useState(["", "Welcome to DM Tool, a friendly quick reference for DMs and Players alike!"])
 
 
   // ------------------------------------Functions to change elements
@@ -64,31 +64,33 @@ function App() {
 
 // run success logic
   function successLogic(id, name, obj) {
-    if (obj == "Melee") {
-      var diceRoll = Math.floor(Math.random()*narrowSuccessMelee.length + 1)
-      var text = narrowSuccessMelee[diceRoll].value
+    var diceRoll = 0
+    var text = ""
+    if (obj === "Melee") {
+      diceRoll = Math.floor(Math.random()*narrowSuccessMelee.length + 1)
+      text = narrowSuccessMelee[diceRoll].value
 
-    } else if (obj == "Ranged") {
-      var diceRoll = Math.floor(Math.random()*narrowSuccessRanged.length + 1)
-      var text = narrowSuccessRanged[diceRoll].value
+    } else if (obj === "Ranged") {
+      diceRoll = Math.floor(Math.random()*narrowSuccessRanged.length + 1)
+      text = narrowSuccessRanged[diceRoll].value
 
-    } else if (obj == "Magic") {
-      var diceRoll = Math.floor(Math.random()*narrowSuccessMagic.length + 1)
-      var text = narrowSuccessMagic[diceRoll].value
+    } else if (obj === "Magic") {
+      diceRoll = Math.floor(Math.random()*narrowSuccessMagic.length + 1)
+      text = narrowSuccessMagic[diceRoll].value
 
-    } else if (obj == "raw") {
-      var diceRoll = Math.floor(Math.random()*wildMagicRaw.length + 1)
-      var text = wildMagicRaw[diceRoll].value
+    } else if (obj === "raw") {
+      diceRoll = Math.floor(Math.random()*wildMagicRaw.length + 1)
+      text = wildMagicRaw[diceRoll].value
 
-    } else if (obj == "homebrew") {
-      var diceRoll = Math.floor(Math.random()*wildMagicHomeBrew.length + 1)
-      var text = wildMagicHomeBrew[diceRoll].value
+    } else if (obj === "homebrew") {
+      diceRoll = Math.floor(Math.random()*wildMagicHomeBrew.length + 1)
+      text = wildMagicHomeBrew[diceRoll].value
 
-    } else if (obj == "tableA") {
-      var diceRoll = Math.floor(Math.random()*magicItemTableA.length + 1)
-      var text = magicItemTableA[diceRoll].value
+    } else if (obj === "tableA") {
+      diceRoll = Math.floor(Math.random()*magicItemTableA.length + 1)
+      text = magicItemTableA[diceRoll].value
 
-    } else if (obj == "spells") {
+    } else if (obj === "spells") {
       console.log("Not built yet!!")
     }
 
@@ -104,7 +106,7 @@ function spellLogic(id, name, value) {
   // console.log(id, name, value)
   var output = []
   allSpells["spells"].map(x => {
-    if (x["level"] == value){
+    if (x["level"] === value){
       return output.push(x)
     }
   })
@@ -137,35 +139,35 @@ function spellDisplay(name, obj) {
     setSpellInfo([])
 
     // Set all buttons to invisible
-    if (!(targetId == "dice")){
+    if (!(targetId === "dice")){
       setNavDice(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: false}
         })
       })
     }
-    if(!(targetId == "narrow")){
+    if(!(targetId === "narrow")){
       setNarrowSuccessButtons(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: false}
         })
       })
     }
-    if(!(targetId == "wild")){
+    if(!(targetId === "wild")){
       setWildMagicButtons(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: false}
         })
       })
     }
-    if(!(targetId == "items")){
+    if(!(targetId === "items")){
       setMagicItemButtons(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: false}
         })
       })
     }
-    if(!(targetId == "spells")){
+    if(!(targetId === "spells")){
       setSpellButtons(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: false}
@@ -178,32 +180,32 @@ function spellDisplay(name, obj) {
 
 
     // Reveal navigation sub buttons
-    if (targetId == "dice"){
+    if (targetId === "dice"){
       setNavDice(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: !prevState.open}
         })
       })
-    } else if (targetId == "narrow") {
+    } else if (targetId === "narrow") {
       setNarrowSuccessButtons(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: !prevState.open}
         })
       })
-    } else if (targetId == "wild") {
+    } else if (targetId === "wild") {
       setWildMagicButtons(prev => {
         console.log(prev)
         return prev.map((prevState) => {
           return {...prevState, open: !prevState.open}
         })
       })
-    } else if (targetId == "items") {
+    } else if (targetId === "items") {
       setMagicItemButtons(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: !prevState.open}
         })
       })
-    } else if (targetId == "spells") {
+    } else if (targetId === "spells") {
       setSpellButtons(prev => {
         return prev.map((prevState) => {
           return {...prevState, open: !prevState.open}
@@ -317,6 +319,26 @@ const spellInfoElement = spellInfo.map((info) => (
   />
 ))
 
+const getDataTest = async e => {
+
+  try {
+    const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/sub/viewAll", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+    console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    console.log(response);
+    
+  } catch (err) {
+    // console.log("err")
+    console.error(err.message);
+    console.log("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+  }
+};
+
+getDataTest()
+
+
   // ------------------------------------DOM return
   return (
     <main>
@@ -340,13 +362,14 @@ const spellInfoElement = spellInfo.map((info) => (
               {wildMagicElements}
               {magicItemElements}
               {spellCantripAndLevelElements}
+              
             </div>
           }
         </div>
       </header>
 
 
-      {!spellLevelButtons.length == 0 &&
+      {!spellLevelButtons.length === 0 &&
         <section className="container-fluid index-background my-5 py-4" id="spells">
           <div className="row justify-content-center">
             {allspellsElements}
@@ -360,7 +383,7 @@ const spellInfoElement = spellInfo.map((info) => (
         </section>
        }
 
-      {!spellInfo.length == 0 &&
+      {!spellInfo.length === 0 &&
         <section className="container-fluid mt-5" id="spell-description">
               {spellInfoElement}
         </section>
@@ -370,6 +393,8 @@ const spellInfoElement = spellInfo.map((info) => (
           {(outTarget[1] || outTarget[0]) && <OutContainer
             num = {outTarget[0]}
             content = {outTarget[1]}
+            // num = {getDataTest}
+            // content = {getDataTest}
           />
           }
       </section>
