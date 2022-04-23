@@ -322,17 +322,26 @@ const spellInfoElement = spellInfo.map((info) => (
 const getDataTest = async e => {
 
   try {
-    const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/sub/viewAll", {
+    const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll", {
       method: "GET",
-      headers: { "Content-Type": "application/json" },
-    });
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNjUwNjY0MzI1LCJleHAiOjE2NTA2Njc5MjV9.-MHqnf2LpfF9pcV7_z0T9mfwFJ71LE899exW6HAjj4E"
+      },
+    })
+    .then((res) => res.json())
+    .then((json) => {
+      json["buttons"].map(x => {
+        console.log(x['name'])
+      })
+      // console.log(Object.keys(json))
+      console.log(json["buttons"].length)
+    })
+    // window.location = '/';
     console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-    console.log(response);
-    
+
   } catch (err) {
-    // console.log("err")
     console.error(err.message);
-    console.log("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
   }
 };
 
