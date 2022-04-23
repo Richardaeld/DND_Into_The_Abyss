@@ -325,8 +325,8 @@ const getDataTest = async e => {
     const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll", {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
-        "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNjUwNjY0MzI1LCJleHAiOjE2NTA2Njc5MjV9.-MHqnf2LpfF9pcV7_z0T9mfwFJ71LE899exW6HAjj4E"
+        // "Content-Type": "application/json",
+        // "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNjUwNjY0MzI1LCJleHAiOjE2NTA2Njc5MjV9.-MHqnf2LpfF9pcV7_z0T9mfwFJ71LE899exW6HAjj4E"
       },
     })
     .then((res) => res.json())
