@@ -39,14 +39,33 @@ const ListNavs = async () => {
     const jsonData = await response.json()
 
     setNavNames(jsonData['buttons']);
+    console.log(jsonData['buttons'])
   } catch (err) {
     console.error(err)
   }
-
 }
 
+// Sets Sub Nav Buttons
+const ListSubNavs = async () => {
+  try {
+    const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/sub/viewAll");
+    const jsonData = await response.json();
+
+    console.log(jsonData['buttons'])
+
+    // const parse1 = '{{"name": "2"}}'
+    // const test123 = jsonData['buttons'].parse(parse1);
+    // console.log(test123.name)
+
+  } catch (err) {
+    console.error(err);
+  }
+
+  
+}
   useEffect(() => {
     ListNavs();
+    ListSubNavs();
   }, []);
 
 

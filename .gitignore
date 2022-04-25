@@ -30,3 +30,4 @@ __pycache__/
 *.py[cod]
 python_dump
 node_modules
+dummyData*
