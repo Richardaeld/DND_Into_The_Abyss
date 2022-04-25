@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+// import React from 'react';
 
 // html content
 import Dice from "./components/html/buttons/Dice";
@@ -30,9 +31,36 @@ import WildMagicRaw from './components/objects/content/WildMagicRaw';
 import AllSpells from './components/json/AllSpells'
 
 function App() {
+
+// Sets Main Nav buttons
+const ListNavs = async () => {
+  try {
+    const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll");
+    const jsonData = await response.json()
+
+    setNavNames(jsonData['buttons']);
+  } catch (err) {
+    console.error(err)
+  }
+
+}
+
+  useEffect(() => {
+    ListNavs();
+  }, []);
+
+
+
+
+
+
   // ------------------------------------Active elements
   // button obj
-  const [navNames, setNavNames] = React.useState(NavButtonNames)
+  // console.log("testlog", test123)
+  // console.log("testlog123", NavButtonNames)
+  // const [navNames, setNavNames] = React.useState([ListNavs])
+  const [navNames, setNavNames] = React.useState([])
+  // const [navNames, setNavNames] = React.useState(NavButtonNames)
   const [navDice, setNavDice] = React.useState(TotalDice)
   const [narrowSuccessButtons, setNarrowSuccessButtons] = React.useState(NarrowMissButtons)
   const [wildMagicButtons, setWildMagicButtons] = React.useState(WildMagicButtons)
@@ -319,33 +347,9 @@ const spellInfoElement = spellInfo.map((info) => (
   />
 ))
 
-const getDataTest = async e => {
 
-  try {
-    const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll", {
-      method: "GET",
-      headers: {
-        // "Content-Type": "application/json",
-        // "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNjUwNjY0MzI1LCJleHAiOjE2NTA2Njc5MjV9.-MHqnf2LpfF9pcV7_z0T9mfwFJ71LE899exW6HAjj4E"
-      },
-    })
-    .then((res) => res.json())
-    .then((json) => {
-      json["buttons"].map(x => {
-        console.log(x['name'])
-      })
-      // console.log(Object.keys(json))
-      console.log(json["buttons"].length)
-    })
-    // window.location = '/';
-    console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 
-  } catch (err) {
-    console.error(err.message);
-  }
-};
 
-getDataTest()
 
 
   // ------------------------------------DOM return
