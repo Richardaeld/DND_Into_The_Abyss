@@ -9,6 +9,7 @@ import NavButton from "./components/html/buttons/NavButton";
 import SpellButton from './components/html/buttons/SpellButton'
 import SmallSpellButton from './components/html/buttons/SmallSpellButton';
 import SuccessButton from './components/html/buttons/SuccessButton'
+import SuccessNewButton from './components/html/buttons/SuccessNewButton'
 import OutContainer from './components/html/OutContainer';
 
 // buttons objects
@@ -33,17 +34,22 @@ import AllSpells from './components/json/AllSpells'
 function App() {
 
 // Sets Main Nav buttons
+var mainNavInfo = [];
+let subNavInfo = [];
 const ListNavs = async () => {
   try {
     const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll");
     const jsonData = await response.json()
 
+    console.log("main", jsonData['buttons'])
+    mainNavInfo = jsonData['buttons']
+    // console.log(mainNavInfo)
     setNavNames(jsonData['buttons']);
-    console.log(jsonData['buttons'])
   } catch (err) {
     console.error(err)
   }
 }
+// console.log(mainNavInfo)
 
 // Sets Sub Nav Buttons
 const ListSubNavs = async () => {
@@ -51,17 +57,13 @@ const ListSubNavs = async () => {
     const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/sub/viewAll");
     const jsonData = await response.json();
 
-    console.log(jsonData['buttons'])
-
-    // const parse1 = '{{"name": "2"}}'
-    // const test123 = jsonData['buttons'].parse(parse1);
-    // console.log(test123.name)
-
+    console.log("sub", jsonData['buttons'])
+    // setSubNavNames(jsonData['buttons'])
   } catch (err) {
     console.error(err);
   }
 
-  
+
 }
   useEffect(() => {
     ListNavs();
@@ -258,6 +260,7 @@ function spellDisplay(name, obj) {
           return {...prevState, open: !prevState.open}
         })
       })
+
       setOutTarget([])
       setSpellLevelButtons([])
       setNavNames(prev => {
@@ -265,18 +268,50 @@ function spellDisplay(name, obj) {
           return {...prevState, open: false}
         })
       })
-      console.log(navNames)
     }
+
+
+
+
+
 
     // Reveal nav button content
     setNavNames(prevNavNames => {
+
+
+
+
+
+
+
       return prevNavNames.map((navName) => {
 
         if (navName.id === "spells" && navName.open ){
           return
         }
 
-        return navName.id === id ? {...navName, open: !navName.open} : {...navName, open: false}
+        // return navName.id === id ? {...navName, open: !navName.open} : {...navName, open: false}
+        if (navName.id === id) {
+          // find and get sub navs
+          const getSubNav = async () => {
+            try{
+              const response =await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll/children/${navName.id}`)
+              const jsonData = await response.json()
+              console.log(jsonData['button'], "IM JSON DATAS")
+              
+              setSubNavNames(jsonData['button'])
+
+            } catch (err) {
+              console.error(err)
+            }
+          }
+            getSubNav();
+          return {...navName, open: !navName.open}
+        } else {
+          return {...navName, open: false}
+        }
+
+
       })
     })
   }
@@ -300,6 +335,63 @@ function spellDisplay(name, obj) {
       click={() => rollDice(navDie.id, navDie.value)}
     />
   ))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // function toggleNewNav(id, targetId, parentId) {
+    //   if (!(targetId === parentId)) {
+    //     setSubNavNames(prev => {
+    //       return prev.map((prevState) => {
+    //         return {...prevState, open: false}
+    //       })
+    //     })
+    //   }
+    // }
+
+  const [subNavNames, setSubNavNames] = React.useState([])
+  // console.log("mainnva info" , mainNavInfo)
+  const subNavElements = subNavNames.map(button => (
+    <SuccessNewButton
+      key={button.id}
+      name={button.name}
+      // name={mainNavInfo.name}
+      open={button.true}
+      // open={button.open}
+      // foreignKey={button.parent_foreign_key}
+      // click={() => successLogic(button.id, button.name, button.objName)}
+      // click={() => toggleNewNav(button.id, button., button.parentId)}
+    />
+  ))
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
 
   const narrowMissElements = narrowSuccessButtons.map(button => (
     <SuccessButton
@@ -380,15 +472,23 @@ const spellInfoElement = spellInfo.map((info) => (
           <div className="col-11 mt-5">
             <div className="row justify-content-center">
                 {navElements}
+              {/* {subNavElements} */}
+
             </div>
           </div>
 
-          {(navDiceElements[0].props.open ||
-           narrowMissElements[0].props.open ||
-           wildMagicElements[0].props.open ||
-           magicItemElements[0].props.open ||
-           spellCantripAndLevelElements[0].props.open) &&
+          {
+          // (navDiceElements[0].props.open ||
+          //  narrowMissElements[0].props.open ||
+          //  wildMagicElements[0].props.open ||
+          //  magicItemElements[0].props.open ||
+          //  spellCantripAndLevelElements[0].props.open) 
+          //  &&
             <div className="col-11 mt-5 mx-2 py-4 index-background">
+              
+              
+              {subNavElements}
+
               {navDiceElements}
               {narrowMissElements}
               {wildMagicElements}
