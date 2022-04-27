@@ -275,6 +275,25 @@ function spellDisplay(name, obj) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Reveal nav button content
     setNavNames(prevNavNames => {
 
@@ -298,7 +317,7 @@ function spellDisplay(name, obj) {
               const response =await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll/children/${navName.id}`)
               const jsonData = await response.json()
               console.log(jsonData['button'], "IM JSON DATAS")
-              
+
               setSubNavNames(jsonData['button'])
 
             } catch (err) {
@@ -353,34 +372,69 @@ function spellDisplay(name, obj) {
 
 
 
-    // function toggleNewNav(id, targetId, parentId) {
-    //   if (!(targetId === parentId)) {
-    //     setSubNavNames(prev => {
-    //       return prev.map((prevState) => {
-    //         return {...prevState, open: false}
-    //       })
-    //     })
-    //   }
-    // }
+    function toggleNewNav(id, name, objName, childContent) {
+      console.log("id", id)
+      console.log("name", name)
+      console.log("objname",objName)
+      console.log("childcontent",childContent)
+
+      // if (id === childContent) {
+      //   console.log("I am here")
+      // }
+
+      if (childContent) {
+        setOutTarget([Math.floor(Math.random()*name + 1)])
+        // console.log("im a roll", Math.floor(Math.random()*name + 1))
+      } else {
+        const ListContent = async () => {
+          try {
+            const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/sub/viewAll/children/${id}`);
+            const jsonData = await response.json();
+            var rollContent = jsonData['button']
+            // console.log("rollcontent", rollContent)
+            var index = Math.floor(Math.random()*rollContent.length + 1)
+            // console.log(rollContent[index]['value'])
+            setOutTarget([rollContent[index]['value']])
+
+            // console.log("CONTENT<<>>", jsonData['content'])
+            // setSubNavNames(jsonData['buttons'])
+          } catch (err) {
+            console.error(err);
+          }
+
+        }
+        ListContent();
+      }
+
+      // if (!(targetId === parentId)) {
+        // setSubNavNames(prev => {
+        //   return prev.map((prevState) => {
+        //     return {...prevState, open: false}
+        //   })
+        // })
+      // }
+    }
 
   const [subNavNames, setSubNavNames] = React.useState([])
   // console.log("mainnva info" , mainNavInfo)
   const subNavElements = subNavNames.map(button => (
     <SuccessNewButton
-      key={button.id}
+      // key={button.id}
+      key={button.name}
       name={button.name}
+      obj_name={button.obj_name}
       // name={mainNavInfo.name}
       open={button.true}
       // open={button.open}
       // foreignKey={button.parent_foreign_key}
       // click={() => successLogic(button.id, button.name, button.objName)}
-      // click={() => toggleNewNav(button.id, button., button.parentId)}
+      click={() => toggleNewNav(button.id, button.name, button.obj_name, button.random_roll_only)}
     />
   ))
 
 
 
-
+// const []
 
   
 
