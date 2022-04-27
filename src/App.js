@@ -20,13 +20,6 @@ import SpellButtons from './components/objects/buttons/SpellButtons';
 import TotalDice from "./components/objects/buttons/TotalDice";
 import WildMagicButtons from './components/objects/buttons/WildMagicButtons';
 
-// content objects
-import MagicItemTableA from './components/objects/content/MagicItemTableA';
-import NarrowMissMagic from './components/objects/content/NarrowMissMagic';
-import NarrowMissMelee from './components/objects/content/NarrowMissMelee';
-import NarrowMissRanged from './components/objects/content/NarrowMissRanged';
-import WildMagicHomeBrew from './components/objects/content/WildMagicHomeBrew';
-import WildMagicRaw from './components/objects/content/WildMagicRaw';
 
 // json
 import AllSpells from './components/json/AllSpells'
@@ -76,10 +69,7 @@ const ListSubNavs = async () => {
 
 
   // ------------------------------------Active elements
-  // button obj
-  // console.log("testlog", test123)
-  // console.log("testlog123", NavButtonNames)
-  // const [navNames, setNavNames] = React.useState([ListNavs])
+
   const [navNames, setNavNames] = React.useState([])
   // const [navNames, setNavNames] = React.useState(NavButtonNames)
   const [navDice, setNavDice] = React.useState(TotalDice)
@@ -90,12 +80,7 @@ const ListSubNavs = async () => {
   const [spellLevelButtons, setSpellLevelButtons] = React.useState([])
   const [spellInfo, setSpellInfo] = React.useState([])
   // content obj
-  const [narrowSuccessMelee, setNarrowSuccessMelee] = React.useState(NarrowMissMelee)
-  const [narrowSuccessRanged, setNarrowSuccessRanged] = React.useState(NarrowMissRanged)
-  const [narrowSuccessMagic, setNarrowSuccessMagic] = React.useState(NarrowMissMagic)
-  const [wildMagicHomeBrew, setWildMagicHomeBrew] = React.useState(WildMagicHomeBrew)
-  const [wildMagicRaw, setWildMagicRaw] = React.useState(WildMagicRaw)
-  const [magicItemTableA, setMagicItemTableA] = React.useState(MagicItemTableA)
+
   const [allSpells, setAllSpells] = React.useState(AllSpells)
   // return output obj
   const [outTarget, setOutTarget] = React.useState(["", "Welcome to DM Tool, a friendly quick reference for DMs and Players alike!"])
@@ -112,42 +97,7 @@ const ListSubNavs = async () => {
 
 
 // run success logic
-  function successLogic(id, name, obj) {
-    var diceRoll = 0
-    var text = ""
-    if (obj === "Melee") {
-      diceRoll = Math.floor(Math.random()*narrowSuccessMelee.length + 1)
-      text = narrowSuccessMelee[diceRoll].value
 
-    } else if (obj === "Ranged") {
-      diceRoll = Math.floor(Math.random()*narrowSuccessRanged.length + 1)
-      text = narrowSuccessRanged[diceRoll].value
-
-    } else if (obj === "Magic") {
-      diceRoll = Math.floor(Math.random()*narrowSuccessMagic.length + 1)
-      text = narrowSuccessMagic[diceRoll].value
-
-    } else if (obj === "raw") {
-      diceRoll = Math.floor(Math.random()*wildMagicRaw.length + 1)
-      text = wildMagicRaw[diceRoll].value
-
-    } else if (obj === "homebrew") {
-      diceRoll = Math.floor(Math.random()*wildMagicHomeBrew.length + 1)
-      text = wildMagicHomeBrew[diceRoll].value
-
-    } else if (obj === "tableA") {
-      diceRoll = Math.floor(Math.random()*magicItemTableA.length + 1)
-      text = magicItemTableA[diceRoll].value
-
-    } else if (obj === "spells") {
-      console.log("Not built yet!!")
-    }
-
-
-    setOutTarget([diceRoll, text])
-    // console.log(outTarget)
-
-  }
 
 
 // open spell name buttons
@@ -184,92 +134,7 @@ function spellDisplay(name, obj) {
   // Toggle visibility of sub nav buttons
   function toggleNav(id, targetId) {
 
-    // clear spells section
-    setSpellInfo([])
-
-    // Set all buttons to invisible
-    if (!(targetId === "dice")){
-      setNavDice(prev => {
-        return prev.map((prevState) => {
-          return {...prevState, open: false}
-        })
-      })
-    }
-    if(!(targetId === "narrow")){
-      setNarrowSuccessButtons(prev => {
-        return prev.map((prevState) => {
-          return {...prevState, open: false}
-        })
-      })
-    }
-    if(!(targetId === "wild")){
-      setWildMagicButtons(prev => {
-        return prev.map((prevState) => {
-          return {...prevState, open: false}
-        })
-      })
-    }
-    if(!(targetId === "items")){
-      setMagicItemButtons(prev => {
-        return prev.map((prevState) => {
-          return {...prevState, open: false}
-        })
-      })
-    }
-    if(!(targetId === "spells")){
-      setSpellButtons(prev => {
-        return prev.map((prevState) => {
-          return {...prevState, open: false}
-        })
-      })
-      // remove spells from dom
-      spellLogic(undefined, undefined, undefined)
-      setSpellInfo([])
-    }
-
-
-    // Reveal navigation sub buttons
-    if (targetId === "dice"){
-      setNavDice(prev => {
-        return prev.map((prevState) => {
-          return {...prevState, open: !prevState.open}
-        })
-      })
-    } else if (targetId === "narrow") {
-      setNarrowSuccessButtons(prev => {
-        return prev.map((prevState) => {
-          return {...prevState, open: !prevState.open}
-        })
-      })
-    } else if (targetId === "wild") {
-      setWildMagicButtons(prev => {
-        console.log(prev)
-        return prev.map((prevState) => {
-          return {...prevState, open: !prevState.open}
-        })
-      })
-    } else if (targetId === "items") {
-      setMagicItemButtons(prev => {
-        return prev.map((prevState) => {
-          return {...prevState, open: !prevState.open}
-        })
-      })
-    } else if (targetId === "spells") {
-      setSpellButtons(prev => {
-        return prev.map((prevState) => {
-          return {...prevState, open: !prevState.open}
-        })
-      })
-
-      setOutTarget([])
-      setSpellLevelButtons([])
-      setNavNames(prev => {
-        return prev.map((prevState) => {
-          return {...prevState, open: false}
-        })
-      })
-    }
-
+ 
 
 
 
@@ -346,14 +211,6 @@ function spellDisplay(name, obj) {
     />
   ))
 
-  const navDiceElements = navDice.map(navDie => (
-    <Dice
-      key={navDie.id}
-      name={navDie.value}
-      open={navDie.open}
-      click={() => rollDice(navDie.id, navDie.value)}
-    />
-  ))
 
 
 
@@ -394,7 +251,8 @@ function spellDisplay(name, obj) {
             // console.log("rollcontent", rollContent)
             var index = Math.floor(Math.random()*rollContent.length + 1)
             // console.log(rollContent[index]['value'])
-            setOutTarget([rollContent[index]['value']])
+            console.log(index)
+            setOutTarget([index, rollContent[index]['value']])
 
             // console.log("CONTENT<<>>", jsonData['content'])
             // setSubNavNames(jsonData['buttons'])
@@ -434,65 +292,11 @@ function spellDisplay(name, obj) {
 
 
 
-// const []
-
-  
 
 
 
 
 
-
-
-
-
-
-  const narrowMissElements = narrowSuccessButtons.map(button => (
-    <SuccessButton
-      key={button.name}
-      name={button.name}
-      open={button.open}
-      click={() => successLogic(button.id, button.name, button.objName)}
-    />
-  ))
-
-  const wildMagicElements = wildMagicButtons.map(button => (
-    <SuccessButton
-      key={button.id}
-      name={button.name}
-      open={button.open}
-      click={() => successLogic(button.id, button.name, button.objName)}
-    />
-  ))
-
-  const magicItemElements = magicItemButtons.map((button) => (
-    <SuccessButton
-      key={button.id}
-      name={button.name}
-      open={button.open}
-      click={() => successLogic(button.id, button.name, button.objName)}
-    />
-  ))
-
-  const spellCantripAndLevelElements = spellButtons.map ((button) => (
-    <SuccessButton
-      key={button.id}
-      name={button.name}
-      open={button.open}
-      value={button.value}
-      click={() => spellLogic(button.id, button.name, button.value)}
-    />
-  ))
-
-  const allspellsElements = spellLevelButtons.map ((button) => (
-    <SmallSpellButton
-      key={button.name}
-      name={button.name}
-      open={true}
-      value={button.value}
-      click={() => spellDisplay(button.name, button)}
-      />
-  ))
 
 const spellInfoElement = spellInfo.map((info) => (
   <SpellButton
@@ -512,11 +316,6 @@ const spellInfoElement = spellInfo.map((info) => (
   />
 ))
 
-
-
-
-
-
   // ------------------------------------DOM return
   return (
     <main>
@@ -531,31 +330,16 @@ const spellInfoElement = spellInfo.map((info) => (
             </div>
           </div>
 
-          {
-          // (navDiceElements[0].props.open ||
-          //  narrowMissElements[0].props.open ||
-          //  wildMagicElements[0].props.open ||
-          //  magicItemElements[0].props.open ||
-          //  spellCantripAndLevelElements[0].props.open) 
-          //  &&
+          {subNavElements.length !== 0 &&
             <div className="col-11 mt-5 mx-2 py-4 index-background">
-              
-              
               {subNavElements}
-
-              {navDiceElements}
-              {narrowMissElements}
-              {wildMagicElements}
-              {magicItemElements}
-              {spellCantripAndLevelElements}
-              
             </div>
           }
         </div>
       </header>
 
 
-      {!spellLevelButtons.length === 0 &&
+      {/* {!spellLevelButtons.length === 0 &&
         <section className="container-fluid index-background my-5 py-4" id="spells">
           <div className="row justify-content-center">
             {allspellsElements}
@@ -567,7 +351,7 @@ const spellInfoElement = spellInfo.map((info) => (
               </div>
             </div>
         </section>
-       }
+       } */}
 
       {!spellInfo.length === 0 &&
         <section className="container-fluid mt-5" id="spell-description">
