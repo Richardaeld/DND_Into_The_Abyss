@@ -14,15 +14,15 @@ export default function Spells(props) {
                             </div>
                             <div className="col-6 col-md-3">
                                 <p className="mb-0 spell-key">Casting Time</p>
-                                {/* <p><strong>{props.castingTime}</strong></p> */}
+                                <p><strong>{props.castingTime}</strong></p>
                             </div>
                             <div className="col-6 col-md-3">
                                 <p className="mb-0 spell-key">Range</p>
-                                {/* <p><strong>{props.range}</strong></p> */}
+                                <p><strong>{props.range}</strong></p>
                             </div>
                             <div className="col-6 col-md-3">
                                 <p className="mb-0 spell-key">Duration</p>
-                                {/* <p><strong>{props.duration}</strong></p> */}
+                                <p><strong>{props.duration}</strong></p>
                             </div>
                         </div>
                     </div>
@@ -30,13 +30,13 @@ export default function Spells(props) {
                         <div className="row">
                             <div className="col-6 col-md-4">
                                 <p className="mb-0 spell-key">Ritual</p>
-                                {/* {props.ritual && <p><strong>True</strong></p>} */}
-                                {/* {!props.ritual && <p><strong>False</strong></p>} */}
+                                {props.ritual && <p><strong>True</strong></p>}
+                                {!props.ritual && <p><strong>False</strong></p>}
 
                             </div>
                             <div className="col-6 col-md-4">
                                 <p className="mb-0 spell-key">School</p>
-                                {/* <p><strong>{props.school}</strong></p> */}
+                                <p><strong>{props.school}</strong></p>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@ export default function Spells(props) {
                         <div className="row">
                             <div className="col-12">
                                 <p className="mb-0 spell-key">Description</p>
-                                {/* <p><strong>{props.description}</strong></p> */}
+                                <p><strong>{props.description}</strong></p>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ export default function Spells(props) {
                             </div>
                             <div className="col-6 order-4 order-md-3">
                                 <p className="mb-0 spell-key">Components</p>
-                                {/* <p><strong>{props.components}</strong></p> */}
+                                <p><strong>{props.components}</strong></p>
                             </div>
                             <div className="col-6 col-md-2 order-2 order-md-4">
                                 <p className="mb-0 spell-key">tags</p>
