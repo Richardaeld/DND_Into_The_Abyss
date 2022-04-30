@@ -33,11 +33,6 @@ function App() {
     ListNavs();
   }, []);
 
-
-
-
-
-
   // ------------------------------------Active elements
 
   const [navNames, setNavNames] = React.useState([])
@@ -63,29 +58,20 @@ function App() {
       setSpellInfo([])
       return prevNavNames.map((navName) => {
 
-        if (navName.id === "spells" && navName.open ){
-          return
-        }
+        // if (navName.id === "spells" && navName.open ){
+        //   return
+        // }
 
         if (navName.id === id) {
-          // find and get sub navs
+          // Fetch Sub Header Buttons
           const getSubNav = async () => {
             try{
               const response =await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll/children/${navName.id}`)
               const jsonData = await response.json()
-              console.log(jsonData['button'], "IM JSON DATAS")
-
-
-              // if (jsonData['button'][0]['child_table'] !== null) {
-              //   console.log(jsonData['button'][0]['child_table'])
-              // } else {
-              //   // console.log("no sibling table")
-              //   setSubNavNames(jsonData['button'])
-              // }
 
               setSubNavNames(jsonData['button'])
 
-
+              console.log(jsonData['button'], "IM SUB HEADER JSON DATA")
             } catch (err) {
               console.error(err)
             }
