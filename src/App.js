@@ -99,31 +99,31 @@ function App() {
   ))
 
 
-
+    // Special toggle function for finding non general item, spells
     function toggleSpellNav (id, name, level) {
-
+      // IIV Fetch for getting single spell by id
       if (level !== undefined) {
-        console.log(" I am a spell card")
-        console.log(id, "----------------------")
-        const ListContent = async () => {
+        (async () => {
           const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/spells/spellById/${id}`)
           const jsonData = await response.json();
+
           setSubNavNames([])
           setSpellInfo(jsonData['spell'])
+
           console.log(jsonData['spell'])
-        }
-        ListContent();
+        })();
+      // IIV Fetch for getting spells by level
       } else {
-        const ListContent = async () => {
+        (async () => {
           const level = name[3]
           const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/spells/spellsByLevel/${level}`)
           const jsonData = await response.json();
-          // console.log("toggleSpellNav SPELL DATA !!!!!!!!!!", jsonData['spells'])
-          setSubNavNames(jsonData['spells'])
-        }
-        ListContent();
-      }
 
+          setSubNavNames(jsonData['spells'])
+
+          // console.log("toggleSpellNav -- find spells by level", jsonData['spells'])
+        })();
+      }
     }
 
 
