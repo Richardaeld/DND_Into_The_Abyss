@@ -14,13 +14,11 @@ function App() {
 // ---------------------------------------------------------------- Fetches ----------------------------------------------------------------
 
   // Sets Header (Main) Nav buttons
-  var mainNavInfo = [];
   const ListNavs = async () => {
     try {
       const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll");
       const jsonData = await response.json()
 
-      mainNavInfo = jsonData['buttons']
       setNavNames(jsonData['buttons']);
 
       console.log("Header (main) nav buttons", jsonData['buttons'])
@@ -53,19 +51,18 @@ function App() {
 
     // Reveal nav button content
     setNavNames(prevNavNames => {
-
+      // remove any existing printout content
       setOutTarget(["", ""])
       setSpellInfo([])
+
       return prevNavNames.map((navName) => {
-
-        // if (navName.id === "spells" && navName.open ){
-        //   return
-        // }
-
+        console.log(navName.id, "test")
         if (navName.id === id) {
           // Fetch Sub Header Buttons
           const getSubNav = async () => {
             try{
+              console.log(navName.id, "DBhit")
+
               const response =await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll/children/${navName.id}`)
               const jsonData = await response.json()
 
@@ -133,7 +130,7 @@ function App() {
 
     // Rolls number for Dice (tables with random_roll_only: true)
     if (childContent) {
-      setOutTarget([Math.floor(Math.random()*name + 1)])
+      setOutTarget([Math.floor(Math.random()*name + 1), ""])
     // Gets Sub Header Child Content
     } else {
       (async () => {
@@ -154,7 +151,6 @@ function App() {
   }
 
   const [subNavNames, setSubNavNames] = React.useState([])
-  // console.log("mainnva info" , mainNavInfo)
   const subNavElements = subNavNames.map(button => (
     <SuccessNewButton
       key={button.name}
