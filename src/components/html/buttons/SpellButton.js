@@ -60,7 +60,6 @@ export default function Spells(props) {
                             <div className="col-6 col-md-4">
                                 <p className="mb-0 spell-key">Material Description</p>
                                 {props.material_description && <p><strong>{props.material_description}</strong></p>}
-                                {/* {!props.material_description && <p><strong>False</strong></p>} */}
                             </div>
                             <div className="col-6 col-md-4">
                                 <p className="mb-0 spell-key">School</p>
@@ -91,14 +90,6 @@ export default function Spells(props) {
                                 <p className="mb-0 spell-key">classes</p>
                                 <p><strong>{props.classes}</strong></p>
                             </div>
-                            {/* <div className="col-6 order-4 order-md-3"> */}
-                                {/* <p className="mb-0 spell-key">Components</p> */}
-                                {/* <p><strong>{props.components}</strong></p> */}
-                            {/* </div> */}
-                            {/* <div className="col-6 col-md-2 order-2 order-md-4"> */}
-                                {/* <p className="mb-0 spell-key">tags</p> */}
-                                {/* <p><strong>{props.tags.map(x => x + " ")}</strong></p> */}
-                            {/* </div> */}
                         </div>
                     </div>
                 </div>
