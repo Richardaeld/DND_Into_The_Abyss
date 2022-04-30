@@ -9,10 +9,6 @@ import SpellButton from './components/html/buttons/SpellButton'
 import SuccessNewButton from './components/html/buttons/SuccessNewButton'
 import OutContainer from './components/html/OutContainer';
 
-
-// json
-import AllSpells from './components/json/AllSpells'
-
 function App() {
 
 // Sets Main Nav buttons
@@ -63,7 +59,6 @@ const ListSubNavs = async () => {
   const [spellInfo, setSpellInfo] = React.useState([])
   // content obj
 
-  const [allSpells, setAllSpells] = React.useState(AllSpells)
   // return output obj
   const [outTarget, setOutTarget] = React.useState(["", "Welcome to DM Tool, a friendly quick reference for DMs and Players alike!"])
 
