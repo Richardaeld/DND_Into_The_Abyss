@@ -4,18 +4,18 @@ import React, {useState, useEffect} from 'react';
 // import React from 'react';
 
 // html content
-import Dice from "./components/html/buttons/Dice";
+// import Dice from "./components/html/buttons/Dice";
 import NavButton from "./components/html/buttons/NavButton";
 import SpellButton from './components/html/buttons/SpellButton'
-import SmallSpellButton from './components/html/buttons/SmallSpellButton';
-import SuccessButton from './components/html/buttons/SuccessButton'
+// import SmallSpellButton from './components/html/buttons/SmallSpellButton';
+// import SuccessButton from './components/html/buttons/SuccessButton'
 import SuccessNewButton from './components/html/buttons/SuccessNewButton'
 import OutContainer from './components/html/OutContainer';
 
 // buttons objects
 import MagicItemButtons from './components/objects/buttons/MagicItemButtons';
 import NarrowMissButtons from './components/objects/buttons/NarrowMissButtons';
-import NavButtonNames from "./components/objects/buttons/NavButtonNames";
+// import NavButtonNames from "./components/objects/buttons/NavButtonNames";
 import SpellButtons from './components/objects/buttons/SpellButtons';
 import TotalDice from "./components/objects/buttons/TotalDice";
 import WildMagicButtons from './components/objects/buttons/WildMagicButtons';
@@ -28,7 +28,7 @@ function App() {
 
 // Sets Main Nav buttons
 var mainNavInfo = [];
-let subNavInfo = [];
+// let subNavInfo = [];
 const ListNavs = async () => {
   try {
     const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll");
@@ -72,12 +72,12 @@ const ListSubNavs = async () => {
 
   const [navNames, setNavNames] = React.useState([])
   // const [navNames, setNavNames] = React.useState(NavButtonNames)
-  const [navDice, setNavDice] = React.useState(TotalDice)
-  const [narrowSuccessButtons, setNarrowSuccessButtons] = React.useState(NarrowMissButtons)
-  const [wildMagicButtons, setWildMagicButtons] = React.useState(WildMagicButtons)
-  const [magicItemButtons, setMagicItemButtons] = React.useState(MagicItemButtons)
-  const [spellButtons, setSpellButtons] = React.useState(SpellButtons)
-  const [spellLevelButtons, setSpellLevelButtons] = React.useState([])
+  // const [navDice, setNavDice] = React.useState(TotalDice)
+  // const [narrowSuccessButtons, setNarrowSuccessButtons] = React.useState(NarrowMissButtons)
+  // const [wildMagicButtons, setWildMagicButtons] = React.useState(WildMagicButtons)
+  // const [magicItemButtons, setMagicItemButtons] = React.useState(MagicItemButtons)
+  // const [spellButtons, setSpellButtons] = React.useState(SpellButtons)
+  // const [spellLevelButtons, setSpellLevelButtons] = React.useState([])
   const [spellInfo, setSpellInfo] = React.useState([])
   // content obj
 
@@ -88,10 +88,10 @@ const ListSubNavs = async () => {
 
   // ------------------------------------Functions to change elements
   // Rolls dice and renders to DOM
-  function rollDice(id, num) {
-    const diceRoll = Math.floor(Math.random()*num + 1)
-    setOutTarget([diceRoll])
-  }
+  // function rollDice(id, num) {
+  //   const diceRoll = Math.floor(Math.random()*num + 1)
+  //   setOutTarget([diceRoll])
+  // }
 
 // console.log(allSpells["spells"][0]["name"])
 
@@ -101,31 +101,31 @@ const ListSubNavs = async () => {
 
 
 // open spell name buttons
-function spellLogic(id, name, value) {
-  // console.log(id, name, value)
-  var output = []
-  allSpells["spells"].map(x => {
-    if (x["level"] === value){
-      return output.push(x)
-    }
-  })
-  setSpellButtons(prev => {
-    return prev.map((prevState) => {
-      return {...prevState, open: false}
-    })
-  })
-  setSpellLevelButtons(output)
-}
+// function spellLogic(id, name, value) {
+//   // console.log(id, name, value)
+//   var output = []
+//   allSpells["spells"].map(x => {
+//     if (x["level"] === value){
+//       return output.push(x)
+//     }
+//   })
+  // setSpellButtons(prev => {
+  //   return prev.map((prevState) => {
+  //     return {...prevState, open: false}
+  //   })
+  // })
+  // setSpellLevelButtons(output)
+// }
 
-function spellDisplay(name, obj) {
-  [obj].map(x => Object.assign(x, {open: true}))
-  // let spellDescriptPosition = document.getElementById("spell-description")
-  // let spellDescriptPositionY = spellDescriptPosition.getBoundingClientRect()
-  // window.scrollTo(0, spellDescriptPositionY.y + window.pageYOffset - 15)
-  setSpellInfo([obj])
-  setSpellLevelButtons([])
-  // setSpellLevelButtons([])
-}
+// function spellDisplay(name, obj) {
+//   [obj].map(x => Object.assign(x, {open: true}))
+//   // let spellDescriptPosition = document.getElementById("spell-description")
+//   // let spellDescriptPositionY = spellDescriptPosition.getBoundingClientRect()
+//   // window.scrollTo(0, spellDescriptPositionY.y + window.pageYOffset - 15)
+//   setSpellInfo([obj])
+//   setSpellLevelButtons([])
+//   // setSpellLevelButtons([])
+// }
 
   function toTop() {
     window.scrollTo(0,0)
@@ -134,40 +134,12 @@ function spellDisplay(name, obj) {
   // Toggle visibility of sub nav buttons
   function toggleNav(id, targetId) {
 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // Reveal nav button content
     setNavNames(prevNavNames => {
 
-
-
-
-
-
-
+      setOutTarget(["", ""])
+      setSpellInfo([])
       return prevNavNames.map((navName) => {
 
         if (navName.id === "spells" && navName.open ){
