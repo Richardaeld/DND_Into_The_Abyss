@@ -11,41 +11,26 @@ import OutContainer from './components/html/OutContainer';
 
 function App() {
 
-// Sets Main Nav buttons
-var mainNavInfo = [];
-// let subNavInfo = [];
-const ListNavs = async () => {
-  try {
-    const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll");
-    const jsonData = await response.json()
+// ---------------------------------------------------------------- Fetches ----------------------------------------------------------------
 
-    console.log("main", jsonData['buttons'])
-    mainNavInfo = jsonData['buttons']
-    // console.log(mainNavInfo)
-    setNavNames(jsonData['buttons']);
-  } catch (err) {
-    console.error(err)
-  }
-}
-// console.log(mainNavInfo)
+  // Sets Header (Main) Nav buttons
+  var mainNavInfo = [];
+  const ListNavs = async () => {
+    try {
+      const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll");
+      const jsonData = await response.json()
 
-// Sets Sub Nav Buttons
-const ListSubNavs = async () => {
-  try {
-    const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/sub/viewAll");
-    const jsonData = await response.json();
+      mainNavInfo = jsonData['buttons']
+      setNavNames(jsonData['buttons']);
 
-    console.log("sub", jsonData['buttons'])
-    // setSubNavNames(jsonData['buttons'])
-  } catch (err) {
-    console.error(err);
+      console.log("Header (main) nav buttons", jsonData['buttons'])
+    } catch (err) {
+      console.error(err)
+    }
   }
 
-
-}
   useEffect(() => {
     ListNavs();
-    ListSubNavs();
   }, []);
 
 
