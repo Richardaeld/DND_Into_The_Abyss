@@ -207,13 +207,6 @@ const ListSubNavs = async () => {
 
 
 
-
-
-
-
-
-
-
 const spellInfoElement = spellInfo.map((info) => (
   <SpellButton
     key={info.name}
