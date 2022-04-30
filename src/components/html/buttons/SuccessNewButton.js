@@ -9,11 +9,20 @@ export default function SuccessButton(props) {
 
     // console.log("I AM PROPS", props.obj_name)
 
+    var clickTrigger
+    if (props.child_table !== null) {
+        clickTrigger = props.clickSpells
+    } else {
+        clickTrigger = props.click
+    }
+    // clickTrigger = props.clickSpells
+
     return (
         <div
             style={styles}
             className="nonselectable hand-drawn-text hand-drawn-container hand-drawn-border"
-            onClick={props.click}
+            
+            onClick={clickTrigger}
         >
             {/* <p><strong>{props.name}</strong></p> */}
             <p><strong>{props.obj_name ? props.obj_name : props.name}</strong></p>

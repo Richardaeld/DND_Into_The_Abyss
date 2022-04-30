@@ -183,7 +183,16 @@ function spellDisplay(name, obj) {
               const jsonData = await response.json()
               console.log(jsonData['button'], "IM JSON DATAS")
 
+
+              // if (jsonData['button'][0]['child_table'] !== null) {
+              //   console.log(jsonData['button'][0]['child_table'])
+              // } else {
+              //   // console.log("no sibling table")
+              //   setSubNavNames(jsonData['button'])
+              // }
+
               setSubNavNames(jsonData['button'])
+
 
             } catch (err) {
               console.error(err)
@@ -224,7 +233,36 @@ function spellDisplay(name, obj) {
 
 
 
+    function toggleSpellNav (id, name, level) {
+      
 
+
+
+
+
+      if (level !== undefined) {
+        console.log(" I am a spell card")
+        console.log(id, "----------------------")
+        const ListContent = async () => {
+          const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/spells/spellById/${id}`)
+          const jsonData = await response.json();
+          setSubNavNames([])
+          setSpellInfo(jsonData['spell'])
+          console.log(jsonData['spell'])
+        }
+        ListContent();
+      } else {
+        const ListContent = async () => {
+          const level = name[3]
+          const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/spells/spellsByLevel/${level}`)
+          const jsonData = await response.json();
+          // console.log("toggleSpellNav SPELL DATA !!!!!!!!!!", jsonData['spells'])
+          setSubNavNames(jsonData['spells'])
+        }
+        ListContent();
+      }
+
+    }
 
 
 
@@ -234,10 +272,6 @@ function spellDisplay(name, obj) {
       console.log("name", name)
       console.log("objname",objName)
       console.log("childcontent",childContent)
-
-      // if (id === childContent) {
-      //   console.log("I am here")
-      // }
 
       if (childContent) {
         setOutTarget([Math.floor(Math.random()*name + 1)])
@@ -281,14 +315,17 @@ function spellDisplay(name, obj) {
       key={button.name}
       name={button.name}
       obj_name={button.obj_name}
+      child_table={button.child_table}
       // name={mainNavInfo.name}
       open={button.true}
       // open={button.open}
       // foreignKey={button.parent_foreign_key}
       // click={() => successLogic(button.id, button.name, button.objName)}
       click={() => toggleNewNav(button.id, button.name, button.obj_name, button.random_roll_only)}
+      clickSpells={() => toggleSpellNav(button.id, button.name, button.level)}
     />
   ))
+
 
 
 
@@ -305,14 +342,15 @@ const spellInfoElement = spellInfo.map((info) => (
     castingTime={info.casting_time}
     range={info.range}
     duration={info.duration}
-    type={info.type}
+    // type={info.type}
     ritual={info.ritual}
     school={info.school}
-    components={info.components.raw}
+    // components={info.components.raw}
     description={info.description}
     classes={info.classes}
-    tags={info.tags}
-    toTop={toTop}
+    // tags={info.tags}
+    // toTop={toTop}
+    open={true}
   />
 ))
 
@@ -353,7 +391,7 @@ const spellInfoElement = spellInfo.map((info) => (
         </section>
        } */}
 
-      {!spellInfo.length === 0 &&
+      {!spellInfoElement.length !== 0 &&
         <section className="container-fluid mt-5" id="spell-description">
               {spellInfoElement}
         </section>
