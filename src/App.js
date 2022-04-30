@@ -127,39 +127,31 @@ function App() {
 
 
 
+    // Sets Sub Header Buttons and rolls random numbers for content
+  function toggleNewNav(id, name, objName, childContent) {
+    console.log("ID: ", id, " Name: ", name, " Obj Name: ", objName, " Child Content: ", childContent)
 
-    function toggleNewNav(id, name, objName, childContent) {
-      console.log("id", id)
-      console.log("name", name)
-      console.log("objname",objName)
-      console.log("childcontent",childContent)
+    // Rolls number for Dice (tables with random_roll_only: true)
+    if (childContent) {
+      setOutTarget([Math.floor(Math.random()*name + 1)])
+    // Gets Sub Header Child Content
+    } else {
+      (async () => {
+        try {
+          const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/sub/viewAll/children/${id}`);
+          const jsonData = await response.json();
+          var rollContent = jsonData['button']
+          var index = Math.floor(Math.random()*rollContent.length + 1)
 
-      if (childContent) {
-        setOutTarget([Math.floor(Math.random()*name + 1)])
-        // console.log("im a roll", Math.floor(Math.random()*name + 1))
-      } else {
-        const ListContent = async () => {
-          try {
-            const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/sub/viewAll/children/${id}`);
-            const jsonData = await response.json();
-            var rollContent = jsonData['button']
-            // console.log("rollcontent", rollContent)
-            var index = Math.floor(Math.random()*rollContent.length + 1)
-            // console.log(rollContent[index]['value'])
-            console.log(index)
-            setOutTarget([index, rollContent[index]['value']])
+          setOutTarget([index, rollContent[index]['value']])
 
-            // console.log("CONTENT<<>>", jsonData['content'])
-            // setSubNavNames(jsonData['buttons'])
-          } catch (err) {
-            console.error(err);
-          }
-
+          // console.log("toggleNewNav", jsonData['content'])
+        } catch (err) {
+          console.error(err);
         }
-        ListContent();
-      }
-
+      })();
     }
+  }
 
   const [subNavNames, setSubNavNames] = React.useState([])
   // console.log("mainnva info" , mainNavInfo)
