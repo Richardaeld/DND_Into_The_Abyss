@@ -87,12 +87,6 @@ export default function Spells(props) {
 
                     <div className="col-12">
                         <div className="row justify-content-around">
-                            {/* <div className="col-1 arrow-flex-position order-3 order-md-1" id="arrow-to-top" onClick={props.toTop}>
-                                <div className="arrow-container">
-                                    <div className="arrow-head"></div>
-                                    <div className="arrow-base"></div>
-                                </div>
-                            </div> */}
                             <div className="col-6 col-md-2 order-2 order-md-3">
                                 <p className="mb-0 spell-key">School</p>
                                 <p><strong>{props.school}</strong></p>
