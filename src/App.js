@@ -4,14 +4,15 @@ import React, {useState, useEffect} from 'react';
 // import React from 'react';
 
 // html content
-import NavButton from "./components/html/buttons/NavButton";
-import SpellButton from './components/html/buttons/SpellButton'
-import SuccessNewButton from './components/html/buttons/SuccessNewButton'
-import OutContainer from './components/html/OutContainer';
+// import NavButton from "./components/html/buttons/NavButton";
+// import SpellButton from './components/html/buttons/SpellButton'
+// import SuccessNewButton from './components/html/buttons/SuccessNewButton'
+// import OutContainer from './components/html/OutContainer';
 
 // import Header from './components/html/semantic/Header'
 import SpellsContainer from './components/html/semantic/section/SpellsContainer';
 import HeaderNavButtons from './components/html/semantic/header/HeaderNavButtons'
+import GeneralOutput from './components/html/semantic/section/GeneralOutput'
 // import toggleSpellNav from './components/async/toggleSpellNav';
 
 
@@ -117,15 +118,10 @@ function App() {
       />
 
       {/* Output for rolls and general content */}
-      <section className="container-fluid" id="consoleOutput">
-          {(outTarget[1] || outTarget[0]) && <OutContainer
-            num = {outTarget[0]}
-            content = {outTarget[1]}
-            // num = {getDataTest}
-            // content = {getDataTest}
-          />
-          }
-      </section>
+       <GeneralOutput
+          outTarget={outTarget}
+       />
+
       <footer className="mb-5"></footer>
     </main>
   )
