@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import HeaderButton from '../../buttons/HeaderButton';
-import SubHeaderButton from '../../buttons/SubHeaderButton'
+import HeaderButton from '../../general/HeaderButton';
+import SubHeaderButton from '../../general/SubHeaderButton'
 // import React from "react";
 export default function HeaderNavButtons(props) {
 
