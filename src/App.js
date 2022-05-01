@@ -156,17 +156,17 @@ function App() {
   }
 
   const [subNavNames, setSubNavNames] = React.useState([])
-  const subNavElements = subNavNames.map(button => (
-    <SuccessNewButton
-      key={button.name}
-      name={button.name}
-      obj_name={button.obj_name}
-      child_table={button.child_table}
-      open={button.true}
-      click={() => toggleNewNav(button.id, button.name, button.obj_name, button.random_roll_only)}
-      clickSpells={() => toggleSpellNav(button.id, button.name, button.level)}
-    />
-  ))
+  // const subNavElements = subNavNames.map(button => (
+  //   <SuccessNewButton
+  //     key={button.name}
+  //     name={button.name}
+  //     obj_name={button.obj_name}
+  //     child_table={button.child_table}
+  //     open={button.true}
+  //     click={() => toggleNewNav(button.id, button.name, button.obj_name, button.random_roll_only)}
+  //     clickSpells={() => toggleSpellNav(button.id, button.name, button.level)}
+  //   />
+  // ))
 
 
 
@@ -198,18 +198,20 @@ const spellInfoElement = spellInfo.map((info) => (
 
     {/* <Header /> */}
 
-      <header className="container-fluid" >
+      {/* <header className="container-fluid" >
         <div className="row justify-content-center">
           <div className="col-11 mt-5">
-            <div className="row justify-content-center">
+            <div className="row justify-content-center"> */}
               <HeaderNavButtons 
                 setOutTarget={setOutTarget}
                 setSpellInfo={setSpellInfo}
                 setSubNavNames={setSubNavNames}
-                
+                subNavNames={subNavNames}
+                toggleNewNav={toggleNewNav}
+                toggleSpellNav={toggleSpellNav}
               />
                 {/* {navElements} */}
-            </div>
+            {/* </div>
           </div>
 
           {subNavElements.length !== 0 &&
@@ -218,7 +220,7 @@ const spellInfoElement = spellInfo.map((info) => (
             </div>
           }
         </div>
-      </header>
+      </header> */}
 
 
       {/* {!spellLevelButtons.length === 0 &&
