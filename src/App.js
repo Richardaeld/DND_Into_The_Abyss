@@ -9,31 +9,36 @@ import SpellButton from './components/html/buttons/SpellButton'
 import SuccessNewButton from './components/html/buttons/SuccessNewButton'
 import OutContainer from './components/html/OutContainer';
 
+import Header from './components/html/semantic/Header'
+import HeaderNavButtons from './components/html/semantic/header/HeaderNavButtons'
+// import toggleSpellNav from './components/async/toggleSpellNav';
+
+
 function App() {
 
 // ---------------------------------------------------------------- Fetches ----------------------------------------------------------------
 
-  // Sets Header (Main) Nav buttons
-  const ListNavs = async () => {
-    try {
-      const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll");
-      const jsonData = await response.json()
+  // // Sets Header (Main) Nav buttons
+  // const ListNavs = async () => {
+  //   try {
+  //     const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll");
+  //     const jsonData = await response.json()
 
-      setNavNames(jsonData['buttons']);
+  //     setNavNames(jsonData['buttons']);
 
-      console.log("Header (main) nav buttons", jsonData['buttons'])
-    } catch (err) {
-      console.error(err)
-    }
-  }
+  //     console.log("Header (main) nav buttons", jsonData['buttons'])
+  //   } catch (err) {
+  //     console.error(err)
+  //   }
+  // }
 
-  useEffect(() => {
-    ListNavs();
-  }, []);
+  // useEffect(() => {
+  //   ListNavs();
+  // }, []);
 
   // ------------------------------------Active elements
 
-  const [navNames, setNavNames] = React.useState([])
+  // const [navNames, setNavNames] = React.useState([])
   const [spellInfo, setSpellInfo] = React.useState([])
   // content obj
 
@@ -45,55 +50,55 @@ function App() {
     window.scrollTo(0,0)
   }
 
-  // Toggle visibility of sub nav buttons
-  function toggleNav(id, targetId) {
+  // // Toggle visibility of sub nav buttons
+  // function toggleNav(id, targetId) {
 
 
-    // Reveal nav button content
-    setNavNames(prevNavNames => {
-      // remove any existing printout content
-      setOutTarget(["", ""])
-      setSpellInfo([])
+  //   // Reveal nav button content
+  //   setNavNames(prevNavNames => {
+  //     // remove any existing printout content
+  //     setOutTarget(["", ""])
+  //     setSpellInfo([])
 
-      return prevNavNames.map((navName) => {
-        console.log(navName.id, "test")
-        if (navName.id === id) {
-          // Fetch Sub Header Buttons
-          const getSubNav = async () => {
-            try{
-              console.log(navName.id, "DBhit")
+  //     return prevNavNames.map((navName) => {
+  //       console.log(navName.id, "test")
+  //       if (navName.id === id) {
+  //         // Fetch Sub Header Buttons
+  //         const getSubNav = async () => {
+  //           try{
+  //             console.log(navName.id, "DBhit")
 
-              const response =await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll/children/${navName.id}`)
-              const jsonData = await response.json()
+  //             const response =await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll/children/${navName.id}`)
+  //             const jsonData = await response.json()
 
-              setSubNavNames(jsonData['button'])
+  //             setSubNavNames(jsonData['button'])
 
-              console.log(jsonData['button'], "IM SUB HEADER JSON DATA")
-            } catch (err) {
-              console.error(err)
-            }
-          }
-            getSubNav();
-          return {...navName, open: !navName.open}
-        } else {
-          return {...navName, open: false}
-        }
+  //             console.log(jsonData['button'], "IM SUB HEADER JSON DATA")
+  //           } catch (err) {
+  //             console.error(err)
+  //           }
+  //         }
+  //           getSubNav();
+  //         return {...navName, open: !navName.open}
+  //       } else {
+  //         return {...navName, open: false}
+  //       }
 
 
-      })
-    })
-  }
+  //     })
+  //   })
+  // }
 
   // ------------------------------------Creates multiple iterations from single components
-  const navElements = navNames.map(navName => (
-    <NavButton
-      key={navName.id}
-      name={navName.name}
-      open={navName.open}
-      target={navName.target}
-      toggleNav={() => toggleNav(navName.id, navName.target)}
-    />
-  ))
+  // const navElements = navNames.map(navName => (
+  //   <NavButton
+  //     key={navName.id}
+  //     name={navName.name}
+  //     open={navName.open}
+  //     target={navName.target}
+  //     toggleNav={() => toggleNav(navName.id, navName.target)}
+  //   />
+  // ))
 
   // Special toggle function for finding non general item, spells
   function toggleSpellNav (id, name, level) {
@@ -191,13 +196,19 @@ const spellInfoElement = spellInfo.map((info) => (
   return (
     <main>
 
+    {/* <Header /> */}
+
       <header className="container-fluid" >
         <div className="row justify-content-center">
           <div className="col-11 mt-5">
             <div className="row justify-content-center">
-                {navElements}
-              {/* {subNavElements} */}
-
+              <HeaderNavButtons 
+                setOutTarget={setOutTarget}
+                setSpellInfo={setSpellInfo}
+                setSubNavNames={setSubNavNames}
+                
+              />
+                {/* {navElements} */}
             </div>
           </div>
 
