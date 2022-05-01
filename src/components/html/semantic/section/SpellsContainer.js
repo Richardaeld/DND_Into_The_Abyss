@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import SpellButton from '../../buttons/SpellButton'
+import SpellCard from '../../buttons/SpellCard'
 
 export default function SpellsContainer(props) {
 
 
     const spellInfoElement = props.spellInfo.map((info) => (
-        <SpellButton
+        <SpellCard
           key={info.name}
           name={info.name}
           level={info.level}
