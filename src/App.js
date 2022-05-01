@@ -22,11 +22,8 @@ function App() {
   const [spellInfo, setSpellInfo] = React.useState([])
   const [subNavNames, setSubNavNames] = React.useState([])
 
-  // content obj
-
   // return output obj
   const [outTarget, setOutTarget] = React.useState(["", "Welcome to DM Tool, a friendly quick reference for DMs and Players alike!"])
-
 
   function toTop() {
     window.scrollTo(0,0)
@@ -60,8 +57,7 @@ function App() {
   }
 
 
-
-    // Sets Sub Header Buttons and rolls random numbers for content
+  // Sets Sub Header Buttons and rolls random numbers for content
   function toggleNewNav(id, name, objName, childContent) {
     console.log("ID: ", id, " Name: ", name, " Obj Name: ", objName, " Child Content: ", childContent)
 
@@ -87,31 +83,11 @@ function App() {
     }
   }
 
-// const spellInfoElement = spellInfo.map((info) => (
-//   <SpellButton
-//     key={info.name}
-//     name={info.name}
-//     level={info.level}
-//     castingTime={info.casting_time}
-//     reaction_condition={info.reaction_condition}
-//     range={info.range}
-//     duration={info.duration}
-//     ritual={info.ritual}
-//     component_somatic={info.component_somatic}
-//     component_verbal={info.component_verbal}
-//     component_material={info.component_material}
-//     material_description={info.material_description}
-//     school={info.school}
-//     description={info.description}
-//     classes={info.classes}
-//     higher_levels={info.higher_levels}
-//     open={true}
-//   />
-// ))
-
   // ------------------------------------DOM return
   return (
     <main>
+
+      {/* Header */}
       <HeaderNavButtons
         setOutTarget={setOutTarget}
         setSpellInfo={setSpellInfo}
@@ -120,7 +96,6 @@ function App() {
         toggleNewNav={toggleNewNav}
         toggleSpellNav={toggleSpellNav}
       />
-
 
       {/* {!spellLevelButtons.length === 0 &&
         <section className="container-fluid index-background my-5 py-4" id="spells">
@@ -136,13 +111,12 @@ function App() {
         </section>
        } */}
 
+      {/* Output for Spells */}
       <SpellsContainer
-        // setSpellInfo={setSpellInfo}
         spellInfo={spellInfo}
       />
 
-
-
+      {/* Output for rolls and general content */}
       <section className="container-fluid" id="consoleOutput">
           {(outTarget[1] || outTarget[0]) && <OutContainer
             num = {outTarget[0]}
