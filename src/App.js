@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 // import React from 'react';
 
 import SpellsContainer from './components/html/semantic/section/SpellsContainer';
-import HeaderButtons from './components/html/semantic/header/HeaderButtons'
+import Header from './components/html/semantic/header/Header'
 import GeneralOutput from './components/html/semantic/section/GeneralOutput'
 
 function App() {
@@ -79,7 +79,7 @@ function App() {
     <main>
 
       {/* Header */}
-      <HeaderButtons
+      <Header
         setOutTarget={setOutTarget}
         setSpellInfo={setSpellInfo}
         setSubNavNames={setSubNavNames}

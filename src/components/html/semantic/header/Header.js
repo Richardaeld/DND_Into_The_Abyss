@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import NavButton from '../../buttons/NavButton';
+import HeaderButton from '../../buttons/HeaderButton';
 import SubHeaderButton from '../../buttons/SubHeaderButton'
 // import React from "react";
 export default function HeaderNavButtons(props) {
@@ -64,7 +64,7 @@ export default function HeaderNavButtons(props) {
         })
     }
   const navElements = navNames.map(navName => (
-    <NavButton
+    <HeaderButton
         key={navName.id}
         name={navName.name}
         open={navName.open}
