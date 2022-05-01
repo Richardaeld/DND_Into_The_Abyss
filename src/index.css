@@ -73,6 +73,10 @@ p {
   transform: scale(1);
 }
 
+.header-standard {
+  min-height: 2.5em;
+}
+
 /*------------------  2nd level Nav Buttons  ------------------*/
 /* general attributes */
 .hand-drawn-container {
