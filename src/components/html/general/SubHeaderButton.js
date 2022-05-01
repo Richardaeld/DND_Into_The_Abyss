@@ -15,7 +15,6 @@ export default function SuccessButton(props) {
     } else {
         clickTrigger = props.click
     }
-    // clickTrigger = props.clickSpells
 
     return (
         <div
@@ -23,7 +22,6 @@ export default function SuccessButton(props) {
             className="nonselectable hand-drawn-text hand-drawn-container hand-drawn-border"
             onClick={clickTrigger}
         >
-            {/* <p><strong>{props.name}</strong></p> */}
             <p><strong>{props.obj_name ? props.obj_name : props.name}</strong></p>
 
         </div>
