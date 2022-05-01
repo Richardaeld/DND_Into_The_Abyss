@@ -1,20 +1,10 @@
-// import logo from './logo.svg';
 import './App.css';
 import React, {useState, useEffect} from 'react';
 // import React from 'react';
 
-// html content
-// import NavButton from "./components/html/buttons/NavButton";
-// import SpellButton from './components/html/buttons/SpellButton'
-// import SuccessNewButton from './components/html/buttons/SuccessNewButton'
-// import OutContainer from './components/html/OutContainer';
-
-// import Header from './components/html/semantic/Header'
 import SpellsContainer from './components/html/semantic/section/SpellsContainer';
 import HeaderNavButtons from './components/html/semantic/header/HeaderNavButtons'
 import GeneralOutput from './components/html/semantic/section/GeneralOutput'
-// import toggleSpellNav from './components/async/toggleSpellNav';
-
 
 function App() {
 
@@ -97,20 +87,6 @@ function App() {
         toggleNewNav={toggleNewNav}
         toggleSpellNav={toggleSpellNav}
       />
-
-      {/* {!spellLevelButtons.length === 0 &&
-        <section className="container-fluid index-background my-5 py-4" id="spells">
-          <div className="row justify-content-center">
-            {allspellsElements}
-          </div>
-          <div className="col-1 arrow-flex-position" id="arrow-to-top" onClick={toTop}>
-              <div className="arrow-container">
-                  <div className="arrow-head"></div>
-                  <div className="arrow-base"></div>
-              </div>
-            </div>
-        </section>
-       } */}
 
       {/* Output for Spells */}
       <SpellsContainer
