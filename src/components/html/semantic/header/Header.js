@@ -32,7 +32,7 @@ export default function HeaderNavButtons(props) {
     // Reveal nav button content
     setNavNames(prevNavNames => {
         // remove any existing printout content
-        props.setOutTarget(["", ""])
+        props.setOutTarget(["", "", ""])
         props.setSpellInfo([])
 
         return prevNavNames.map((navName) => {

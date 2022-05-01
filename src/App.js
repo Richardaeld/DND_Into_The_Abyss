@@ -14,7 +14,7 @@ function App() {
   const [subNavNames, setSubNavNames] = React.useState([])
 
   // return output obj
-  const [outTarget, setOutTarget] = React.useState(["", "Welcome to DM Tool, a friendly quick reference for DMs and Players alike!"])
+  const [outTarget, setOutTarget] = React.useState(["", "Welcome to DM Tool, a friendly quick reference for DMs and Players alike!", ""])
 
   function toTop() {
     window.scrollTo(0,0)
@@ -54,7 +54,7 @@ function App() {
 
     // Rolls number for Dice (tables with random_roll_only: true)
     if (childContent) {
-      setOutTarget([Math.floor(Math.random()*name + 1), ""])
+      setOutTarget([Math.floor(Math.random()*name + 1), "", name])
     // Gets Sub Header Child Content
     } else {
       (async () => {
@@ -64,7 +64,7 @@ function App() {
           var rollContent = jsonData['button']
           var index = Math.floor(Math.random()*rollContent.length + 1)
 
-          setOutTarget([index, rollContent[index]['value']])
+          setOutTarget([index, rollContent[index]['value'], ""])
 
           // console.log("toggleNewNav", jsonData['content'])
         } catch (err) {

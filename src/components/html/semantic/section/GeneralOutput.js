@@ -3,6 +3,16 @@ export default function GeneralOutput (props) {
 
     const num = props.outTarget[0]
     const content = props.outTarget[1]
+    const dTotal = props.outTarget[2]
+
+    var rolledValue=""
+    if (dTotal !== undefined && dTotal !== "") {
+        rolledValue =  <>a <strong> D{dTotal}</strong></>
+    } else {
+        rolledValue = ""
+    }
+
+
 
     return (
 
@@ -14,13 +24,13 @@ export default function GeneralOutput (props) {
                         {/* Number container */}
                         {num &&
                             <>
-                                <p className="spell-key mb-0">You rolled</p>
+                                <p className="spell-key mb-0">You rolled {rolledValue}</p>
                                 <p className="mb-0"><strong>{num}</strong></p>
                             </>
                         }
                         {console.log(content)}
                         {/* Content container */}
-                        {!(content == undefined) &&
+                        {!(content === undefined || content ==="") &&
                             <>
                                 {!(content == "Welcome to DM Tool, a friendly quick reference for DMs and Players alike!") &&
                                     <p className="spell-key mb-0">The result</p>
