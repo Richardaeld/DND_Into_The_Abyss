@@ -21,7 +21,6 @@ export default function SuccessButton(props) {
         <div
             style={styles}
             className="nonselectable hand-drawn-text hand-drawn-container hand-drawn-border"
-            
             onClick={clickTrigger}
         >
             {/* <p><strong>{props.name}</strong></p> */}

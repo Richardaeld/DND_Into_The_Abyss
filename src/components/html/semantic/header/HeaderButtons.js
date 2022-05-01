@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import NavButton from '../../buttons/NavButton';
-import SuccessNewButton from '../../buttons/SuccessNewButton'
+import SubHeaderButton from '../../buttons/SubHeaderButton'
 // import React from "react";
 export default function HeaderNavButtons(props) {
 
@@ -74,7 +74,7 @@ export default function HeaderNavButtons(props) {
   ))
 
   const subNavElements = props.subNavNames.map(button => (
-    <SuccessNewButton
+    <SubHeaderButton
         key={button.name}
         name={button.name}
         obj_name={button.obj_name}
