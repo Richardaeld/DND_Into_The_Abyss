@@ -7,8 +7,6 @@ export default function SuccessButton(props) {
         display: true ? "inline-block" : "none"
     }
 
-    // console.log("I AM PROPS", props.obj_name)
-
     var clickTrigger
     if (props.child_table !== null) {
         clickTrigger = props.clickSpells
