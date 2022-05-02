@@ -1,15 +1,15 @@
 // Output for all generic content and rolls
 export default function GeneralOutput (props) {
 
-    const num = props.outTarget[0]
-    const content = props.outTarget[1]
-    const dTotal = props.outTarget[2]
+    const num = props.outTarget[0];
+    const content = props.outTarget[1];
+    const dTotal = props.outTarget[2];
 
-    var rolledValue=""
+    var rolledValue="";
     if (dTotal !== undefined && dTotal !== "") {
-        rolledValue =  <>a <strong> D{dTotal}</strong></>
+        rolledValue =  <>a <strong> D{dTotal}</strong></>;
     } else {
-        rolledValue = ""
+        rolledValue = "";
     }
 
 

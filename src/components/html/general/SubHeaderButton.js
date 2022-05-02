@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
 
 export default function SuccessButton(props) {
 
     const styles = {
         // display: props.open ? "inline-block" : "none"
         display: true ? "inline-block" : "none"
-    }
+    };
 
-    var clickTrigger
+    var clickTrigger;
     if (props.child_table !== null) {
-        clickTrigger = props.clickSpells
+        clickTrigger = props.clickSpells;
     } else {
-        clickTrigger = props.click
+        clickTrigger = props.click;
     }
 
     return (

@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import SpellCard from '../../general/SpellCard'
+import React, {useState, useEffect} from 'react';
+import SpellCard from '../../general/SpellCard';
 
 export default function SpellsContainer(props) {
 

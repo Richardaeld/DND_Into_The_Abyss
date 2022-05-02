@@ -1,24 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import HeaderButton from '../../general/HeaderButton';
-import SubHeaderButton from '../../general/SubHeaderButton'
+import SubHeaderButton from '../../general/SubHeaderButton';
 // import React from "react";
 export default function HeaderNavButtons(props) {
 
-    const [navNames, setNavNames] = React.useState([])
+    const [navNames, setNavNames] = React.useState([]);
 
     // Sets Header (Main) Nav buttons
     const ListNavs = async () => {
         try {
             const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll");
-            const jsonData = await response.json()
+            const jsonData = await response.json();
 
             setNavNames(jsonData['buttons']);
 
-            console.log("Header (main) nav buttons", jsonData['buttons'])
+            console.log("Header (main) nav buttons", jsonData['buttons']);
         } catch (err) {
-            console.error(err)
+            console.error(err);
         }
-    }
+    };
 
     useEffect(() => {
         ListNavs();
@@ -30,8 +30,8 @@ export default function HeaderNavButtons(props) {
         // Reveal nav button content
         setNavNames(prevNavNames => {
             // remove any existing printout content
-            props.setOutTarget(["", "", ""])
-            props.setSpellInfo([])
+            props.setOutTarget(["", "", ""]);
+            props.setSpellInfo([]);
 
             return prevNavNames.map((navName) => {
                 if (navName.id === id) {
@@ -41,29 +41,29 @@ export default function HeaderNavButtons(props) {
                         try{
                         // console.log(navName.id, "DB hit")
 
-                        const response =await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll/children/${navName.id}`)
-                        const jsonData = await response.json()
+                        const response =await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll/children/${navName.id}`);
+                        const jsonData = await response.json();
 
-                        props.setSubNavNames(jsonData['button'])
+                        props.setSubNavNames(jsonData['button']);
 
-                        console.log(jsonData['button'], "IM SUB HEADER JSON DATA")
+                        console.log(jsonData['button'], "IM SUB HEADER JSON DATA");
                         } catch (err) {
-                        console.error(err)
+                        console.error(err);
                         }
                     })();
 
                     // Ensures only a off click will remove highlight
                     if (navName.open) {
-                        return {...navName}
+                        return {...navName};
                     } else {
-                        return {...navName, open: !navName.open}
+                        return {...navName, open: !navName.open};
                     }
 
                 } else {
-                    return {...navName, open: false}
+                    return {...navName, open: false};
                 }
-            })
-        })
+            });
+        });
     }
 
     const navElements = navNames.map(navName => (
