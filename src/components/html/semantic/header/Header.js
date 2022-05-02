@@ -99,7 +99,7 @@ export default function HeaderNavButtons(props) {
             </div>
 
             {subNavElements.length !== 0 &&
-                <div className="col-11 mt-5 mx-2 py-4 index-background">
+                <div className="col-11 mt-5 mx-2 py-4 index-background flex-content-center">
                       {subNavElements}
                 </div>
             }

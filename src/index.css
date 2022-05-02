@@ -42,6 +42,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 p {
@@ -83,11 +84,15 @@ p {
   cursor: pointer;
   padding-top: 1em;
   padding-bottom: 1em;
-  line-height: .75em;
+  padding-left: .5em;
+  padding-right: .5em;
+  line-height: 1em;
   margin: .75rem;
   transform: scale(.9);
   font-size: 2.75rem;
   width: 20%;
+  height: 100%;
+  word-wrap: break-word;
 }
 
 .hand-drawn-text {
@@ -219,9 +224,9 @@ p {
     cursor: pointer;
     padding-top: .5em;
     padding-bottom: .5em;
-    line-height: .5em;
+    line-height: 1em;
     margin: .75rem;
-    width:17%
+    width:22%
   }
 }
 @media (max-width: 767.98px) {
