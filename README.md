@@ -17,7 +17,7 @@ This project is a PERN (PostgreSQL, Express.js, React.js, Node.js) stack and has
 + I want to roll a virtual die.
 	+ I opened the home page of DM Tool and waited for it to load. I clicked on the **Dice** button and was prompted to select the die I wanted to roll. I clicked on the **D20** and the program displayed the roll outcome.
 + I want to roll on a wild magic table.
-+ I opened the home page of DM Tool and waited for it to load. I clicked on the **Spells** button and was prompted to select a table of **Rules as Written** or **House Rules**. I selected **House Rules** and was quickly met with my roll and its outcome.
+    + I opened the home page of DM Tool and waited for it to load. I clicked on the **Spells** button and was prompted to select a table of **Rules as Written** or **House Rules**. I selected **House Rules** and was quickly met with my roll and its outcome.
 
  ### Admin
 + I want to add a new spell.
