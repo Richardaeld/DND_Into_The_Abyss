@@ -207,6 +207,12 @@ p {
               inset 0px 0px 0px rgba(0, 0, 0, .9),
               inset -0px -0px 0px rgba(0, 0, 0, .9);
 }
+
+.loading-text {
+  color: #010203;
+  font-size: 2em;
+}
+
 /*------------------  break points  ------------------*/
 
 @media (max-width: 1399.98px) {}

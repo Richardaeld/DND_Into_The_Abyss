@@ -12,7 +12,9 @@ function App() {
   // ------------------------------------Active elements
   const [spellInfo, setSpellInfo] = React.useState([]);
   const [subNavNames, setSubNavNames] = React.useState([]);
-
+  const [isLoading, setIsLoading] = React.useState(false)
+  const [generalContentIsLoading, setGeneralContentIsLoading] = React.useState(false)
+  const [spellIsLoading, setSpellIsLoading] = React.useState(false)
   // return output obj
   const [outTarget, setOutTarget] = React.useState(["", "Welcome to DM Tool, a friendly quick reference for DMs and Players alike!", ""]);
 
@@ -25,8 +27,10 @@ function App() {
     // IIV Fetch for getting single spell by id
     if (level !== undefined) {
       (async () => {
+        setIsLoading(true);
         const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/spells/spellById/${id}`);
-        const jsonData = await response.json();
+        const jsonData = await response.json()
+        .then(setIsLoading(false))
 
         setSubNavNames([]);
         setSpellInfo(jsonData['spell']);
@@ -36,9 +40,11 @@ function App() {
     // IIV Fetch for getting spells by level
     } else {
       (async () => {
+        setSpellIsLoading(true)
         const level = name[3];
         const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/spells/spellsByLevel/${level}`);
-        const jsonData = await response.json();
+        const jsonData = await response.json()
+        .then(setSpellIsLoading(false));
 
         setSubNavNames(jsonData['spells']);
 
@@ -59,10 +65,13 @@ function App() {
     } else {
       (async () => {
         try {
+          setGeneralContentIsLoading(true)
           const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/sub/viewAll/children/${id}`);
-          const jsonData = await response.json();
-          var rollContent = jsonData['button'];
-          var index = Math.floor(Math.random()*rollContent.length + 1);
+          const jsonData = await response.json()
+          .then(setGeneralContentIsLoading(false));
+
+          const rollContent = jsonData['button'];
+          const index = Math.floor(Math.random()*rollContent.length + 1);
 
           setOutTarget([index, rollContent[index]['value'], ""]);
 
@@ -86,11 +95,14 @@ function App() {
         subNavNames={subNavNames}
         toggleNewNav={toggleNewNav}
         toggleSpellNav={toggleSpellNav}
+        setIsLoading={setIsLoading}
+        isLoading={isLoading}
       />
 
       {/* Output for Spells */}
       <SpellsContainer
         spellInfo={spellInfo}
+        spellIsLoading={spellIsLoading}
       />
 
       {/* Output for rolls and general content */}

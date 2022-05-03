@@ -5,13 +5,16 @@ import SubHeaderButton from '../../general/SubHeaderButton';
 export default function HeaderNavButtons(props) {
 
     const [navNames, setNavNames] = React.useState([]);
+    const [headerIsLoading, setHeaderIsLoading] = React.useState(false)
 
     // Sets Header (Main) Nav buttons
     const ListNavs = async () => {
         try {
+            setHeaderIsLoading(true)
             const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll");
-            const jsonData = await response.json();
-
+            const jsonData = await response.json()
+            .then(setHeaderIsLoading(false));
+            
             setNavNames(jsonData['buttons']);
 
             console.log("Header (main) nav buttons", jsonData['buttons']);
@@ -38,11 +41,14 @@ export default function HeaderNavButtons(props) {
 
                     // Fetch Sub Header Buttons
                     (async () => {
+
                         try{
                         // console.log(navName.id, "DB hit")
+                        props.setIsLoading(true);
 
-                        const response =await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll/children/${navName.id}`);
-                        const jsonData = await response.json();
+                        const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll/children/${navName.id}`);
+                        const jsonData = await response.json()
+                        .then(props.setIsLoading(false));
 
                         props.setSubNavNames(jsonData['button']);
 
@@ -51,6 +57,7 @@ export default function HeaderNavButtons(props) {
                         console.error(err);
                         }
                     })();
+
 
                     // Ensures only a off click will remove highlight
                     if (navName.open) {
@@ -94,6 +101,7 @@ export default function HeaderNavButtons(props) {
                 <div className="col-11 mt-5">
                     <div className="row justify-content-center">
                         {navElements}
+                        {headerIsLoading ? <p className="loading-text">"Loading..."</p> : ""}
                     </div>
                 </div>
             </div>
@@ -101,6 +109,7 @@ export default function HeaderNavButtons(props) {
             {subNavElements.length !== 0 &&
                 <div className="col-11 mt-5 mx-2 py-4 index-background flex-content-center">
                       {subNavElements}
+                      {props.isLoading ? <p className="loading-text">"Loading..."</p> : ""}
                 </div>
             }
       </header>

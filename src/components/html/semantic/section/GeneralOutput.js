@@ -21,6 +21,9 @@ export default function GeneralOutput (props) {
 
                 <div className="row justify-content-center">
                     <div className="col-11 col-md-6 output spell-display py-5">
+
+                        {props.generalContentIsLoading ? <p className="loading-text">"Loading..."</p> : ""}
+
                         {/* Number container */}
                         {num &&
                             <>

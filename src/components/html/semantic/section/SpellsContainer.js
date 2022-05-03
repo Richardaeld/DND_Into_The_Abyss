@@ -31,7 +31,8 @@ export default function SpellsContainer(props) {
 
             {!spellInfoElement.length !== 0 &&
                 <div className="container-fluid mt-5" id="spell-description">
-                      {spellInfoElement}
+                        {props.spellIsLoading ? <p className="loading-text">"Loading..."</p> : ""}
+                        {spellInfoElement}
                 </div>
             }
         </section>
