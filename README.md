@@ -13,9 +13,9 @@ This project is a PERN (PostgreSQL, Express.js, React.js, Node.js) stack and has
 ## User Stories
 ### Common Users
 + I want to look up a spell.
-	+ I opened the home page of DM Tool and waited for it to load. I clicked on the **Spells** button and was prompted to select a **level**. I know **Acid Splash** is a cantrip or a level 0 spell so I selected **Cantrip**.  I saw **Acid Splash** in the list and clicked its button. The application generated the entire spell and gave me all the information I needed.
+    + I opened the home page of DM Tool and waited for it to load. I clicked on the **Spells** button and was prompted to select a **level**. I know **Acid Splash** is a cantrip or a level 0 spell so I selected **Cantrip**.  I saw **Acid Splash** in the list and clicked its button. The application generated the entire spell and gave me all the information I needed.
 + I want to roll a virtual die.
-	+ I opened the home page of DM Tool and waited for it to load. I clicked on the **Dice** button and was prompted to select the die I wanted to roll. I clicked on the **D20** and the program displayed the roll outcome.
+    + I opened the home page of DM Tool and waited for it to load. I clicked on the **Dice** button and was prompted to select the die I wanted to roll. I clicked on the **D20** and the program displayed the roll outcome.
 + I want to roll on a wild magic table.
     + I opened the home page of DM Tool and waited for it to load. I clicked on the **Spells** button and was prompted to select a table of **Rules as Written** or **House Rules**. I selected **House Rules** and was quickly met with my roll and its outcome.
 
@@ -31,15 +31,27 @@ This project is a PERN (PostgreSQL, Express.js, React.js, Node.js) stack and has
 
 ## Design Choices
 ### Page body
++ The page design was kept as close to pencil and paper themed as possible.
++ A multiple-colored gradient background was used to keep with DND’s all-inclusive feeling.
 ### Interaction
-###Outputs
++ All common user interactions are simple clicks and do not require any logins. 
++ All common user interactions are designed to be accomplished in as little time as possible. 
++ All admin interactions are hidden behind the use of a 3rd party program to keep the program simple and remove the need for cumbersome login service when it is not needed.
+### Outputs
++ All outputs are designed to look as if they were written as DM notes and thus a tablet or phone could be passed around the table for the same effect as a DM passing an actual note.
 
 ## Wireframes and Live Application
-### Wire Frames
+### Wireframes
++ The wireframes for this PERN stack version of DM Tool are the original site. The RAW code of which can be viewed under the MASTER branch and was created a year before this version. 
 
 ### Live Application
 ![DM Tool responsiveness](dm_tool.jpg)
++ A live version of the Application can be viewed at: https://dnd-rolling-chart.herokuapp.com/
+
 ## Scalability
++ A login could be added for admins to help speed up accessibility to the database.
++ A login could be used to allow users to create their own spell and table lists to have a refined view of the material they use
++ Additional searches or refined parameters could be added to spells to allow players/DMs to look up spells based on what classes can use the spells, what spells are available per magic school, etc….
 
 # Technology used
 + HTML - Skeleton frame of the application.
@@ -51,6 +63,7 @@ This project is a PERN (PostgreSQL, Express.js, React.js, Node.js) stack and has
 + Knex.js – ORM (object-relational mapper) used to make SQL queries easier and faster to write.
 
 # Testing
++ 
 # Bugs and Other Problems
 # Deployment
 ## GitHub
@@ -58,4 +71,5 @@ This project is a PERN (PostgreSQL, Express.js, React.js, Node.js) stack and has
 # Tools and Credits
 ## Tools
 ## Credits
+
 
