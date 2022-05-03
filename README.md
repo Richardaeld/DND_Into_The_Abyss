@@ -1,18 +1,52 @@
-# Welcome to DM_Tool!
-This project is designed to be a Dungeon Master’s cheat sheet for DND 5e. The original idea was to help a Dungeon Master (DM) keep track of player spells and have access to various tables with a few clicks of a mouse.
+# Welcome to DM Tool!
+## Introduction
+This project is designed to be a Dungeon Master’s (DM) cheat sheet for Dungeons and Dragons (DND) 5th edition (5e). The original idea was to help a DM quickly reference spells and have access to various tables with as few clicks as possible, thus keeping the game moving forward.
 
-Every experienced DM knows a player that had to play a caster however they are always woefully unprepared for every session and cannot remember what their own spells do, require, etc…. This app was created with those players in mind! With a few clicks, any player can quickly and efficiently look up what their spells do from a phone, tablet, or pc.
+With over 380 spells and growing, DND's 5th version is a cornucopia of spell casting information. Much more than a single person can easily keep up with. This application is designed for any DM that forgot to note exactly what a spell does, needs, or how it functions. Detailed information is provided for every spell and all spells can be looked up by level.
 
-Currently, this app provides a wealth of spells, dice rolls, and some quick reference tables for a DM to help ease the need for looking up materials during a session.
+Multiple extra tables are provided for DM’s including Wild Magic, Magic Items, and Success at Cost tables. Not all tables are Rules As Written (RAW) and are simply there to change the flow and keep the game interesting. One of these extra tables, Dice, is for quick rolls or for strange/rare rolls including D50, D100, or D400.
 
+## Technical Introduction
+This project is a PERN (PostgreSQL, Express.js, React.js, Node.js) stack and has a sister deployment for its RESTful API. The RESTful API can be found at (https://github.com/Richardaeld/dm_tool_api) and does not require tokens for get requests currently, however this may change in the future. 
+
+# UX
+## User Stories
+### Common Users
++ I want to look up a spell
++ I want to roll a virtual die
++ I want to roll on a wild magic table
+ ### Admin
++ I want to add a spell
++ I want to look up all spells
++ I want to edit a spell
++ I want to delete a spell
+## Design Choices
+### Page body
+### Interation
+###Outputs
+
+## Wireframes and Live Application
+### Wire Frames
+
+### Live Application
 ![DM Tool responsiveness](dm_tool.jpg)
+## Scalability
 
-# Future
-## Addition I
-This application is still in development and will be receiving a full backend server with RESTful API system to allow for adding, editing, and removing spells and tables.
+# Technology used
++ HTML - Skeleton frame of the application.
++ CSS - Beautifies the skeleton (HTML).
++ JavaScript - Allows for user interaction and dynamic function on the application. This also allows all the backend functions to work because of the runtime application Node.js.
++ Node.js – Runtime application that allows JS to be used outside of a browser.
++ PostgreSQL – Relational Database used.
++ Express.js – Backend web framework used with Node.js for server framework.
++ Knex.js – ORM (object-relational mapper) used to make SQL queries easier and faster to write.
 
-## Addition II
-With a fully functional API in place the ability to create accounts, add characters and allow the tracking of player resource will be added.
+# Testing
+# Bugs and Other Problems
+# Deployment
+## GitHub
+## Heroku
+# Tools and Credits
+## Tools
+## Credits
 
-# Technology
-The project is made using React, Node.js, JavaScript, HTML, CSS, and Bootstrap.
