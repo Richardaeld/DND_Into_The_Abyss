@@ -70,6 +70,33 @@ This project is a PERN (PostgreSQL, Express.js, React.js, Node.js) stack and has
 ## Heroku
 # Tools and Credits
 ## Tools
++ [Adobe Color Wheel](https://color.adobe.com/create/color-wheel)
+    + Used to help pick color schemes.
++ [Bootstrap](https://getbootstrap.com/)
+    + Used as framework.
++ [GitHub](https://github.com/)
+    + Used for version control and deploys application information to Heroku.
++ [Google Fonts](https://fonts.google.com/)
+    + Imported font families found here.
++ [Heroku](https://www.heroku.com/)
+    + Site where application is deployed.
++ [Jigsaw (Validation Service)](https://jigsaw.w3.org/css-validator/)
+    + Used to identify errors in CSS.
++ [JSHint](https://jshint.com/)
+    + Used to identify errors in JavaScript.
++ [JSON formatter](https://jsonformatter.org/)
+    + Used to read long strings of JSON
++ [Lighthouse](https://developers.google.com/web/tools/lighthouse)
+    + Used to check for performance, accessibility, best practices, and SEO.
++ [Techsini](https://techsini.com/multi-mockup/)
+    + Used for their viewable responsiveness PNG.
++ [TinyPNG](https://tinypng.com/)
+    + Used to Minimize KB load per image.
++ [VSCode](https://code.visualstudio.com/)
+    + Integrated development environment used.
++ [W3C Validator](https://validator.w3.org/)
+    + Used to identify errors in markup.
+
 ## Credits
 
 
