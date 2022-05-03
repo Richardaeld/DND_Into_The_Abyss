@@ -12,21 +12,26 @@ This project is a PERN (PostgreSQL, Express.js, React.js, Node.js) stack and has
 # UX
 ## User Stories
 ### Common Users
-+ I want to look up a spell
++ I want to look up a spell.
 	+ I opened the home page of DM Tool and waited for it to load. I clicked on the **Spells** button and was prompted to select a **level**. I know **Acid Splash** is a cantrip or a level 0 spell so I selected **Cantrip**.  I saw **Acid Splash** in the list and clicked its button. The application generated the entire spell and gave me all the information I needed.
-+ I want to roll a virtual die
-	+ I opened the home page of DM Tool and waited for it to load. I clicked on the **Dice** button and was prompted to select the die I wanted to roll. I clicked on the **D20** and the program displayed the rolls outcome.
-+ I want to roll on a wild magic table
++ I want to roll a virtual die.
+	+ I opened the home page of DM Tool and waited for it to load. I clicked on the **Dice** button and was prompted to select the die I wanted to roll. I clicked on the **D20** and the program displayed the roll outcome.
++ I want to roll on a wild magic table.
 + I opened the home page of DM Tool and waited for it to load. I clicked on the **Spells** button and was prompted to select a table of **Rules as Written** or **House Rules**. I selected **House Rules** and was quickly met with my roll and its outcome.
 
  ### Admin
-+ I want to add a spell
-+ I want to look up all spells
-+ I want to edit a spell
-+ I want to delete a spell
++ I want to add a new spell.
+	+ I am a selected admin that the developer has chosen. I opened my Insomnia application and created a POST request with all the necessary information. I added my admin token to the header content of my request. Finally, I added the IP address of the POST location for spells and clicked send. The name and id of the new spell are posted to the Insomnia console. 
++ I want to look up all spells.
++ I am a selected admin that the developer has chosen. I opened my Insomnia application and created a GET request. I know I do not need a token because this is not a POST, PUT, PATCH, or DELETE request. I added the IP address for the get request and clicked the send button. The names and ids of all spells are printed out on the Insomnia console.
++ I want to edit a spell.
++ I am a selected admin that the developer has chosen. I opened my Insomnia application and created a PATCH request with all the necessary information. I added my admin token to the header content of my request. Finally, I added the IP address of the PATCH location for spells and clicked send. All of the spell’s information was posted to the Insomnia console. 
++ I want to delete a spell.
++ I am a selected admin that the developer has chosen. I opened my Insomnia application and created a DELETE request. I added my admin token to the header content of my request. Finally, I added the IP address of the DELETE location for spells and clicked send. The id of the deleted spell was posted to the Insomnia console. 
+
 ## Design Choices
 ### Page body
-### Interation
+### Interaction
 ###Outputs
 
 ## Wireframes and Live Application
