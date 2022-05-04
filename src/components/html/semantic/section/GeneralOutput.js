@@ -16,7 +16,7 @@ export default function GeneralOutput (props) {
 
     return (
 
-        <section className="container-fluid" id="consoleOutput">
+        <div className="container-fluid" id="consoleOutput">
             {(content || num) &&
 
                 <div className="row justify-content-center">
@@ -44,6 +44,6 @@ export default function GeneralOutput (props) {
                     </div>
                 </div>
             }
-        </section>
+        </div>
     )
 }
