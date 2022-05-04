@@ -45,7 +45,7 @@ This project is a PERN (PostgreSQL, Express.js, React.js, Node.js) stack and has
 + The wireframes for this PERN stack version of DM Tool are the original site. The RAW code of which can be viewed under the MASTER branch and was created a year before this version. 
 
 ### Live Application
-![DM Tool responsiveness](dm_tool.jpg)
+![DM Tool responsiveness](readme/images/dm_tool.jpg)
 + A live version of the Application can be viewed at: https://dnd-rolling-chart.herokuapp.com/
 
 ## Scalability
