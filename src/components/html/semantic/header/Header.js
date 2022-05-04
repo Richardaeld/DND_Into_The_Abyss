@@ -10,14 +10,14 @@ export default function HeaderNavButtons(props) {
     // Sets Header (Main) Nav buttons
     const ListNavs = async () => {
         try {
-            setHeaderIsLoading(true)
+            setHeaderIsLoading(true);
             const response = await fetch("https://dnd-rolling-chart-api.herokuapp.com/api/button/main/viewAll");
             const jsonData = await response.json()
             .then(setHeaderIsLoading(false));
-            
-            setNavNames(jsonData['buttons']);
 
-            console.log("Header (main) nav buttons", jsonData['buttons']);
+            setNavNames(jsonData.buttons);
+
+            console.log("Header (main) nav buttons", jsonData.buttons);
         } catch (err) {
             console.error(err);
         }
@@ -50,9 +50,9 @@ export default function HeaderNavButtons(props) {
                         const jsonData = await response.json()
                         .then(props.setIsLoading(false));
 
-                        props.setSubNavNames(jsonData['button']);
+                        props.setSubNavNames(jsonData.button);
 
-                        console.log(jsonData['button'], "IM SUB HEADER JSON DATA");
+                        console.log(jsonData.button, "IM SUB HEADER JSON DATA");
                         } catch (err) {
                         console.error(err);
                         }
