@@ -1,6 +1,5 @@
 import './App.css';
-import React, {useState, useEffect} from 'react';
-// import React from 'react';
+import React from 'react';
 
 import SpellsContainer from './components/html/semantic/section/SpellsContainer';
 import Header from './components/html/semantic/header/Header';

@@ -35,7 +35,7 @@ export default function GeneralOutput (props) {
                         {/* Content container */}
                         {!(content === undefined || content ==="") &&
                             <>
-                                {!(content == "Welcome to DM Tool, a friendly quick reference for DMs and Players alike!") &&
+                                {!(content === "Welcome to DM Tool, a friendly quick reference for DMs and Players alike!") &&
                                     <p className="spell-key mb-0">The result</p>
                                 }
                                 <p className="mb-0"><strong>{content}</strong></p>
