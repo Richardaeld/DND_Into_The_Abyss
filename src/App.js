@@ -12,9 +12,9 @@ function App() {
   // ------------------------------------Active elements
   const [spellInfo, setSpellInfo] = React.useState([]);
   const [subNavNames, setSubNavNames] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(false)
-  const [generalContentIsLoading, setGeneralContentIsLoading] = React.useState(false)
-  const [spellIsLoading, setSpellIsLoading] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [generalContentIsLoading, setGeneralContentIsLoading] = React.useState(false);
+  const [spellIsLoading, setSpellIsLoading] = React.useState(false);
   // return output obj
   const [outTarget, setOutTarget] = React.useState(["", "Welcome to DM Tool, a friendly quick reference for DMs and Players alike!", ""]);
 
@@ -30,23 +30,23 @@ function App() {
         setIsLoading(true);
         const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/spells/spellById/${id}`);
         const jsonData = await response.json()
-        .then(setIsLoading(false))
+        .then(setIsLoading(false));
 
         setSubNavNames([]);
-        setSpellInfo(jsonData['spell']);
+        setSpellInfo(jsonData.spell);
 
-        console.log('Spell Info', jsonData['spell']);
+        console.log('Spell Info', jsonData.spell);
       })();
     // IIV Fetch for getting spells by level
     } else {
       (async () => {
-        setSpellIsLoading(true)
+        setSpellIsLoading(true);
         const level = name[3];
         const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/spells/spellsByLevel/${level}`);
         const jsonData = await response.json()
         .then(setSpellIsLoading(false));
 
-        setSubNavNames(jsonData['spells']);
+        setSubNavNames(jsonData.spells);
 
         // console.log("toggleSpellNav -- find spells by level", jsonData['spells'])
       })();
@@ -65,15 +65,15 @@ function App() {
     } else {
       (async () => {
         try {
-          setGeneralContentIsLoading(true)
+          setGeneralContentIsLoading(true);
           const response = await fetch(`https://dnd-rolling-chart-api.herokuapp.com/api/button/sub/viewAll/children/${id}`);
           const jsonData = await response.json()
           .then(setGeneralContentIsLoading(false));
 
-          const rollContent = jsonData['button'];
+          const rollContent = jsonData.button;
           const index = Math.floor(Math.random()*rollContent.length + 1);
 
-          setOutTarget([index, rollContent[index]['value'], ""]);
+          setOutTarget([index, rollContent[index].value, ""]);
 
           // console.log("toggleNewNav", jsonData['content'])
         } catch (err) {
