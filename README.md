@@ -115,6 +115,8 @@ This project is a PERN (PostgreSQL, Express.js, React.js, Node.js) stack and has
 ### JSHint
 + Identifies errors in JS.
 ![JSHint results](readme/images/jshint.jpg)
++ Warnings show that a newer version of JS must be used at least ES8.
++ 'Unclosed regular expression' and 'Unrecoverable syntax error' are because of the nature of using HTML within JS and can be ignored.
 
 # Bugs and Other Problems
 + There is a double iteration loop that can be seen in the console however, it does not seem to affect the application. Attempts have been made to trace this issue however, none have proved successful.
@@ -164,6 +166,8 @@ This project is a PERN (PostgreSQL, Express.js, React.js, Node.js) stack and has
     + Used to help pick color schemes.
 + [Bootstrap](https://getbootstrap.com/)
     + Used as framework.
++ [Font Awesome](https://fontawesome.com/)
+    + Imported icons are from here.
 + [GitHub](https://github.com/)
     + Used for version control and deploys application information to Heroku.
 + [Google Fonts](https://fonts.google.com/)
@@ -188,7 +192,18 @@ This project is a PERN (PostgreSQL, Express.js, React.js, Node.js) stack and has
     + Used to identify errors in markup.
 
 # Acknowledgements
-
++ [Bootstrap](https://getbootstrap.com/)
+    + A framework used to help speed up development and provide a better overall UX.
++ [MDN Web Docs](https://developer.mozilla.org/en-US/)
+    + Invaluable source of information about JavaScript, HTML, and CSS.
++ [Stack Overflow](https://stackoverflow.com/)
+    + A great source of information to find a starting place for research.
++ [React](https://reactjs.org/)
+    + The source for everything about React.js.
++ [W3Schools](https://www.w3schools.com/)
+    + Extremely helpful for explaining base HTML, CSS, and JavaScript principles.
++ [World Wide Web Consortium (W3C)](https://www.w3.org/)
+    + Used to understand basic standardization practices for web-based apps.
 
 
 
