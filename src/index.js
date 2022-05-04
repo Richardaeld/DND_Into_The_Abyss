@@ -11,7 +11,3 @@ ReactRoot.render(
     <App />
   </React.StrictMode>
 )
-
-
-
-
